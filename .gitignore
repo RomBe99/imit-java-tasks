@@ -74,6 +74,7 @@ modules.xml
 .idea/misc.xml
 *.ipr
 .idea/
+.idea/*.xml
 
 # Sonarlint plugin
 .idea/sonarlint
