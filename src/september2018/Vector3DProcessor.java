@@ -28,7 +28,7 @@ public class Vector3DProcessor {
                 firstPoint.getY() * secondPoint.getY() + firstPoint.getZ() * secondPoint.getZ();
     }
 
-    public static Vector3D productOfVectors(Vector3D firstVector, Vector3D secondVector) { // 50/50
+    public static Vector3D productOfVectors(Vector3D firstVector, Vector3D secondVector) { // Work
         Point3D firstPoint = firstVector.getCoordinates();
         Point3D secondPoint = secondVector.getCoordinates();
 
