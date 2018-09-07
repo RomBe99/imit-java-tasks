@@ -1,4 +1,4 @@
-package september_tasks;
+package september2018;
 //TODO Возможно можно обойтись без статики?
 public class Vector3DProcessor {
     public static Vector3D vectorsSum(Vector3D firstVector, Vector3D secondVector) { // Work
