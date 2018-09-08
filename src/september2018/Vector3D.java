@@ -33,6 +33,11 @@ public class Vector3D {
         return firstCoordinates.getX() == vectorFirstCoordinates.getX() && firstCoordinates.getY() == vectorFirstCoordinates.getY() && firstCoordinates.getZ() == vectorFirstCoordinates.getZ() && secondCoordinates.getX() == vectorSecondCoordinates.getX() && secondCoordinates.getY() == vectorSecondCoordinates.getY() && secondCoordinates.getZ() == vectorSecondCoordinates.getZ();
     }
 
+    public void inverse() {
+        setFirstCoordinates(new Point3D(-firstCoordinates.getX(), -firstCoordinates.getY(), -firstCoordinates.getZ()));
+        setSecondCoordinates(new Point3D(-secondCoordinates.getX(), -secondCoordinates.getY(), -secondCoordinates.getZ()));
+    }
+
     public static void main(String[] args) {
         System.out.println(new Vector3D(new Point3D(4, 7, 12), new Point3D(8, -5, 1)));
     }
