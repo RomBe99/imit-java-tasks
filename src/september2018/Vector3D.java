@@ -1,44 +1,57 @@
 package september2018;
 
 public class Vector3D {
-    private Point3D coordinates;
+    private Point3D firstCoordinates;
+    private Point3D secondCoordinates;
 
-    Vector3D(Point3D startPoint) {
-        setCoordinates(startPoint);
+    Vector3D(Point3D firstCoordinates, Point3D secondCoordinates) {
+        setFirstCoordinates(firstCoordinates);
+        setSecondCoordinates(secondCoordinates);
     }
 
-    Vector3D(int x, int y, int z) {
-        this(new Point3D(x, y, z));
+    Vector3D(int x1, int y1, int z1, int x2, int y2, int z2) {
+        this(new Point3D(x1, y1, z1), new Point3D(x2, y2, z2));
     }
 
     Vector3D() {
-        this(0, 0, 0);
+        this(new Point3D(), new Point3D());
     }
 
     public double length() { // Work
-        int X = coordinates.getX();
-        int Y = coordinates.getY();
-        int Z = coordinates.getZ();
+        int X = secondCoordinates.getX() - firstCoordinates.getX();
+        int Y = secondCoordinates.getY() - firstCoordinates.getY();
+        int Z = secondCoordinates.getZ() - firstCoordinates.getZ();
 
         return Math.sqrt(X * X + Y * Y + Z * Z);
     }
 
     //TODO Сделай К Р А С И В О
-    public boolean equalVectors(Vector3D vector3D) {
-        return coordinates.getX() == vector3D.getCoordinates().getX() && coordinates.getY() == vector3D.getCoordinates().getY() && coordinates.getZ() == vector3D.getCoordinates().getZ();
+    public boolean equalVectors(Vector3D vector3D) { // Work
+        Point3D vectorFirstCoordinates = vector3D.getFirstCoordinates();
+        Point3D vectorSecondCoordinates = vector3D.getSecondCoordinates();
+
+        return firstCoordinates.getX() == vectorFirstCoordinates.getX() && firstCoordinates.getY() == vectorFirstCoordinates.getY() && firstCoordinates.getZ() == vectorFirstCoordinates.getZ() && secondCoordinates.getX() == vectorSecondCoordinates.getX() && secondCoordinates.getY() == vectorSecondCoordinates.getY() && secondCoordinates.getZ() == vectorSecondCoordinates.getZ();
     }
 
     public static void main(String[] args) {
-        System.out.println(new Vector3D(2, 4, 4).length());
+        System.out.println(new Vector3D(new Point3D(4, 7, 12), new Point3D(8, -5, 1)));
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public Point3D getCoordinates() {
-        return coordinates;
+    public Point3D getFirstCoordinates() {
+        return firstCoordinates;
     }
 
-    public void setCoordinates(Point3D coordinates) {
-        this.coordinates = coordinates;
+    public Point3D getSecondCoordinates() {
+        return secondCoordinates;
+    }
+
+    public void setFirstCoordinates(Point3D firstCoordinates) {
+        this.firstCoordinates = firstCoordinates;
+    }
+
+    public void setSecondCoordinates(Point3D secondCoordinates) {
+        this.secondCoordinates = secondCoordinates;
     }
 }
