@@ -4,16 +4,16 @@ public class Vector3D {
     private Point3D firstCoordinates;
     private Point3D secondCoordinates;
 
-    Vector3D(Point3D firstCoordinates, Point3D secondCoordinates) {
+    public Vector3D(Point3D firstCoordinates, Point3D secondCoordinates) {
         setFirstCoordinates(firstCoordinates);
         setSecondCoordinates(secondCoordinates);
     }
 
-    Vector3D(int x1, int y1, int z1, int x2, int y2, int z2) {
+    public Vector3D(int x1, int y1, int z1, int x2, int y2, int z2) {
         this(new Point3D(x1, y1, z1), new Point3D(x2, y2, z2));
     }
 
-    Vector3D() {
+    public Vector3D() {
         this(new Point3D(), new Point3D());
     }
 
