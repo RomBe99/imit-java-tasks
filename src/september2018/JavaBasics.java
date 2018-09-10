@@ -29,7 +29,7 @@ public class JavaBasics {
         } else {
             discriminant = secondCoefficient * secondCoefficient - 4 * firstCoefficient * thirdCoefficient;
 
-            if (discriminant < 0) {
+            if (0 > discriminant) {
                 System.out.println("The equation has complex roots");
             } else {
                 discriminant = Math.sqrt(discriminant);
@@ -182,11 +182,34 @@ public class JavaBasics {
         }
     }
 
+    //TODO Деделай СЛАУ
+    public static void calculateSystemOfLinearEquation() {
+        Scanner in = new Scanner(System.in);
+
+        double x1,  y1, x2, y2;
+        System.out.println("Enter the coefficients for first equation");
+        System.out.println("Enter first coefficient");
+        x1 = in.nextDouble();
+        System.out.println("Enter second coefficient");
+        y1 = in.nextDouble();
+
+        System.out.println("Enter the coefficients for second equation");
+        System.out.println("Enter first coefficient");
+        x2 = in.nextDouble();
+        System.out.println("Enter second coefficient");
+        y2 = in.nextDouble();
+
+        if (x1 * y2 - (y1 * x2) == 0) {
+            System.out.println("Еhe system has many solutions");
+        }
+
+        System.out.println("System of linear equation:");
+    }
+
     public static void main(String[] args) {
     }
 }
 
-//TODO 6. Напишите программу для решения системы двух линейных уравнений с двумя неизвестными в вещественных числах.
 //TODO 7. Напишите программу вычисления функции exp(x) разложением в ряд Тейлора с заданной точностью. Программа должна суммировать члены ряда до тех пор, пока модуль очередного члена ряда не станет меньше точности.
 
 //TODO 18. Разработайте класс Vector3DArray (массив трехмерных векторов). Методы:
