@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Vector3DArray {
     private Vector3D vector3DArray[];
 
-    //TODO Сделать бы исключения
     public Vector3DArray(int arraySize) {
         vector3DArray = new Vector3D[arraySize];
     }
@@ -19,8 +18,7 @@ public class Vector3DArray {
     public void setVector3DArray(Vector3D[] vector3DArray) {
         this.vector3DArray = vector3DArray;
     }
-
-    //TODO Сделать бы исключения
+    
     public void setArrayElement(int index, Vector3D vector3D) {
         vector3DArray[index] = vector3D;
     }
