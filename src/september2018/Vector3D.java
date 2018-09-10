@@ -25,17 +25,27 @@ public class Vector3D {
         return Math.sqrt(X * X + Y * Y + Z * Z);
     }
 
-    //TODO Сделай К Р А С И В О
     public boolean equalVectors(Vector3D vector3D) { // Work
         Point3D vectorFirstCoordinates = vector3D.getFirstCoordinates();
         Point3D vectorSecondCoordinates = vector3D.getSecondCoordinates();
 
-        return firstCoordinates.getX() == vectorFirstCoordinates.getX() && firstCoordinates.getY() == vectorFirstCoordinates.getY() && firstCoordinates.getZ() == vectorFirstCoordinates.getZ() && secondCoordinates.getX() == vectorSecondCoordinates.getX() && secondCoordinates.getY() == vectorSecondCoordinates.getY() && secondCoordinates.getZ() == vectorSecondCoordinates.getZ();
+        return firstCoordinates.getX() == vectorFirstCoordinates.getX() &&
+                firstCoordinates.getY() == vectorFirstCoordinates.getY() &&
+                firstCoordinates.getZ() == vectorFirstCoordinates.getZ() &&
+                secondCoordinates.getX() == vectorSecondCoordinates.getX() &&
+                secondCoordinates.getY() == vectorSecondCoordinates.getY() &&
+                secondCoordinates.getZ() == vectorSecondCoordinates.getZ();
     }
 
     public void inverse() {
         setFirstCoordinates(new Point3D(-firstCoordinates.getX(), -firstCoordinates.getY(), -firstCoordinates.getZ()));
         setSecondCoordinates(new Point3D(-secondCoordinates.getX(), -secondCoordinates.getY(), -secondCoordinates.getZ()));
+    }
+
+    public Point3D vectorCoordinate() {
+        return new Point3D(secondCoordinates.getX() - firstCoordinates.getX(),
+                secondCoordinates.getY() - firstCoordinates.getY(),
+                secondCoordinates.getZ() - firstCoordinates.getZ());
     }
 
     public static void main(String[] args) {
