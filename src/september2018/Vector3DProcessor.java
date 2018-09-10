@@ -37,9 +37,9 @@ public class Vector3DProcessor {
         return new Vector3D(firstPointFirstVector.getX() * secondPointFirstVector.getX(),
                 firstPointFirstVector.getY() * secondPointFirstVector.getY(),
                 firstPointFirstVector.getZ() * secondPointFirstVector.getZ(),
-                firstPointSecondVector.getX() * secondPointFirstVector.getX(),
-                firstPointSecondVector.getY() * secondPointFirstVector.getY(),
-                firstPointSecondVector.getZ() * secondPointFirstVector.getZ());
+                firstPointSecondVector.getX() * secondPointSecondVector.getX(),
+                firstPointSecondVector.getY() * secondPointSecondVector.getY(),
+                firstPointSecondVector.getZ() * secondPointSecondVector.getZ());
     }
 
     public static boolean vectorsCollinearity(Vector3D firstVector, Vector3D secondVector) {
