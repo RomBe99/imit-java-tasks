@@ -22,6 +22,7 @@ public class JavaBasics {
 
         System.out.println("Input the third coefficient:");
         thirdCoefficient = in.nextInt();
+        in.close();
 
         if (firstCoefficient == 0) {
             System.out.printf("The equation has one root (the first coefficient = 0): %.2f", -thirdCoefficient / secondCoefficient);
@@ -71,15 +72,15 @@ public class JavaBasics {
     }
 
     public static int numberOfEvenElemnts(int[] array) {
-        int numberOfEvenElemnts = 0;
+        int numberOfEvenElements = 0;
 
         for (int i : array) {
             if (i % 2 == 0) {
-                numberOfEvenElemnts++;
+                numberOfEvenElements++;
             }
         }
 
-        return numberOfEvenElemnts;
+        return numberOfEvenElements;
     }
 
     public static int elementsOnInterval(int intervalStart, int intervalEnd, int[] array) {
@@ -162,11 +163,29 @@ public class JavaBasics {
                 (int)((firstNumber + secondNumber + thirdNumber) / 3));
     }
 
+    public static void sinTabulation() {
+        Scanner in = new Scanner(System.in);
+
+        double a, b;
+        double openInterval;
+
+        System.out.println("Enter first interval point:");
+        a = in.nextDouble();
+        System.out.println("Enter second interval point:");
+        b = in.nextDouble();
+        System.out.println("Enter open interval:");
+        openInterval = in.nextDouble();
+        in.close();
+
+        for (double i = a; i <= b; i += openInterval) {
+            System.out.printf("sin(%.2f) = %f\n", i, Math.sin(i));
+        }
+    }
+
     public static void main(String[] args) {
     }
 }
 
-//TODO 5. Протабулируйте функцию sin(x) в заданных пределах и с заданным шагом.
 //TODO 6. Напишите программу для решения системы двух линейных уравнений с двумя неизвестными в вещественных числах.
 //TODO 7. Напишите программу вычисления функции exp(x) разложением в ряд Тейлора с заданной точностью. Программа должна суммировать члены ряда до тех пор, пока модуль очередного члена ряда не станет меньше точности.
 
