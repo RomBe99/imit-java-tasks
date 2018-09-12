@@ -7,11 +7,10 @@ public class JavaBasics {
     public static void quadraticEquation() {
         Scanner in = new Scanner(System.in);
 
-        double firstCoefficient;
-        double secondCoefficient;
-        double thirdCoefficient;
-
-        double discriminant;
+        double firstCoefficient,
+               secondCoefficient,
+               thirdCoefficient,
+               discriminant;
 
         System.out.println("Enter the coefficients of the square equation:");
         System.out.println("Input the first coefficient:");
@@ -122,10 +121,10 @@ public class JavaBasics {
     public static void compositionAndAverage() {
         Scanner in = new Scanner(System.in);
 
-        double firstNumber;
-        double secondNumber;
-        double thirdNumber;
-        double temp;
+        double firstNumber,
+               secondNumber,
+               thirdNumber,
+               temp;
 
         System.out.println("Hello world!\nEnter first number");
         firstNumber = in.nextDouble();
@@ -166,8 +165,8 @@ public class JavaBasics {
     public static void sinTabulation() {
         Scanner in = new Scanner(System.in);
 
-        double a, b;
-        double openInterval;
+        double a, b,
+               openInterval;
 
         System.out.println("Enter first interval point:");
         a = in.nextDouble();
@@ -186,7 +185,8 @@ public class JavaBasics {
     public static void calculateSystemOfLinearEquation() {
         Scanner in = new Scanner(System.in);
 
-        double x1,  y1, x2, y2;
+        double x1, y1, x2, y2;
+
         System.out.println("Enter the coefficients for first equation");
         System.out.println("Enter first coefficient");
         x1 = in.nextDouble();
@@ -206,11 +206,39 @@ public class JavaBasics {
         System.out.println("System of linear equation:");
     }
 
+    public static double factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+
+        return n * factorial(n-1);
+    }
+
+    //TODO 7. Напишите программу вычисления функции exp(x) разложением в ряд Тейлора с заданной точностью. Программа должна суммировать члены ряда до тех пор, пока модуль очередного члена ряда не станет меньше точности.
+    public static void exponentialFunction() {
+        Scanner in = new Scanner(System.in);
+
+        double epsilon;
+
+        System.out.println("Enter epsilon > 0:");
+        epsilon = in.nextDouble();
+
+        double absDifference = 0;
+        double fact;
+        double sum = 0;
+
+        for (int i = 0; absDifference > epsilon || absDifference == 0; i++) {
+            fact = factorial(i);
+            absDifference += Math.abs(1 / fact - 1 / fact * (i + 1));
+            sum += 1 / fact;
+        }
+
+        System.out.printf("exp(x) = %f", sum);
+    }
+
     public static void main(String[] args) {
     }
 }
-
-//TODO 7. Напишите программу вычисления функции exp(x) разложением в ряд Тейлора с заданной точностью. Программа должна суммировать члены ряда до тех пор, пока модуль очередного члена ряда не станет меньше точности.
 
 //TODO 18. Разработайте класс Vector3DArray (массив трехмерных векторов). Методы:
 //TODO 7) метод, который получает на вход массив вещественных чисел (коэффициентов) и вычисляет линейную комбинацию векторов с заданными коэффициентами. При несовпадении длин массивов векторов и коэффициентов, результатом считать нулевой вектор (если кто-то знает, как работать с исключениями, то выбросить исключение).
