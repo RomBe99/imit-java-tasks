@@ -185,22 +185,30 @@ public class JavaBasics {
     public static void calculateSystemOfLinearEquation() {
         Scanner in = new Scanner(System.in);
 
+        double[][] system = new double[2][3];
         double x1, y1, x2, y2;
 
         System.out.println("Enter the coefficients for first equation");
         System.out.println("Enter first coefficient");
-        x1 = in.nextDouble();
+        system[0][0] = in.nextDouble();
         System.out.println("Enter second coefficient");
-        y1 = in.nextDouble();
+        system[0][1] = in.nextDouble();
+        System.out.println("Enter the result of the first equation");
+        system[0][2] = in.nextDouble();
 
         System.out.println("Enter the coefficients for second equation");
         System.out.println("Enter first coefficient");
-        x2 = in.nextDouble();
+        system[1][0] = in.nextDouble();
         System.out.println("Enter second coefficient");
-        y2 = in.nextDouble();
+        system[1][1] = in.nextDouble();
+        System.out.println("Enter the result of the second equation");
+        system[1][2] = in.nextDouble();
 
-        if (x1 * y2 - (y1 * x2) == 0) {
-            System.out.println("Еhe system has many solutions");
+
+        if (system[0][0] * system[0][1] - (system[1][0] * system[1][1]) == 0) {
+            System.out.println("The system has many solutions");
+        } else {
+
         }
 
         System.out.println("System of linear equation:");
