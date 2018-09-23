@@ -3,11 +3,11 @@ package september2018;
 import java.util.Objects;
 
 public class Point3D {
-    private int x;
-    private int y;
-    private int z;
+    private double x;
+    private double y;
+    private double z;
 
-    public Point3D(int x, int y, int z) {
+    public Point3D(double x, double y, double z) {
         setX(x);
         setY(y);
         setZ(z);
@@ -18,32 +18,32 @@ public class Point3D {
     }
 
     public void printPoint() {
-        System.out.printf("X: %d Y: %d Z: %d", x, y, z);
+        System.out.printf("X: %f Y: %f Z: %f", x, y, z);
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public void setZ(int z) {
+    public void setZ(double z) {
         this.z = z;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public int getZ() {
+    public double getZ() {
         return z;
     }
 
@@ -52,9 +52,9 @@ public class Point3D {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point3D point3D = (Point3D) o;
-        return x == point3D.x &&
-                y == point3D.y &&
-                z == point3D.z;
+        return Double.compare(point3D.x, x) == 0 &&
+                Double.compare(point3D.y, y) == 0 &&
+                Double.compare(point3D.z, z) == 0;
     }
 
     @Override
