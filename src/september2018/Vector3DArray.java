@@ -46,6 +46,18 @@ public class Vector3DArray {
         return temp;
     }
 
+    public Point3D[] arrayShift(Point3D point3D) {
+        Point3D[] arrayShift = new Point3D[vector3DArray.length];
+        Point3D temp;
+
+        for (int i = 0; i < arrayShift.length; i++) {
+            temp = vector3DArray[i].getVectorCoordinates();
+            arrayShift[i] = new Point3D(point3D.getX() + temp.getX(), point3D.getY() + temp.getY(), point3D.getZ() + temp.getZ());
+        }
+
+        return arrayShift;
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public int getVector3DArrayLength() {
