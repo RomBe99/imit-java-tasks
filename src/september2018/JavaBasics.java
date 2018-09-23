@@ -3,7 +3,6 @@ package september2018;
 import java.util.Scanner;
 
 public class JavaBasics {
-
     public static void quadraticEquation() {
         Scanner in = new Scanner(System.in);
 
