@@ -9,24 +9,6 @@ public class Vector3DArray {
         vector3DArray = new Vector3D[arraySize];
     }
 
-    public int arrayLength() {
-        return vector3DArray.length;
-    }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void setVector3DArray(Vector3D[] vector3DArray) {
-        this.vector3DArray = vector3DArray;
-    }
-    
-    public void setArrayElement(int index, Vector3D vector3D) {
-        vector3DArray[index] = vector3D;
-    }
-
-    public Vector3D[] getVector3DArray() {
-        return vector3DArray;
-    }
-
     public double maxLength() {
         double max = 0;
         double length;
@@ -46,7 +28,7 @@ public class Vector3DArray {
         int arrayLength = vector3DArray.length;
 
         for (int i = 0; i < arrayLength; i++) {
-            if (vector3DArray[i].equalVectors(vector3D)) {
+            if (vector3DArray[i].equals(vector3D)) {
                 return i;
             }
         }
@@ -62,6 +44,28 @@ public class Vector3DArray {
         }
 
         return temp;
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public int getVector3DArrayLength() {
+        return vector3DArray.length;
+    }
+
+    public void setVector3DArrayElement(int index, Vector3D vector3D) {
+        vector3DArray[index] = vector3D;
+    }
+
+    public Vector3D[] getVector3DArray() {
+        return vector3DArray;
+    }
+
+    public void setVector3DArray(Vector3D[] vector3DArray) {
+        this.vector3DArray = vector3DArray;
+    }
+
+    public Vector3D getVector3DArrayElement(int index) {
+        return vector3DArray[index];
     }
 
     @Override
