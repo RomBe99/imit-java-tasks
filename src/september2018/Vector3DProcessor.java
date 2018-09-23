@@ -1,49 +1,44 @@
 package september2018;
+
 public class Vector3DProcessor {
-    public static Vector3D vectorsSum(Vector3D firstVector, Vector3D secondVector) { // Work
-        Point3D firstVectorFirstCoordinates = firstVector.getFirstCoordinates();
-        Point3D firstVectorSecondCoordinates = secondVector.getFirstCoordinates();
-        Point3D secondVectorFirstCoordinates = firstVector.getFirstCoordinates();
-        Point3D secondVectorSecondCoordinates = secondVector.getFirstCoordinates();
+    public static Vector3D vectorsSum(Vector3D firstVector, Vector3D secondVector) {
+        Point3D firstCoordinates = firstVector.getVectorCoordinates();
+        Point3D secondCoordinates = secondVector.getVectorCoordinates();
 
-        return new Vector3D(firstVectorFirstCoordinates.getX() + firstVectorSecondCoordinates.getX(),
-                firstVectorFirstCoordinates.getY() + firstVectorSecondCoordinates.getY(),
-                firstVectorFirstCoordinates.getZ() + firstVectorSecondCoordinates.getZ(),
-                secondVectorFirstCoordinates.getX() + secondVectorSecondCoordinates.getX(),
-                secondVectorFirstCoordinates.getY() + secondVectorSecondCoordinates.getY(),
-                secondVectorFirstCoordinates.getZ() + secondVectorSecondCoordinates.getZ());
+        return new Vector3D(firstCoordinates.getX() + secondCoordinates.getX(),
+                firstCoordinates.getY() + secondCoordinates.getY(),
+                firstCoordinates.getZ() + secondCoordinates.getZ());
     }
 
-    public static Vector3D vectorsDifference(Vector3D firstVector, Vector3D secondVector) { // Work
-        secondVector.inverse();
+    public static Vector3D vectorsDifference(Vector3D firstVector, Vector3D secondVector) {
+        Point3D firstCoordinates = firstVector.getVectorCoordinates();
+        Point3D secondCoordinates = secondVector.getVectorCoordinates();
 
-        return vectorsSum(firstVector, secondVector);
+        return new Vector3D(firstCoordinates.getX() - secondCoordinates.getX(),
+                firstCoordinates.getY() - secondCoordinates.getY(),
+                firstCoordinates.getZ() - secondCoordinates.getZ());
     }
 
-    public static int dotProduct(Vector3D firstVector, Vector3D secondVector) { // Work
-        Point3D firstPoint = firstVector.vectorCoordinate();
-        Point3D secondPoint = secondVector.vectorCoordinate();
+    public static double dotProduct(Vector3D firstVector, Vector3D secondVector) {
+        Point3D firstCoordinates = firstVector.getVectorCoordinates();
+        Point3D secondCoordinates = secondVector.getVectorCoordinates();
 
-        return firstPoint.getX() * secondPoint.getX() +
-                firstPoint.getY() * secondPoint.getY() + firstPoint.getZ() * secondPoint.getZ();
+        return firstCoordinates.getX() * secondCoordinates.getX() +
+                firstCoordinates.getY() * secondCoordinates.getY() +
+                firstCoordinates.getZ() * secondCoordinates.getZ();
     }
 
     public static Vector3D productOfVectors(Vector3D firstVector, Vector3D secondVector) {
-        Point3D firstPointFirstVector = firstVector.getFirstCoordinates();
-        Point3D secondPointFirstVector = firstVector.getSecondCoordinates();
-        Point3D firstPointSecondVector = secondVector.getFirstCoordinates();
-        Point3D secondPointSecondVector = secondVector.getSecondCoordinates();
+        Point3D firstCoordinates = firstVector.getVectorCoordinates();
+        Point3D secondCoordinates = secondVector.getVectorCoordinates();
 
-        return new Vector3D(firstPointFirstVector.getX() * secondPointFirstVector.getX(),
-                firstPointFirstVector.getY() * secondPointFirstVector.getY(),
-                firstPointFirstVector.getZ() * secondPointFirstVector.getZ(),
-                firstPointSecondVector.getX() * secondPointSecondVector.getX(),
-                firstPointSecondVector.getY() * secondPointSecondVector.getY(),
-                firstPointSecondVector.getZ() * secondPointSecondVector.getZ());
+        return new Vector3D(firstCoordinates.getY() * secondCoordinates.getZ() - firstCoordinates.getZ() * secondCoordinates.getY(),
+                -(firstCoordinates.getX() * secondCoordinates.getZ() - firstCoordinates.getZ() * secondCoordinates.getX()),
+                firstCoordinates.getX() * secondCoordinates.getY() - firstCoordinates.getY() * secondCoordinates.getX());
     }
 
     public static boolean vectorsCollinearity(Vector3D firstVector, Vector3D secondVector) {
-        return dotProduct(firstVector, secondVector) == 0;
+        return productOfVectors(firstVector, secondVector).length() == 0;
     }
 
     public static void main(String[] args) {
