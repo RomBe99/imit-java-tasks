@@ -213,37 +213,20 @@ public class JavaBasics {
         System.out.println("System of linear equation:");
     }
 
-    public static double factorial(int n) {
-        if (n == 0 || n == 1) {
-            return 1;
+    public static double calcExp(double x, double eps) {
+        double sum = 1;
+        double aN = 1;
+
+        for (int i = 1; aN > eps; i++) {
+            aN *= (x / (double)i);
+            sum += aN;
         }
 
-        return n * factorial(n-1);
-    }
-
-    //TODO 7. Напишите программу вычисления функции exp(x) разложением в ряд Тейлора с заданной точностью. Программа должна суммировать члены ряда до тех пор, пока модуль очередного члена ряда не станет меньше точности.
-    public static void exponentialFunction() {
-        Scanner in = new Scanner(System.in);
-
-        double epsilon;
-
-        System.out.println("Enter epsilon > 0:");
-        epsilon = in.nextDouble();
-
-        double absDifference = 0;
-        double fact;
-        double sum = 0;
-
-        for (int i = 0; absDifference > epsilon || absDifference == 0; i++) {
-            fact = factorial(i);
-            absDifference += Math.abs(1 / fact - 1 / fact * (i + 1));
-            sum += 1 / fact;
-        }
-
-        System.out.printf("exp(x) = %f", sum);
+        return sum;
     }
 
     public static void main(String[] args) {
+        System.out.println(calcExp(3, 0.001));
     }
 }
 
