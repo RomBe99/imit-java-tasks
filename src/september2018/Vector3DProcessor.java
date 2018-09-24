@@ -38,7 +38,8 @@ public class Vector3DProcessor {
     }
 
     public static boolean vectorsCollinearity(Vector3D firstVector, Vector3D secondVector) {
-        return productOfVectors(firstVector, secondVector).length() == 0;
+        double dotProduct = dotProduct(firstVector, secondVector);
+        return dotProduct == -1 || dotProduct == 1;
     }
 
     public static void main(String[] args) {
