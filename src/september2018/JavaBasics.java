@@ -218,7 +218,7 @@ public class JavaBasics {
         double aN = 1;
 
         for (int i = 1; aN > eps; i++) {
-            aN *= (x / (double)i);
+            aN *= (x / i);
             sum += aN;
         }
 
@@ -226,7 +226,6 @@ public class JavaBasics {
     }
 
     public static void main(String[] args) {
-        System.out.println(calcExp(3, 0.001));
     }
 }
 
