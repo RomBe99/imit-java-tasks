@@ -21,7 +21,7 @@ public class Point3D {
         System.out.printf("X: %f Y: %f Z: %f", x, y, z);
     }
 
-    private void multiplyByNumber(int multiplier) {
+    public void multiplyByNumber(double multiplier) {
         setX(x * multiplier);
         setY(y * multiplier);
         setZ(z * multiplier);
