@@ -25,9 +25,6 @@ public class Vector3D {
         return Math.sqrt(X * X + Y * Y + Z * Z);
     }
 
-    public static void main(String[] args) {
-    }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void setVectorCoordinates(Point3D vectorCoordinates) {

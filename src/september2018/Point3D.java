@@ -61,9 +61,4 @@ public class Point3D {
     public int hashCode() {
         return Objects.hash(x, y, z);
     }
-
-    public static void main(String[] args) { // Сравнивать ссылки или что?
-        Point3D firstPoint = new Point3D(2, 1, 3);
-        Point3D secondPoint = new Point3D();
-    }
 }

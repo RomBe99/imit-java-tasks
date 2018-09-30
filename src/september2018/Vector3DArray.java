@@ -58,9 +58,6 @@ public class Vector3DArray {
         return arrayShift;
     }
 
-    public static void main(String[] args) {
-    }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public int getVector3DArrayLength() {
