@@ -7,9 +7,9 @@ public class JavaBasics {
         Scanner in = new Scanner(System.in);
 
         double firstCoefficient,
-               secondCoefficient,
-               thirdCoefficient,
-               discriminant;
+                secondCoefficient,
+                thirdCoefficient,
+                discriminant;
 
         System.out.println("Enter the coefficients of the square equation:");
         System.out.println("Input the first coefficient:");
@@ -121,9 +121,9 @@ public class JavaBasics {
         Scanner in = new Scanner(System.in);
 
         double firstNumber,
-               secondNumber,
-               thirdNumber,
-               temp;
+                secondNumber,
+                thirdNumber,
+                temp;
 
         System.out.println("Hello world!\nEnter first number");
         firstNumber = in.nextDouble();
@@ -158,14 +158,14 @@ public class JavaBasics {
         System.out.println(thirdNumber);
 
         System.out.printf("\nComposition: %.2f\nAverage: %d\n", firstNumber * secondNumber * thirdNumber,
-                (int)((firstNumber + secondNumber + thirdNumber) / 3));
+                (int) ((firstNumber + secondNumber + thirdNumber) / 3));
     }
 
     public static void sinTabulation() {
         Scanner in = new Scanner(System.in);
 
         double a, b,
-               openInterval;
+                openInterval;
 
         System.out.println("Enter first interval point:");
         a = in.nextDouble();
@@ -180,37 +180,88 @@ public class JavaBasics {
         }
     }
 
-    //TODO Деделай СЛАУ
-    public static void calculateSystemOfLinearEquation() {
-        Scanner in = new Scanner(System.in);
+    public static void calculateSystemOfLinearEquation(double[][] system) {
+        double temp;
 
-        double[][] system = new double[2][3];
-        double x1, y1, x2, y2;
-
-        System.out.println("Enter the coefficients for first equation");
-        System.out.println("Enter first coefficient");
-        system[0][0] = in.nextDouble();
-        System.out.println("Enter second coefficient");
-        system[0][1] = in.nextDouble();
-        System.out.println("Enter the result of the first equation");
-        system[0][2] = in.nextDouble();
-
-        System.out.println("Enter the coefficients for second equation");
-        System.out.println("Enter first coefficient");
-        system[1][0] = in.nextDouble();
-        System.out.println("Enter second coefficient");
-        system[1][1] = in.nextDouble();
-        System.out.println("Enter the result of the second equation");
-        system[1][2] = in.nextDouble();
-
-
-        if (system[0][0] * system[0][1] - (system[1][0] * system[1][1]) == 0) {
+        if (system[0][0] * system[0][1] - system[1][0] * system[1][1] == 0) {
             System.out.println("The system has many solutions");
         } else {
 
-        }
+            if (system[0][0] != 0) {
+                temp = system[0][0];
 
-        System.out.println("System of linear equation:");
+                system[0][0] /= temp;
+            } else {
+                temp = system[0][1];
+            }
+
+            system[0][1] /= temp;
+            system[0][2] /= temp;
+
+            temp = -(system[0][0] == 0 ? system[1][1] : system[1][0]);
+
+            system[1][0] += system[0][0] * temp;
+            system[1][1] += system[0][1] * temp;
+            system[1][2] += system[0][2] * temp;
+
+            if (system[1][1] != 0) {
+                temp = system[1][1];
+
+                system[1][1] /= temp;
+                system[1][2] /= temp;
+
+                temp = -system[0][1];
+
+                system[0][1] += system[1][1] * temp;
+                system[0][2] += system[1][2] * temp;
+            }
+
+            if (system[0][0] < 0) {
+                system[0][0] = -system[0][0];
+                system[0][2] = -system[0][2];
+            }
+
+            if (system[0][1] < 0) {
+                system[0][1] = -system[0][1];
+                system[0][2] = -system[0][2];
+            }
+
+            if (system[0][0] != 0 && system[0][0] % system[0][2] == 0) {
+                temp = system[0][0];
+                system[0][0] /= temp;
+                system[0][2] /= temp;
+            }
+
+            if (system[0][1] != 0 && system[0][1] % system[0][2] == 0) {
+                temp = system[1][1];
+                system[0][1] /= temp;
+                system[0][2] /= temp;
+            }
+
+            if (system[1][0] < 0) {
+                system[1][0] = -system[1][0];
+                system[1][2] = -system[1][2];
+            }
+
+            if (system[1][1] < 0) {
+                system[1][1] = -system[1][1];
+                system[1][2] = -system[1][2];
+            }
+
+            if (system[1][0] != 0 && system[1][0] % system[1][2] == 0) {
+                temp = system[1][0];
+                system[1][0] /= temp;
+                system[1][2] /= temp;
+            }
+
+            if (system[1][1] != 0 && system[1][1] % system[1][2] == 0) {
+                temp = system[1][1];
+                system[1][1] /= temp;
+                system[1][2] /= temp;
+            }
+
+            System.out.printf("Roots: x = %.2f, y = %.2f", system[0][2], system[1][2]);
+        }
     }
 
     public static double calcExp(double x, double eps) {
@@ -226,6 +277,7 @@ public class JavaBasics {
     }
 
     public static void main(String[] args) {
+        calculateSystemOfLinearEquation(new double[][]{{0, 1, 2}, {3, 4, 5}});
     }
 }
 
