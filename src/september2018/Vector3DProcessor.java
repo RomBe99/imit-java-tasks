@@ -42,6 +42,27 @@ public class Vector3DProcessor {
         return dotProduct == -1 || dotProduct == 1;
     }
 
+    public static Vector3DArray linearCombinationOfVectors(Vector3DArray vector3DArray, double[] numbers) throws Exception {
+        int vector3DArrayLength = vector3DArray.getVector3DArrayLength();
+
+        if (vector3DArrayLength != numbers.length) {
+            throw new Exception("Arrays are not equal");
+        }
+
+        Vector3D[] vector3DS = vector3DArray.getVector3DArray();
+        Point3D point3D;
+
+        for (int i = 0; i < vector3DArrayLength; i++) {
+            point3D = vector3DS[i].getVectorCoordinates();
+            point3D.multiplyByNumber(numbers[i]);
+            vector3DS[i].setVectorCoordinates(point3D);
+        }
+
+        vector3DArray.setVector3DArray(vector3DS);
+
+        return vector3DArray;
+    }
+
     public static void main(String[] args) {
     }
 }
