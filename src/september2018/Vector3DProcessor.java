@@ -62,7 +62,4 @@ public class Vector3DProcessor {
 
         return vector3DArray;
     }
-
-    public static void main(String[] args) {
-    }
 }

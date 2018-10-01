@@ -183,7 +183,7 @@ public class JavaBasics {
     public static void calculateSystemOfLinearEquation(double[][] system) {
         double temp;
 
-        if (system[0][0] * system[0][1] - system[1][0] * system[1][1] == 0) {
+        if (system[0][0] * system[1][1] - system[1][0] * system[0][1] == 0) {
             System.out.println("The system has many solutions");
         } else {
 
@@ -274,9 +274,5 @@ public class JavaBasics {
         }
 
         return sum;
-    }
-
-    public static void main(String[] args) {
-        calculateSystemOfLinearEquation(new double[][]{{0, 1, 2}, {3, 4, 5}});
     }
 }
