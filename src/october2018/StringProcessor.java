@@ -26,4 +26,8 @@ public class StringProcessor {
 
         return sb.toString();
     }
+
+    public static int numberOfEnteriesToString() {
+        return -1;
+    }
 }
