@@ -1,5 +1,3 @@
-package september2018;
-
 import java.util.Objects;
 
 public class Point3D {
