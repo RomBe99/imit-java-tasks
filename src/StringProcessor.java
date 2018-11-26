@@ -5,7 +5,7 @@ public class StringProcessor {
         }
 
         if (multiplicationString == null) {
-            throw new Exception("Multiplication string is null");
+            throw new NullPointerException("Multiplication string is null");
         }
 
         if (multiplicationNumber == 0) {
@@ -25,7 +25,29 @@ public class StringProcessor {
         return sb.toString();
     }
 
-    public static int numberOfEnteriesToString() {
-        return -1;
+    public static int numberOfEnteriesToString(String str, String subStr) throws NullPointerException {
+        if (str == null || subStr == null) {
+            throw new NullPointerException();
+        }
+
+        if ("".equals(str)) {
+            if ("".equals(subStr)) {
+                return 1;
+            }
+
+            return 0;
+        }
+
+        int numberOfEntries = 0;
+
+        for (int i = 0; i >= 0; i = str.indexOf(subStr, i)) {
+            numberOfEntries++;
+        }
+
+        return numberOfEntries;
+    }
+
+    public static String replaceNumbersTowords(String stringToChange) {
+        return null;
     }
 }
