@@ -47,7 +47,41 @@ public class StringProcessor {
         return numberOfEntries;
     }
 
-    public static String replaceNumbersTowords(String stringToChange) {
-        return null;
+    public static String replaceNumbersToWords(String stringToChange) throws NullPointerException {
+        if (stringToChange == null) {
+            throw new NullPointerException();
+        }
+
+        if ("".equals(stringToChange)) {
+            return "";
+        }
+
+        if (!stringToChange.contains("1") && !stringToChange.contains("2") && !stringToChange.contains("3")) {
+            return stringToChange;
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for (char character : stringToChange.toCharArray()) {
+            switch (character) {
+                case '1': {
+                    sb.append("one");
+                }
+
+                case '2': {
+                    sb.append("two");
+                }
+
+                case '3': {
+                    sb.append("three");
+                }
+
+                default: {
+                    sb.append(character);
+                }
+            }
+        }
+
+        return sb.toString();
     }
 }
