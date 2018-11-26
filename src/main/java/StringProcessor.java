@@ -66,18 +66,22 @@ public class StringProcessor {
             switch (character) {
                 case '1': {
                     sb.append("one");
+                    break;
                 }
 
                 case '2': {
                     sb.append("two");
+                    break;
                 }
 
                 case '3': {
                     sb.append("three");
+                    break;
                 }
 
                 default: {
                     sb.append(character);
+                    break;
                 }
             }
         }
@@ -86,7 +90,7 @@ public class StringProcessor {
     }
 
     public static void removeEverySecondChar(StringBuilder stringToModify) {
-        for (int i = 0; i < stringToModify.length() / 2; i=+2) {
+        for (int i = 0; i < stringToModify.length() / 2; i =+ 2) {
             stringToModify.deleteCharAt(i);
         }
     }
