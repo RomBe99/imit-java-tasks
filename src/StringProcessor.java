@@ -1,5 +1,3 @@
-package october2018;
-
 public class StringProcessor {
     public static String stringMultiplier(String multiplicationString, int multiplicationNumber) throws Exception {
         if (multiplicationNumber < 0) {

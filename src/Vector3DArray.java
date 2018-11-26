@@ -1,5 +1,3 @@
-package september2018;
-
 import java.util.Arrays;
 
 public class Vector3DArray {
