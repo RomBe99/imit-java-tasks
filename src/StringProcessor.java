@@ -84,4 +84,10 @@ public class StringProcessor {
 
         return sb.toString();
     }
+
+    public static void removeEverySecondChar(StringBuilder stringToModify) {
+        for (int i = 0; i < stringToModify.length() / 2; i=+2) {
+            stringToModify.deleteCharAt(i);
+        }
+    }
 }
