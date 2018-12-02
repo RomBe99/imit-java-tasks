@@ -94,12 +94,10 @@ public class Payment {
 
     @Override
     public String toString() {
-        return "Payment{" +
-                "fullName='" + fullName + '\'' +
-                ", day=" + day +
-                ", month=" + month +
-                ", year=" + year +
-                ", amountOfPayment=" + amountOfPayment +
-                '}';
+        return  fullName +
+                " date: " + day +
+                '.' + month +
+                '.' + year +
+                " sum: " + amountOfPayment / 100 + "rubles " + amountOfPayment % 100 + "kopecks";
     }
 }
