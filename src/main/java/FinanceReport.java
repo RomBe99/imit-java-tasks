@@ -9,6 +9,22 @@ public class FinanceReport {
         this.payments = payments;
     }
 
+    public void outputLastNames(char firstLetter) {
+        for (Payment p : payments) {
+            if (p.getFullName().charAt(0) == firstLetter) {
+                System.out.println(p.toString());
+            }
+        }
+    }
+
+    public void smallPayments(int paymentSum) {
+        for (Payment p : payments) {
+            if (p.getAmountOfPayment() < paymentSum) {
+                System.out.println(p.toString());
+            }
+        }
+    }
+
     public void setPayment(Payment payment, int index) {
         if (index < 0) {
             throw new ArrayIndexOutOfBoundsException("Incorrect index");
