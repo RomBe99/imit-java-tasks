@@ -25,6 +25,10 @@ public class Sinus implements Function {
 
     @Override
     public double calculus(double value) {
+        if (coefficients.getFirstCoefficient() == 0) {
+            return 0;
+        }
+
         return coefficients.getFirstCoefficient() * Math.sin(coefficients.getSecondCoefficient() * value);
     }
 }
