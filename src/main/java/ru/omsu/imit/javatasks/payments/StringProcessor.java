@@ -1,4 +1,4 @@
-package ru.omsu.imit.javatasks;
+package ru.omsu.imit.javatasks.payments;
 
 public class StringProcessor {
     public static String stringMultiplier(String multiplicationString, int multiplicationNumber) throws IllegalArgumentException {
