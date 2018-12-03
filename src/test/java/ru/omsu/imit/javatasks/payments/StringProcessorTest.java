@@ -1,3 +1,5 @@
+package ru.omsu.imit.javatasks.payments;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
