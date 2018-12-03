@@ -1,7 +1,7 @@
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static ru.omsu.imit.javatasks.StringProcessor.*;
+import static ru.omsu.imit.javatasks.payments.StringProcessor.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
