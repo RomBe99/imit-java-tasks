@@ -11,6 +11,10 @@ public class FinanceReport {
         this.payments = payments;
     }
 
+    public FinanceReport(FinanceReport objectForCopy) {
+        this(objectForCopy.payments);
+    }
+
     public void outputLastNames(char firstLetter) {
         for (Payment p : payments) {
             if (p.getFullName().charAt(0) == firstLetter) {
