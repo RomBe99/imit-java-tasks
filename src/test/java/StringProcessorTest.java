@@ -1,7 +1,7 @@
-/*import org.testng.annotations.DataProvider;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static main.work.october.StringProcessor.*;
+import static ru.omsu.imit.javatasks.StringProcessor.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
@@ -25,7 +25,7 @@ public class StringProcessorTest {
                 {"aaa", "aa", 2},
                 {"", "aaa", 0},
                 {"", "", 0},
-            //    {"asdf", "", -1},
+                //    {"asdf", "", -1},
                 {"aaaa", "vvv", 0},
                 {"aeqra facwda", "a", 4}
         };
@@ -50,6 +50,7 @@ public class StringProcessorTest {
                 {"   123 erty 11 ", "   11 erty 123 "}
         };
     }
+
     @DataProvider
     public static Object[][] changeAge() {
         return new Object[][]{
@@ -61,48 +62,35 @@ public class StringProcessorTest {
 
     @Test(dataProvider = "data")
     public void testCopy(String str, int N, String expected) throws IllegalArgumentException, NullPointerException {
-        assertEquals(multiplyString(str, N), expected);
+        assertEquals(stringMultiplier(str, N), expected);
     }
 
     @Test(expectedExceptions = {IllegalArgumentException.class})
     public void testCopyExc() throws IllegalArgumentException {
-        multiplyString("qwe", -6);
+        stringMultiplier("qwe", -6);
         fail();
     }
 
     @Test(dataProvider = "countData")
     public void testFind(String big, String small, int expected) {
-        assertEquals(getSubstringNumber(big, small), expected);
+        assertEquals(numberOfEnteriesToString(big, small), expected);
     }
 
     @Test(dataProvider = "onetwothreeData")
     public void testChange(String source, String expected) {
-        assertEquals(replaceNumbersWithWords(source), expected);
+        assertEquals(replaceNumbersToWords(source), expected);
     }
 
     @Test
     public void testChange2() {
-        StringBuilder  stringBuilder = new StringBuilder("1234567");
-        deleteEverySecond(stringBuilder);
+        StringBuilder stringBuilder = new StringBuilder("1234567");
+        removeEverySecondChar(stringBuilder);
         assertEquals(stringBuilder.toString(), "1357");
-        deleteEverySecond(stringBuilder);
+        removeEverySecondChar(stringBuilder);
         assertEquals(stringBuilder.toString(), "15");
-        deleteEverySecond(stringBuilder);
+        removeEverySecondChar(stringBuilder);
         assertEquals(stringBuilder.toString(), "1");
-        deleteEverySecond(stringBuilder);
+        removeEverySecondChar(stringBuilder);
         assertEquals(stringBuilder.toString(), "1");
     }
-
-    @Test(dataProvider = "changeWords")
-    public void testSwapWords(String source, String expected) {
-        StringBuilder stringBuilder = new StringBuilder(source);
-        replaceFirstAndLastWord(stringBuilder);
-        assertEquals( stringBuilder.toString(), expected);
-    }
-
-    @Test(dataProvider = "changeAge")
-    public void testHexWords(String source, String expected) {
-        assertEquals(replaceSixteenWithTen(source), expected);
-    }
-
-}*/
+}
