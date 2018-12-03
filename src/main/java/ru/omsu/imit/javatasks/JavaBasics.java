@@ -1,3 +1,5 @@
+package ru.omsu.imit.javatasks;
+
 import java.util.Scanner;
 
 public class JavaBasics {

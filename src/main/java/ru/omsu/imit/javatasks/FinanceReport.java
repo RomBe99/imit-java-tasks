@@ -1,3 +1,5 @@
+package ru.omsu.imit.javatasks;
+
 public class FinanceReport {
     private Payment[] payments;
 
@@ -31,7 +33,7 @@ public class FinanceReport {
         }
 
         if (payment == null) {
-            throw new NullPointerException("Payment is null");
+            throw new NullPointerException("ru.omsu.imit.javatasks.Payment is null");
         }
 
         payments[index] = payment;

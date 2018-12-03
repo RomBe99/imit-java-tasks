@@ -1,3 +1,5 @@
+package ru.omsu.imit.javatasks;
+
 public class Vector3DProcessor {
     public static Vector3D vectorsSum(Vector3D firstVector, Vector3D secondVector) {
         Point3D firstCoordinates = firstVector.getVectorCoordinates();

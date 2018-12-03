@@ -1,7 +1,9 @@
+package ru.omsu.imit.javatasks;
+
 public class StringProcessor {
-    public static String stringMultiplier(String multiplicationString, int multiplicationNumber) throws Exception {
+    public static String stringMultiplier(String multiplicationString, int multiplicationNumber) throws IllegalArgumentException {
         if (multiplicationNumber < 0) {
-            throw new Exception("Multiplication number < 0");
+            throw new IllegalArgumentException("Multiplication number < 0");
         }
 
         if (multiplicationString == null) {
@@ -25,6 +27,7 @@ public class StringProcessor {
         return sb.toString();
     }
 
+    //todo Сломан (((
     public static int numberOfEnteriesToString(String str, String subStr) throws NullPointerException {
         if (str == null || subStr == null) {
             throw new NullPointerException();
@@ -38,9 +41,13 @@ public class StringProcessor {
             return 0;
         }
 
+        if (str.equals(subStr)) {
+            return 1;
+        }
+
         int numberOfEntries = 0;
 
-        for (int i = 0; i >= 0; i = str.indexOf(subStr, i)) {
+        for (int i = 0; i <= str.length() - subStr.length(); i++) {
             numberOfEntries++;
         }
 
@@ -65,17 +72,17 @@ public class StringProcessor {
         for (char character : stringToChange.toCharArray()) {
             switch (character) {
                 case '1': {
-                    sb.append("one");
+                    sb.append("один");
                     break;
                 }
 
                 case '2': {
-                    sb.append("two");
+                    sb.append("два");
                     break;
                 }
 
                 case '3': {
-                    sb.append("three");
+                    sb.append("три");
                     break;
                 }
 
@@ -90,7 +97,7 @@ public class StringProcessor {
     }
 
     public static void removeEverySecondChar(StringBuilder stringToModify) {
-        for (int i = 0; i < stringToModify.length() / 2; i =+ 2) {
+        for (int i = 1; i < stringToModify.length(); i++) {
             stringToModify.deleteCharAt(i);
         }
     }
