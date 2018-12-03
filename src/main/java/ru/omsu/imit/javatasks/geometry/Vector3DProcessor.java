@@ -1,4 +1,4 @@
-package ru.omsu.imit.javatasks;
+package ru.omsu.imit.javatasks.geometry;
 
 public class Vector3DProcessor {
     public static Vector3D vectorsSum(Vector3D firstVector, Vector3D secondVector) {

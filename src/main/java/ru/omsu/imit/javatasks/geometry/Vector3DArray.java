@@ -1,4 +1,4 @@
-package ru.omsu.imit.javatasks;
+package ru.omsu.imit.javatasks.geometry;
 
 import java.util.Arrays;
 
