@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class PaymentTest {
     private Payment payment;
-    private final String fullName = "Belinsky Roman Grigorevich";
-    private final byte day = 1;
-    private final byte month = 12;
-    private final int year = 2008;
-    private final int amountOfPayment = 559;
+    private String fullName = "Belinsky Roman Grigorevich";
+    private byte day = 1;
+    private byte month = 12;
+    private int year = 2008;
+    private int amountOfPayment = 559;
 
     @Before
     public void setUp() throws Exception {
@@ -28,83 +28,83 @@ public class PaymentTest {
 
     @Test
     public void testSetters() {
-        final String newFullName = "Gorkun Ilya Fedorovich";
-        payment.setFullName(newFullName);
-        Assert.assertEquals(payment.getFullName(), newFullName);
+        fullName = "Gorkun Ilya Fedorovich";
+        payment.setFullName(fullName);
+        Assert.assertEquals(payment.getFullName(), fullName);
 
-        final byte newDay = 1;
-        payment.setDay(newDay);
-        Assert.assertEquals(payment.getDay(), newDay);
+        day = 1;
+        payment.setDay(day);
+        Assert.assertEquals(payment.getDay(), day);
 
-        final byte newMonth = 12;
-        payment.setMonth(newMonth);
-        Assert.assertEquals(payment.getMonth(), newMonth);
+        month = 12;
+        payment.setMonth(month);
+        Assert.assertEquals(payment.getMonth(), month);
 
-        final int newYear = 2008;
-        payment.setYear(newYear);
-        Assert.assertEquals(payment.getYear(), newYear);
+        year = 2008;
+        payment.setYear(year);
+        Assert.assertEquals(payment.getYear(), year);
 
-        final int newAmountOfPayment = 559;
-        payment.setAmountOfPayment(newAmountOfPayment);
-        Assert.assertEquals(payment.getAmountOfPayment(), newAmountOfPayment);
+        amountOfPayment = 559;
+        payment.setAmountOfPayment(amountOfPayment);
+        Assert.assertEquals(payment.getAmountOfPayment(), amountOfPayment);
     }
 
     @Test (expected = IllegalArgumentException.class)
     public void testIllegalArgumentException() {
         int count = 0;
 
-        byte newDay = 0;
+        day = 0;
 
         try {
-            payment.setDay(newDay);
+            payment.setDay(day);
         } catch (IllegalArgumentException e) {
             count++;
         }
 
-        newDay = 32;
+        day = 32;
 
         try {
-            payment.setDay(newDay);
+            payment.setDay(day);
         } catch (IllegalArgumentException e) {
             count++;
         }
 
-        byte newMonth = 0;
+        month = 0;
 
         try {
-            payment.setMonth(newMonth);
+            payment.setMonth(month);
         } catch (IllegalArgumentException e) {
             count++;
         }
 
-        newMonth = 13;
+        month = 13;
 
         try {
-            payment.setMonth(newMonth);
+            payment.setMonth(month);
         } catch (IllegalArgumentException e) {
             count++;
         }
 
-        int newYear = 1800;
+        year = 1800;
 
         try {
-            payment.setYear(newYear);
+            payment.setYear(year);
         } catch (IllegalArgumentException e) {
             count++;
         }
 
-        newYear = 2020;
+        year = 2020;
 
         try {
-            payment.setYear(newYear);
+            payment.setYear(year);
         } catch (IllegalArgumentException e) {
             count++;
         }
 
-        final int newAmountOfPayment = 0;
+        amountOfPayment = 0;
 
         try {
-            payment.setAmountOfPayment(newAmountOfPayment);
+            payment.setAmountOfPayment(amountOfPayment);
         } catch (IllegalArgumentException e) {
             count++;
         }
