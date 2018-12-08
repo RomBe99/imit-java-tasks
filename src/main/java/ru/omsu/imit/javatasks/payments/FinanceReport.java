@@ -3,7 +3,7 @@ package ru.omsu.imit.javatasks.payments;
 public class FinanceReport {
     private Payment[] payments;
 
-    public FinanceReport(Payment ... payments) {
+    public FinanceReport(Payment ... payments) throws NullPointerException {
         if (payments == null) {
             throw new NullPointerException("Payments array is null");
         }
@@ -31,21 +31,21 @@ public class FinanceReport {
         }
     }
 
-    public void setPayment(Payment payment, int index) {
+    public void setPayment(Payment payment, int index) throws IllegalArgumentException, NullPointerException {
         if (index < 0) {
-            throw new ArrayIndexOutOfBoundsException("Incorrect index");
+            throw new IllegalArgumentException("Incorrect index");
         }
 
         if (payment == null) {
-            throw new NullPointerException("ru.omsu.imit.javatasks.payments.Payment is null");
+            throw new NullPointerException("Payment is null");
         }
 
         payments[index] = payment;
     }
 
-    public Payment getPayment(int index) {
+    public Payment getPayment(int index) throws IllegalArgumentException {
         if (index < 0) {
-            throw new ArrayIndexOutOfBoundsException("Incorrect index");
+            throw new IllegalArgumentException("Incorrect index");
         }
 
         return payments[index];
