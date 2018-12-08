@@ -25,33 +25,33 @@ public class Payment {
         this.fullName = fullName;
     }
 
-    public void setDay(final byte day) throws Exception {
+    public void setDay(final byte day) throws IllegalArgumentException {
         if (day > 32 || day < 1) {
-            throw new Exception("Incorrect day number");
+            throw new IllegalArgumentException("Incorrect day number");
         }
 
         this.day = day;
     }
 
-    public void setMonth(final byte month) throws Exception {
+    public void setMonth(final byte month) throws IllegalArgumentException {
         if (month > 32 || month < 1) {
-            throw new Exception("Incorrect month number");
+            throw new IllegalArgumentException("Incorrect month number");
         }
 
         this.month = month;
     }
 
-    public void setYear(final int year) throws Exception {
+    public void setYear(final int year) throws IllegalArgumentException {
         if (year > 2019 || year < 1900) {
-            throw new Exception("Incorrect year");
+            throw new IllegalArgumentException("Incorrect year");
         }
 
         this.year = year;
     }
 
-    public void setAmountOfPayment(final int amountOfPayment) throws Exception {
+    public void setAmountOfPayment(final int amountOfPayment) throws IllegalArgumentException {
         if (amountOfPayment <= 0) {
-            throw new Exception("Incorrect amount of payment");
+            throw new IllegalArgumentException("Incorrect amount of payment");
         }
 
         this.amountOfPayment = amountOfPayment;
