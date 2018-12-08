@@ -26,7 +26,7 @@ public class Payment {
     }
 
     public void setDay(final byte day) throws IllegalArgumentException {
-        if (day > 32 || day < 1) {
+        if (day > 31 || day < 1) {
             throw new IllegalArgumentException("Incorrect day number");
         }
 
@@ -34,7 +34,7 @@ public class Payment {
     }
 
     public void setMonth(final byte month) throws IllegalArgumentException {
-        if (month > 32 || month < 1) {
+        if (month > 12 || month < 1) {
             throw new IllegalArgumentException("Incorrect month number");
         }
 
