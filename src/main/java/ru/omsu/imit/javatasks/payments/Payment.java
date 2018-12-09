@@ -100,6 +100,6 @@ public class Payment {
                 " date: " + day +
                 '.' + month +
                 '.' + year +
-                " sum: " + amountOfPayment / 100 + "rubles " + amountOfPayment % 100 + "kopecks";
+                " sum: " + amountOfPayment / 100 + " rubles " + amountOfPayment % 100 + " kopecks" + '\n';
     }
 }
