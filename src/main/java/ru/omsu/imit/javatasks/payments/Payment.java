@@ -9,7 +9,7 @@ public class Payment {
     private int year;
     private int amountOfPayment;
 
-    public Payment(final String fullName, final byte day, final byte month, final int year, final int amountOfPayment) throws Exception {
+    public Payment(final String fullName, final byte day, final byte month, final int year, final int amountOfPayment) {
         setFullName(fullName);
         setDay(day);
         setMonth(month);
