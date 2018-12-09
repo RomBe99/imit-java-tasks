@@ -47,6 +47,7 @@ public class Functional<T extends IFunction> implements IFunctional<T> {
         return function;
     }
 
+    //TODO Fix this
     @Override
     public int calculusFunctional(T function) {
         return 0;
