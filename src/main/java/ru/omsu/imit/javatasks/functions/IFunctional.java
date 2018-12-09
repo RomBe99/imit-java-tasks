@@ -1,5 +1,5 @@
 package ru.omsu.imit.javatasks.functions;
 
-public interface Functional <T extends Function> {
+public interface IFunctional<T extends IFunction> {
     int calculusFunctional(T function);
 }

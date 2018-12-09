@@ -1,6 +1,6 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class Exhibitor implements Function {
+public class Exhibitor implements IFunction {
     private LinearPolynomial coefficients;
 
     public Exhibitor(LinearPolynomial coefficients) {

@@ -1,6 +1,6 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class Sinus implements Function {
+public class Sinus implements IFunction {
     private LinearPolynomial coefficients;
 
     public Sinus(LinearPolynomial coefficients) {

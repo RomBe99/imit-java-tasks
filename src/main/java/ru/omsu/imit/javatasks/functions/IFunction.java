@@ -1,5 +1,5 @@
 package ru.omsu.imit.javatasks.functions;
 
-public interface Function {
+public interface IFunction {
     double calculus(double value);
 }

@@ -1,6 +1,6 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class LinearPolynomial implements Function {
+public class LinearPolynomial implements IFunction {
     private double firstCoefficient;
     private double secondCoefficient;
 
