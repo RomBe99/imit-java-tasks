@@ -27,7 +27,6 @@ public class StringProcessor {
         return sb.toString();
     }
 
-    //todo Сломан (((
     public static int numberOfEnteriesToString(String str, String subStr) throws NullPointerException {
         if (str == null || subStr == null) {
             throw new NullPointerException();
@@ -35,7 +34,7 @@ public class StringProcessor {
 
         if ("".equals(str)) {
             if ("".equals(subStr)) {
-                return 1;
+                return 0;
             }
 
             return 0;
@@ -48,7 +47,9 @@ public class StringProcessor {
         int numberOfEntries = 0;
 
         for (int i = 0; i <= str.length() - subStr.length(); i++) {
-            numberOfEntries++;
+            if (str.startsWith(subStr, i)) {
+                numberOfEntries++;
+            }
         }
 
         return numberOfEntries;
