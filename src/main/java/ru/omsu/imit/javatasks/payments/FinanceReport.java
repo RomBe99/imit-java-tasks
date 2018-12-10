@@ -1,20 +1,20 @@
 package ru.omsu.imit.javatasks.payments;
 
+import java.util.Arrays;
+
 public class FinanceReport {
     private Payment[] payments;
 
-    public FinanceReport(final Payment ... payments) throws NullPointerException {
+    public FinanceReport(final Payment ... payments) {
         if (payments == null) {
             throw new NullPointerException("Payments array is null");
         }
 
-        for (Payment p : payments) {
-            if (p == null) {
-                throw new NullPointerException("Element array is null");
-            }
-        }
+        this.payments = new Payment[payments.length];
 
-        this.payments = payments;
+        for (int i = 0; i < payments.length; i++) {
+            this.payments[i] = new Payment(payments[i]);
+        }
     }
 
     public FinanceReport(FinanceReport objectForCopy) {
@@ -49,27 +49,40 @@ public class FinanceReport {
         return sb.toString();
     }
 
-    public void setPayment(final Payment payment, final int index) throws IllegalArgumentException, NullPointerException {
-        if (index < 0 || index > payments.length) {
-            throw new IllegalArgumentException("Incorrect index");
-        }
-
+    public void setPayment(final Payment payment, final int index) {
         if (payment == null) {
             throw new NullPointerException("Payment is null");
         }
 
-        payments[index] = payment;
+        if (index < 0 || index > payments.length) {
+            throw new IllegalArgumentException("Incorrect index");
+        }
+
+        payments[index] = new Payment(payment);
     }
 
     public Payment[] getPayments() {
         return payments;
     }
 
-    public Payment getPayment(final int index) throws IllegalArgumentException {
+    public Payment getPayment(final int index) {
         if (index < 0 || index > payments.length) {
             throw new IllegalArgumentException("Incorrect index");
         }
 
         return payments[index];
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FinanceReport that = (FinanceReport) o;
+        return Arrays.equals(payments, that.payments);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(payments);
     }
 }
