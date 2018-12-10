@@ -13,7 +13,7 @@ public class PaymentTest {
     private int amountOfPayment = 559;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         payment = new Payment(fullName, day, month, year, amountOfPayment);
     }
 
