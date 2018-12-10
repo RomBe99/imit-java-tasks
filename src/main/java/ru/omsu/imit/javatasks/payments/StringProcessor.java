@@ -1,7 +1,7 @@
 package ru.omsu.imit.javatasks.payments;
 
 public class StringProcessor {
-    public static String stringMultiplier(String multiplicationString, int multiplicationNumber) throws IllegalArgumentException {
+    public static String stringMultiplier(String multiplicationString, int multiplicationNumber) {
         if (multiplicationNumber < 0) {
             throw new IllegalArgumentException("Multiplication number < 0");
         }
@@ -27,7 +27,7 @@ public class StringProcessor {
         return sb.toString();
     }
 
-    public static int numberOfEnteriesToString(String str, String subStr) throws NullPointerException {
+    public static int numberOfEnteriesToString(String str, String subStr) {
         if (str == null || subStr == null) {
             throw new NullPointerException();
         }
@@ -55,7 +55,7 @@ public class StringProcessor {
         return numberOfEntries;
     }
 
-    public static String replaceNumbersToWords(String stringToChange) throws NullPointerException {
+    public static String replaceNumbersToWords(String stringToChange) {
         if (stringToChange == null) {
             throw new NullPointerException();
         }
