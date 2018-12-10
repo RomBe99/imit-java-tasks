@@ -17,6 +17,10 @@ public class Payment {
         setAmountOfPayment(amountOfPayment);
     }
 
+    public Payment(Payment objectForCopy) {
+        this(objectForCopy.fullName, objectForCopy.day, objectForCopy.month, objectForCopy.year, objectForCopy.amountOfPayment);
+    }
+
     public void setFullName(final String fullName) {
         if (fullName == null) {
             throw new NullPointerException("Full name is null");
