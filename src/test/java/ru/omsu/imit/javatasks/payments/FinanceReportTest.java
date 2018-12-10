@@ -8,7 +8,7 @@ public class FinanceReportTest {
     private FinanceReport financeReport;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         Payment payment1 = new Payment("Lovelace Ivan Ivanvich", (byte) 22, (byte) 11, 1999, 228);
         Payment payment2 = new Payment("Neyman Ivan Ivanvich", (byte) 11, (byte) 5, 2010, 200);
         Payment payment3 = new Payment("Babbage Ivan Ivanvich", (byte) 1, (byte) 1, 2015, 1337);
