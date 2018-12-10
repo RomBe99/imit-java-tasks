@@ -17,7 +17,7 @@ public class Payment {
         setAmountOfPayment(amountOfPayment);
     }
 
-    public void setFullName(final String fullName) throws NullPointerException {
+    public void setFullName(final String fullName) {
         if (fullName == null) {
             throw new NullPointerException("Full name is null");
         }
@@ -25,7 +25,7 @@ public class Payment {
         this.fullName = fullName;
     }
 
-    public void setDay(final byte day) throws IllegalArgumentException {
+    public void setDay(final byte day) {
         if (day > 31 || day < 1) {
             throw new IllegalArgumentException("Incorrect day number");
         }
@@ -33,7 +33,7 @@ public class Payment {
         this.day = day;
     }
 
-    public void setMonth(final byte month) throws IllegalArgumentException {
+    public void setMonth(final byte month) {
         if (month > 12 || month < 1) {
             throw new IllegalArgumentException("Incorrect month number");
         }
@@ -41,7 +41,7 @@ public class Payment {
         this.month = month;
     }
 
-    public void setYear(final int year) throws IllegalArgumentException {
+    public void setYear(final int year) {
         if (year > 2019 || year < 1900) {
             throw new IllegalArgumentException("Incorrect year");
         }
@@ -49,7 +49,7 @@ public class Payment {
         this.year = year;
     }
 
-    public void setAmountOfPayment(final int amountOfPayment) throws IllegalArgumentException {
+    public void setAmountOfPayment(final int amountOfPayment) {
         if (amountOfPayment <= 0) {
             throw new IllegalArgumentException("Incorrect amount of payment");
         }
