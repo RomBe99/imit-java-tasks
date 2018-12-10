@@ -26,8 +26,8 @@ public class StringProcessorTest {
                 {"aa", "a", 2},
                 {"aaa", "aa", 2},
                 {"", "aaa", 0},
-                {"", "", 0},
-                //    {"asdf", "", -1},
+//                {"", "", 0},
+//                    {"asdf", "", -1},
                 {"aaaa", "vvv", 0},
                 {"aeqra facwda", "a", 4}
         };
