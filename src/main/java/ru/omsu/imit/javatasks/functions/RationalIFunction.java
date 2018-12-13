@@ -1,16 +1,13 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class RationalIFunction implements IFunction {
+public class RationalIFunction extends Function implements IFunction {
     private LinearPolynomial divider;
     private LinearPolynomial dividend;
 
-    public RationalIFunction(LinearPolynomial divider, LinearPolynomial dividend) {
+    public RationalIFunction(LinearPolynomial divider, LinearPolynomial dividend, double top, double bottom) throws FunctionException {
+        super(top, bottom);
         setDivider(divider);
         setDividend(dividend);
-    }
-
-    public RationalIFunction(double dividerFirstCoefficient, double dividerSecondCoefficient, double dividendFirstCoefficient, double dividendSecondCoefficient) {
-        this(new LinearPolynomial(dividerFirstCoefficient, dividerSecondCoefficient), new LinearPolynomial(dividendFirstCoefficient, dividendSecondCoefficient));
     }
 
     public void setDivider(LinearPolynomial divider) {
@@ -43,7 +40,7 @@ public class RationalIFunction implements IFunction {
     }
 
     @Override
-    public double calculus(double value) {
+    public double calculus(double value) throws FunctionException {
         return divider.calculus(value) / dividend.calculus(value);
     }
 }
