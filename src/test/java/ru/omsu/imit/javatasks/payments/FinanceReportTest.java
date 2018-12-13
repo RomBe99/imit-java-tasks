@@ -27,18 +27,20 @@ public class FinanceReportTest {
 
     @Test
     public void copyConstructorTest() {
-        Assert.assertSame(new FinanceReport(financeReport).getPayments(), financeReport.getPayments());
+        FinanceReport newFinanceReport = new FinanceReport(financeReport);
+        financeReport.setPayment(new Payment("Lovelace Ivan Ivanvich", (byte) 2, (byte) 1, 1999, 228), 0);
+        Assert.assertNotEquals(newFinanceReport, financeReport);
     }
 
-    @Test (expected = NullPointerException.class)
-    public void nullElementPaymentsArrayTest() throws NullPointerException {
-        Payment payment1 = new Payment("Lovelace Ivan Ivanvich", (byte) 22, (byte) 11, 1999, 228);
-        Payment nullPayment = null;
-        Payment payment2 = new Payment("Neyman Ivan Ivanvich", (byte) 11, (byte) 5, 2010, 200);
-        Payment payment3 = new Payment("Babbage Ivan Ivanvich", (byte) 1, (byte) 1, 2015, 1337);
-
-        FinanceReport fr = new FinanceReport(payment1, nullPayment, payment2, payment3);
-    }
+//    @Test (expected = NullPointerException.class)
+//    public void nullElementPaymentsArrayTest() throws NullPointerException {
+//        Payment payment1 = new Payment("Lovelace Ivan Ivanvich", (byte) 22, (byte) 11, 1999, 228);
+//        Payment nullPayment = null;
+//        Payment payment2 = new Payment("Neyman Ivan Ivanvich", (byte) 11, (byte) 5, 2010, 200);
+//        Payment payment3 = new Payment("Babbage Ivan Ivanvich", (byte) 1, (byte) 1, 2015, 1337);
+//
+//        FinanceReport fr = new FinanceReport(payment1, nullPayment, payment2, payment3);
+//    }
 
     @Test
     public void setPaymentTest() {
