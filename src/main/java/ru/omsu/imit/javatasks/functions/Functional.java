@@ -1,35 +1,45 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class Functional<T extends IFunction> implements IFunctional<T> {
-    private double beginValue;
-    private double endValue;
+public abstract class Functional<T extends Function> implements IFunctional<T> {
+    private double top;
+    private double bottom;
+    private T function;
 
-    public Functional(double beginValue, double endValue) {
-        setBeginValue(beginValue);
-        setEndValue(endValue);
+    public Functional(double top, double bottom, T function) throws FunctionalException {
+        if (!function.inDomain(top) || !function.inDomain(bottom)) {
+            throw new FunctionalException();
+        }
+
+        setTop(top);
+        setBottom(bottom);
+        setFunction(function);
     }
 
-    public void setBeginValue(double beginValue) {
-        this.beginValue = beginValue;
+    private void setTop(double top) {
+        this.top = top;
     }
 
-    public void setEndValue(double endValue) {
-        this.endValue = endValue;
+    private void setBottom(double bottom) throws FunctionalException {
+        if (top < bottom) {
+            throw new FunctionalException();
+        }
+
+        this.bottom = bottom;
     }
 
-    public double getBeginValue() {
-        return beginValue;
+    private void setFunction(T function) {
+        this.function = function;
     }
 
-    public double getEndValue() {
-        return endValue;
+    public double getTop() {
+        return top;
     }
 
-    //TODO Fix this
-    @Override
-    public double calculate(T function) {
-//        [beginValue, endValue]
-//         function.
-        return 0;
+    public double getBottom() {
+        return bottom;
+    }
+
+    public T getFunction() {
+        return function;
     }
 }
