@@ -30,4 +30,8 @@ public abstract class Function implements IFunction {
     public double getBottom() {
         return bottom;
     }
+
+    public boolean inDomain(double value) {
+        return top >= value && value >= bottom;
+    }
 }
