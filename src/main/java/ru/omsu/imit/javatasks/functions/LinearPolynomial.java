@@ -1,16 +1,13 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class LinearPolynomial implements IFunction {
+public class LinearPolynomial extends Function implements IFunction {
     private double firstCoefficient;
     private double secondCoefficient;
-    private double top;
-    private double bottom;
 
-    public LinearPolynomial(double firstCoefficient, double secondCoefficient, double bottom, double top) {
+    public LinearPolynomial(double firstCoefficient, double secondCoefficient, double top, double bottom) throws FunctionException {
+        super(top, bottom);
         setFirstCoefficient(firstCoefficient);
         setSecondCoefficient(secondCoefficient);
-        setTop(top);
-        setBottom(bottom);
     }
 
     public void setFirstCoefficient(double firstCoefficient) {
@@ -19,14 +16,6 @@ public class LinearPolynomial implements IFunction {
 
     public void setSecondCoefficient(double secondCoefficient) {
         this.secondCoefficient = secondCoefficient;
-    }
-
-    public void setTop(double top) {
-        this.top = top;
-    }
-
-    public void setBottom(double bottom) {
-        this.bottom = bottom;
     }
 
     public double getFirstCoefficient() {
@@ -39,19 +28,10 @@ public class LinearPolynomial implements IFunction {
 
     @Override
     public double calculus(double value) throws FunctionException {
-        if (value < top || value > bottom) {
+        if (value < getTop() || value > getBottom()) {
             throw new FunctionException(value);
         }
-        return firstCoefficient*value + secondCoefficient;
-    }
 
-    @Override
-    public double getTop() {
-        return top;
-    }
-
-    @Override
-    public double getBottom() {
-        return bottom;
+        return firstCoefficient * value + secondCoefficient;
     }
 }
