@@ -1,14 +1,11 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class Exhibitor implements IFunction {
+public class Exhibitor extends Function implements IFunction {
     private LinearPolynomial coefficients;
 
-    public Exhibitor(LinearPolynomial coefficients) {
+    public Exhibitor(LinearPolynomial coefficients, double top, double bottom) throws FunctionException {
+        super(top, bottom);
         setCoefficients(coefficients);
-    }
-
-    public Exhibitor(double firstCoefficient, double secondCoefficient) {
-        this(new LinearPolynomial(firstCoefficient, secondCoefficient));
     }
 
     public void setCoefficients(LinearPolynomial coefficients) {
@@ -24,7 +21,11 @@ public class Exhibitor implements IFunction {
     }
 
     @Override
-    public double calculus(double value) {
+    public double calculus(double value) throws FunctionException {
+        if (value < getTop() || value > getBottom()) {
+            throw new FunctionException(value);
+        }
+
         if (coefficients.getFirstCoefficient() == 0) {
             return coefficients.getSecondCoefficient();
         }
