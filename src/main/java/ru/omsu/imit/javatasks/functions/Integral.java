@@ -1,12 +1,12 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class Integral<T extends IFunction> extends Functional {
-    public Integral(double beginValue, double endValue, T function) {
-        super(beginValue, endValue, function);
+public class Integral<T extends Function> extends Functional {
+    public Integral(double top, double bottom, Function function) throws FunctionalException {
+        super(top, bottom, function);
     }
 
-    //TODO Fix this
-    public double calculateIntegral() {
+    @Override
+    public double calculate(IFunction function) throws FunctionalException {
         return 0;
     }
 }
