@@ -6,16 +6,20 @@ public abstract class Function implements IFunction {
     private double top;
     private double bottom;
 
-    public Function(double top, double bottom) {
+    public Function(double top, double bottom) throws FunctionException {
         setTop(top);
         setBottom(bottom);
     }
 
-    public void setTop(double top) {
+    private void setTop(double top) {
         this.top = top;
     }
 
-    public void setBottom(double bottom) {
+    private void setBottom(double bottom) throws FunctionException {
+        if (top < bottom) {
+            throw new FunctionException(bottom);
+        }
+
         this.bottom = bottom;
     }
 
