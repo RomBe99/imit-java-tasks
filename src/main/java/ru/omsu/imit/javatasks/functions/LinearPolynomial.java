@@ -4,8 +4,8 @@ public class LinearPolynomial extends Function implements IFunction {
     private double firstCoefficient;
     private double secondCoefficient;
 
-    public LinearPolynomial(double firstCoefficient, double secondCoefficient, double top, double bottom) throws FunctionException {
-        super(top, bottom);
+    public LinearPolynomial(double firstCoefficient, double secondCoefficient) throws FunctionException {
+        super(Double.MAX_VALUE, Double.MIN_VALUE);
         setFirstCoefficient(firstCoefficient);
         setSecondCoefficient(secondCoefficient);
     }

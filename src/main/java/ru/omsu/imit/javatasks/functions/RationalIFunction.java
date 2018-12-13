@@ -4,8 +4,8 @@ public class RationalIFunction extends Function implements IFunction {
     private LinearPolynomial divider;
     private LinearPolynomial dividend;
 
-    public RationalIFunction(LinearPolynomial divider, LinearPolynomial dividend, double top, double bottom) throws FunctionException {
-        super(top, bottom);
+    public RationalIFunction(LinearPolynomial divider, LinearPolynomial dividend) throws FunctionException {
+        super(Double.MAX_VALUE, Double.MIN_VALUE);
         setDivider(divider);
         setDividend(dividend);
     }
