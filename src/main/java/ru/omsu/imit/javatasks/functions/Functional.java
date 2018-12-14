@@ -42,4 +42,12 @@ public abstract class Functional<T extends Function> implements IFunctional<T> {
     public T getFunction() {
         return function;
     }
+
+    public double sumAtBottomAndTopSegment() throws FunctionException {
+        return function.calculus(bottom) + function.calculus(bottom);
+    }
+
+    public double midpointValue() throws FunctionException {
+        return sumAtBottomAndTopSegment() / 2;
+    }
 }
