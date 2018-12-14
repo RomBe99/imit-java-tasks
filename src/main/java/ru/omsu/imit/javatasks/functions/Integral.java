@@ -1,7 +1,6 @@
 package ru.omsu.imit.javatasks.functions;
 
 public class Integral<T extends Function> extends Functional {
-    final double epsilon = 0.01;
 
     public Integral(double top, double bottom, T function) throws FunctionalException {
         super(top, bottom, function);
@@ -17,6 +16,7 @@ public class Integral<T extends Function> extends Functional {
         double currentValue = 0;
         double previousValue = 0;
 
+        double epsilon = 0.01;
         for (int i = 5; Math.abs(currentValue - previousValue) >= epsilon; i += 5) {
             segmentLength = function.calculus(top) - function.calculus(bottom) / i;
             previousValue = currentValue;
