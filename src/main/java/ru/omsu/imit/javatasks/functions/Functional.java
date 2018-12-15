@@ -3,16 +3,9 @@ package ru.omsu.imit.javatasks.functions;
 public abstract class Functional<T extends Function> implements IFunctional<T> {
     private double top;
     private double bottom;
-    private T function;
 
-    public Functional(double top, double bottom, T function) throws FunctionalException {
-        if (!function.inDomain(top) || !function.inDomain(bottom)) {
-            throw new FunctionalException();
-        }
-
-        setTop(top);
-        setBottom(bottom);
-        setFunction(function);
+    public Functional(double top, double bottom) throws FunctionalException {
+        setDomain(top, bottom);
     }
 
     private void setTop(double top) {
@@ -21,14 +14,15 @@ public abstract class Functional<T extends Function> implements IFunctional<T> {
 
     private void setBottom(double bottom) throws FunctionalException {
         if (top < bottom) {
-            throw new FunctionalException();
+            throw new FunctionalException(bottom);
         }
 
         this.bottom = bottom;
     }
 
-    private void setFunction(T function) {
-        this.function = function;
+    public void setDomain(double top, double bottom) throws FunctionalException {
+        setTop(top);
+        setBottom(bottom);
     }
 
     public double getTop() {
@@ -37,17 +31,5 @@ public abstract class Functional<T extends Function> implements IFunctional<T> {
 
     public double getBottom() {
         return bottom;
-    }
-
-    public T getFunction() {
-        return function;
-    }
-
-    public double sumAtBottomAndTopSegment() throws FunctionException {
-        return function.calculus(bottom) + function.calculus(bottom);
-    }
-
-    public double midpointValue() throws FunctionException {
-        return sumAtBottomAndTopSegment() / 2;
     }
 }
