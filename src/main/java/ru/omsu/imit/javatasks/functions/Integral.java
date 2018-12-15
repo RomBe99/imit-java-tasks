@@ -2,15 +2,21 @@ package ru.omsu.imit.javatasks.functions;
 
 public class Integral<T extends Function> extends Functional {
 
-    public Integral(double top, double bottom, T function) throws FunctionalException {
-        super(top, bottom, function);
+    public Integral(double top, double bottom) throws FunctionalException {
+        super(top, bottom);
     }
 
     @Override
-    public double calculate() throws FunctionException {
+    public double calculate(Function function) throws FunctionException {
         final double top = getTop();
+        if (!function.inDomain(top)) {
+            throw new FunctionalException(top);
+        }
+
         final double bottom = getBottom();
-        final Function function = getFunction();
+        if (!function.inDomain(bottom)) {
+            throw new FunctionalException(bottom);
+        }
 
         double segmentLength;
         double currentValue = 0;
