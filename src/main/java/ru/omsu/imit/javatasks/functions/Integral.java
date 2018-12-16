@@ -1,6 +1,6 @@
 package ru.omsu.imit.javatasks.functions;
 
-public class Integral<T extends Function> extends Functional {
+public class Integral extends Functional {
 
     public Integral(double top, double bottom) throws FunctionalException {
         super(top, bottom);
@@ -18,22 +18,26 @@ public class Integral<T extends Function> extends Functional {
             throw new FunctionalException(bottom);
         }
 
-        double segmentLength;
-        double currentValue = 0;
-        double previousValue = 0;
 
+        int segmentLength = 5;
+        double newSquare = function.calculus(bottom);
+        double prevSquare;
         double epsilon = 0.01;
-        for (int i = 5; Math.abs(currentValue - previousValue) >= epsilon; i += 5) {
-            segmentLength = function.calculus(top) - function.calculus(bottom) / i;
-            previousValue = currentValue;
-            //todo integral sum
-//            currentValue = segmentLength * function.calculus();
 
-//            for (int j = 0; j < 5; j++) {
-//
-//            }
-        }
+        do {
+            prevSquare = newSquare;
+            newSquare = function.calculus(bottom + segmentLength * prevSquare);
+            segmentLength += 5;
+        } while (newSquare - prevSquare >= epsilon);
 
-        return currentValue;
+        return (top - bottom) / segmentLength * newSquare;
+    }
+
+    public static void main(String[] args) throws FunctionException {
+        LinearPolynomial l = new LinearPolynomial(1, 0);
+        l.setDomain(3 , 1);
+
+        Integral integral = new Integral(3, 1);
+        System.out.println(integral.calculate(l));
     }
 }
