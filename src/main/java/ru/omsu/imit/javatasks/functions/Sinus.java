@@ -26,10 +26,10 @@ public class Sinus extends Function implements IFunction {
             throw new FunctionException(value);
         }
 
-        if (coefficients.getFirstCoefficient() == 0) {
+        if (coefficients.getSecondCoefficient() == 0) {
             return 0;
         }
 
-        return coefficients.getFirstCoefficient() * Math.sin(coefficients.getSecondCoefficient() * value);
+        return coefficients.getSecondCoefficient() * Math.sin(coefficients.getFirstCoefficient() * value);
     }
 }

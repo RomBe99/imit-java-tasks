@@ -26,10 +26,10 @@ public class Exhibitor extends Function implements IFunction {
             throw new FunctionException(value);
         }
 
-        if (coefficients.getFirstCoefficient() == 0) {
-            return coefficients.getSecondCoefficient();
+        if (coefficients.getSecondCoefficient() == 0) {
+            return coefficients.getFirstCoefficient();
         }
 
-        return coefficients.getFirstCoefficient() * Math.exp(value) + coefficients.getSecondCoefficient();
+        return coefficients.getSecondCoefficient() * Math.exp(value) + coefficients.getFirstCoefficient();
     }
 }

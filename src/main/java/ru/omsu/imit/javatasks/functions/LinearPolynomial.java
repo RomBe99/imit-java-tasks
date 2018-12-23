@@ -32,6 +32,6 @@ public class LinearPolynomial extends Function implements IFunction {
             throw new FunctionException(value);
         }
 
-        return firstCoefficient * value + secondCoefficient;
+        return secondCoefficient * value + firstCoefficient;
     }
 }
