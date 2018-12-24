@@ -9,10 +9,6 @@ public class Exhibitor extends Function implements IFunction {
     }
 
     public void setCoefficients(LinearPolynomial coefficients) {
-        if (coefficients == null) {
-            throw new NullPointerException();
-        }
-
         this.coefficients = coefficients;
     }
 
@@ -22,7 +18,7 @@ public class Exhibitor extends Function implements IFunction {
 
     @Override
     public double calculus(double value) throws FunctionException {
-        if (value < getTop() || value > getBottom()) {
+        if (value > getTop() || value < getBottom()) {
             throw new FunctionException(value);
         }
 
