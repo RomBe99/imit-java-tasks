@@ -21,7 +21,7 @@ public class QuadricPolynomial extends LinearPolynomial {
 
         value *= value;
 
-        return thirdCoefficient * thirdCoefficient * value + getSecondCoefficient() * value + getFirstCoefficient();
+        return thirdCoefficient * value + getSecondCoefficient() * value + getFirstCoefficient();
     }
 
     public void setThirdCoefficient(double thirdCoefficient) {
