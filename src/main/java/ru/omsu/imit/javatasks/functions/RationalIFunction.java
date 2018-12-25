@@ -18,14 +18,13 @@ public class RationalIFunction extends Function implements IFunction {
         this.divider = divider;
     }
 
-    public void setDividend(LinearPolynomial dividend) {
+    public void setDividend(LinearPolynomial dividend) throws FunctionException {
         if (dividend == null) {
             throw new NullPointerException();
         }
 
-
         if (dividend.getFirstCoefficient() == 0 && dividend.getSecondCoefficient() == 0) {
-            throw new ArithmeticException("Dividend = 0");
+            throw new FunctionException("The dividend cannot be 0");
         }
 
         this.dividend = dividend;
