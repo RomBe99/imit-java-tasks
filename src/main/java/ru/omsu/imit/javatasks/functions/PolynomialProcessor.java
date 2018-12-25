@@ -2,7 +2,7 @@ package ru.omsu.imit.javatasks.functions;
 
 public class PolynomialProcessor {
     public static double[] findRoots(QuadricPolynomial linearPolynomial) throws FunctionException {
-        double D = linearPolynomial.getSecondCoefficient() * linearPolynomial.getSecondCoefficient() - 4 * linearPolynomial.getFirstCoefficient() * linearPolynomial.getSecondCoefficient();
+        double D = linearPolynomial.getSecondCoefficient() * linearPolynomial.getSecondCoefficient() - 4 * linearPolynomial.getThirdCoefficient() * linearPolynomial.getFirstCoefficient();
         double temp;
 
         if (D < 0) {
