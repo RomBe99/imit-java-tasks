@@ -26,12 +26,12 @@ public class Integral<T extends Function> extends Functional {
         }
     }
 
-    public static void main(String[] args) {
-        try {
-            Integral integral = new Integral(2,0);
-            System.out.println(integral.calculate(new LinearPolynomial(1, 0)));
-        } catch (FunctionException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            Integral integral = new Integral(2,0);
+//            System.out.println(integral.calculate(new LinearPolynomial(1, 0)));
+//        } catch (FunctionException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//    }
 }
