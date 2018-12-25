@@ -6,6 +6,6 @@ public class FunctionProcessor {
     }
 
     public static double sumAtTheMiddleSegment(Function function) throws FunctionException {
-        return sumValuesAtTheEndsSegment(function) / 2;
+        return sumValuesAtTheEndsSegment(function) * 0.5;
     }
 }
