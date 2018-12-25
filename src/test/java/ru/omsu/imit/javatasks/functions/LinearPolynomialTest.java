@@ -8,9 +8,10 @@ import static org.junit.Assert.fail;
 
 public class LinearPolynomialTest {
     private LinearPolynomial linearPolynomial;
+    private final double DELTA = 0.01;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() throws FunctionException {
         linearPolynomial = new LinearPolynomial(1, 2);
     }
 
@@ -18,21 +19,10 @@ public class LinearPolynomialTest {
     @Test
     public void testLinearPolynomialCalculusCorrect() {
         try {
-            double result = linearPolynomial.calculus(2);
-            assertEquals(5, (int) result);
+            double result = linearPolynomial.calculus(2.5);
+            assertEquals(6, result, DELTA);
         } catch (Exception ex) {
             fail();
         }
     }
-
-//    @Test
-//    public void testLinearPolynomialCalculusIncorrect() {
-//        try {
-//            exhibitor.calculus(20);
-//        } catch (FunctionException ex) {
-//            throw ex;
-//        } catch (Exception ex) {
-//            fail();
-//        }
-//    }
 }

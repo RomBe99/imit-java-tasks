@@ -11,10 +11,9 @@ public class ExhibitorTest {
     private final double DELTA = 0.01;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() throws FunctionException {
         exhibitor = new Exhibitor(new LinearPolynomial(1, 2), 4, 0);
     }
-
 
     @Test
     public void testCalculusCorrect() {
