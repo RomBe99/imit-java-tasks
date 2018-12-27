@@ -13,4 +13,28 @@ public class IntegralTest {
     public void setUp() throws FunctionalException {
         integral = new Integral(4, 0);
     }
+
+    @Test
+    public void testCalculusCorrect() throws Exception {
+        try {
+            LinearPolynomial linearPolynomial = new LinearPolynomial(1, 2);
+            double result = integral.calculate(linearPolynomial);
+            assertEquals(20, result, DELTA);
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+
+    @Test (expected = FunctionalException.class)
+    public void testCalculusIncorrect() throws FunctionalException {
+        try {
+            LinearPolynomial linearPolynomial = new LinearPolynomial(1, 2);
+            linearPolynomial.setDomain(3, 1);
+            integral.calculate(linearPolynomial);
+        } catch (FunctionalException ex) {
+            throw ex;
+        } catch (Exception ex) {
+            fail();
+        }
+    }
 }
