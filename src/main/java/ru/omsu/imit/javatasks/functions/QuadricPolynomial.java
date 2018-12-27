@@ -15,7 +15,7 @@ public class QuadricPolynomial extends LinearPolynomial {
 
     @Override
     public double calculus(double value) throws FunctionException {
-        if (value > getTop() || value < getBottom()) {
+        if (!inDomain(value)) {
             throw new FunctionException(value);
         }
 

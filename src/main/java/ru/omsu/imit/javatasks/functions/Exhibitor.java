@@ -18,7 +18,7 @@ public class Exhibitor extends Function implements IFunction {
 
     @Override
     public double calculus(double value) throws FunctionException {
-        if (value > getTop() || value < getBottom()) {
+        if (!inDomain(value)) {
             throw new FunctionException(value);
         }
 
