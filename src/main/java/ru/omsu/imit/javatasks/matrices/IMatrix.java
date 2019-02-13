@@ -2,6 +2,6 @@ package ru.omsu.imit.javatasks.matrices;
 
 public interface IMatrix {
     double 	determinant();
-    void setMatrixElem(int i, int j, double value);
-    double getMatrixElem(int i, int j);
+    void setMatrixElem(final int i, final int j, final double value);
+    double getMatrixElem(final int i, final int j);
 }
