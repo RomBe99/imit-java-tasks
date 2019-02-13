@@ -8,7 +8,7 @@ public class Matrix implements IMatrix {
     private int columns;
     private double[] elements;
 
-    private Matrix(int rows, int columns) {
+    protected Matrix(int rows, int columns) {
         setRows(rows);
         setColumns(columns);
 
