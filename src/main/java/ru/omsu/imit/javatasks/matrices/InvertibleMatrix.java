@@ -1,6 +1,6 @@
 package ru.omsu.imit.javatasks.matrices;
 
-public class InvertibleMatrix implements  IInvertibleMatrix {
+public class InvertibleMatrix implements IInvertibleMatrix {
     private Matrix matrix;
 
     public InvertibleMatrix(final Matrix matrix) {
@@ -27,13 +27,27 @@ public class InvertibleMatrix implements  IInvertibleMatrix {
         return matrix.getMatrixElem(i, j);
     }
 
-    @Override
-    public String toString() {
-        return matrix.toString();
+    public void setMatrix(final Matrix matrix) {
+        if (!matrix.isDeterminantIsCorrect() || matrix.getDeterminant() != 0) {
+            // throw TODO Исключение
+        }
+
+        this.matrix = matrix;
     }
 
-    public void setMatrix(final Matrix matrix) {
-        this.matrix = matrix;
+    @Override
+    public int getRows() {
+        return matrix.getRows();
+    }
+
+    @Override
+    public int getColumns() {
+        return matrix.getColumns();
+    }
+
+    @Override
+    public double getMatrixElem(final int i) {
+        return matrix.getMatrixElem(i);
     }
 
     public Matrix getMatrix() {
