@@ -13,4 +13,13 @@ public class MatrixTest {
     @Before
     public void setUp() {
     }
+
+//    public static void main(String[] args) {
+//        double[] elems = new double[]{7, 3, 5, 6,
+//                8, 2, 9, 4,
+//                1, 5, 2, 4,
+//                9, 0, 3, 1};
+//        Matrix matrix = new Matrix(16, elems);
+//        System.out.println(matrix.calculateDeterminant());
+//    }
 }
