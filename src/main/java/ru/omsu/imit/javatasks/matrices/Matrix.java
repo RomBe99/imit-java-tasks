@@ -20,13 +20,15 @@ public class Matrix implements IMatrix {
     }
 
     private Matrix(final int rows, final int columns, final double[] elements) {
-        this(rows, columns);
-
         if (rows * columns != elements.length) {
             // throw TODO Исключение
         }
 
+        setRows(rows);
+        setColumns(columns);
         setElements(elements);
+
+        determinantIsCorrect = false;
     }
 
     public Matrix(final int rowsAndColumns, final double[] elements) {
