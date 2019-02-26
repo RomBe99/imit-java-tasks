@@ -21,8 +21,6 @@ public class DemoMatrix {
             sb.append(matrix.getMatrixElem(i) + (i % ROWS != 0 ? ' ' : '\n'));
         }
 
-        sb.deleteCharAt(sb.length() - 1);
-
         return sb.toString();
     }
 }
