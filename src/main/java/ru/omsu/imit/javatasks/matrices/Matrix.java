@@ -43,17 +43,34 @@ public class Matrix implements IMatrix {
 
         double[] detMatrix = elements;
         final int SIZE = rows;
+        final double DELTA = 0.00001;
         double temp;
+        int index = 0;
+        int address;
+        int address2;
         determinant = 1;
 
         for (int i = 0; i < SIZE - 1; i++) {
-            temp = detMatrix[i * SIZE - SIZE + i - 1];
+            temp = detMatrix[i * columns - i];
 
-            for (int j = i; j < SIZE; j++) {
-                detMatrix[(i + 1) * SIZE - SIZE + j - 1] = detMatrix[i * SIZE - SIZE + j - 1] / temp;
+            for (int j = 0; j < SIZE; j++) {
+                if (temp <= detMatrix[i * SIZE - i + j]) {
+                    temp = detMatrix[i * SIZE - i + j];
+                    index = j;
+                }
+            }
+
+            if (temp <= DELTA && temp >= 0) {
+                return 0;
             }
 
             determinant *= temp;
+            address2 = (i + 1) * SIZE - (i + 1) + index - 1;
+
+            for (int j = 0; j < SIZE; j++) {
+                address = (i + 1) * SIZE - (i + 1) + j + 1; // Следующая строка
+                detMatrix[address] = detMatrix[i * SIZE - i + j] / detMatrix[i * SIZE - i + index] * detMatrix[address2] - detMatrix[address];
+            }
         }
 
         determinantIsCorrect = true;
@@ -62,13 +79,13 @@ public class Matrix implements IMatrix {
 
     @Override
     public void setMatrixElem(final int i, final int j, final double value) {
-        elements[i * columns - rows + j - 1] = value;
+        elements[i * columns - i + j] = value;
         determinantIsCorrect = false;
     }
 
     @Override
     public double getMatrixElem(final int i, final int j) {
-        return elements[i * columns - rows + j - 1];
+        return elements[i * columns - i + j];
     }
 
     public void setMatrixElem(final int i, final double value) {
@@ -110,5 +127,14 @@ public class Matrix implements IMatrix {
 
     public boolean isDeterminantIsCorrect() {
         return determinantIsCorrect;
+    }
+
+    public static void main(String[] args) {
+        double[] arr =  {7, 3, 5, 6,
+                8, 2, 9, 4,
+                1, 0, 2, 4,
+                9, 5, 3, 1};
+        Matrix matrix = new Matrix(4, arr);
+        System.out.println(matrix.calculateDeterminant());
     }
 }
