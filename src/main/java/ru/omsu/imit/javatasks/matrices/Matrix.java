@@ -35,6 +35,15 @@ public class Matrix implements IMatrix {
         this(rowsAndColumns, rowsAndColumns, elements);
     }
 
+    public Matrix(final Matrix matrixForCopy) {
+        setRows(matrixForCopy.rows);
+        setColumns(matrixForCopy.columns);
+        setElements(matrixForCopy.elements);
+
+        this.determinant = matrixForCopy.determinant;
+        this.determinantIsCorrect = matrixForCopy.determinantIsCorrect;
+    }
+
     @Override // TODO Вычисление определителя матрицы (методом Гаусса)
     public double calculateDeterminant() {
         if (determinantIsCorrect) {
