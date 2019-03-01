@@ -3,7 +3,7 @@ package ru.omsu.imit.javatasks.matrices;
 public class InvertibleMatrix implements IInvertibleMatrix {
     private Matrix matrix;
 
-    public InvertibleMatrix(final Matrix matrix) {
+    public InvertibleMatrix(final Matrix matrix) throws MatrixException {
         setMatrix(matrix);
     }
 
@@ -13,23 +13,23 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     @Override
-    public double calculateDeterminant() {
+    public double calculateDeterminant() throws MatrixException {
         return matrix.calculateDeterminant();
     }
 
     @Override
-    public void setMatrixElem(final int i, final int j, final double value) {
+    public void setMatrixElem(final int i, final int j, final double value) throws MatrixException {
         matrix.setMatrixElem(i, j, value);
     }
 
     @Override
-    public double getMatrixElem(final int i, final int j) {
+    public double getMatrixElem(final int i, final int j) throws MatrixException {
         return matrix.getMatrixElem(i, j);
     }
 
-    public void setMatrix(final Matrix matrix) {
+    public void setMatrix(final Matrix matrix) throws MatrixException {
         if (!matrix.isDeterminantIsCorrect() || matrix.getDeterminant() != 0) {
-            // throw TODO Исключение
+            throw new MatrixException("incorrect determinant");
         }
 
         this.matrix = matrix;
@@ -46,7 +46,7 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     @Override
-    public double getMatrixElem(final int i) {
+    public double getMatrixElem(final int i) throws MatrixException {
         return matrix.getMatrixElem(i);
     }
 

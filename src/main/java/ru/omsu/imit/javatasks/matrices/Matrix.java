@@ -5,37 +5,34 @@ public class Matrix implements IMatrix {
     private int columns;
     private double[] elements;
     private double determinant;
-    private boolean determinantIsCorrect;
+    private boolean determinantIsCorrect = false;
 
     private Matrix(final int rows, final int columns) {
         setRows(rows);
         setColumns(columns);
 
         elements = new double[rows * columns];
-        determinantIsCorrect = false;
     }
 
     public Matrix(final int rowsAndColumns) {
         this(rowsAndColumns, rowsAndColumns);
     }
 
-    private Matrix(final int rows, final int columns, final double[] elements) {
+    private Matrix(final int rows, final int columns, final double[] elements) throws MatrixException {
         if (rows * columns != elements.length) {
-            // throw TODO Исключение
+             throw new MatrixException("Incorrect rows or columns");
         }
 
         setRows(rows);
         setColumns(columns);
         setElements(elements);
-
-        determinantIsCorrect = false;
     }
 
-    public Matrix(final int rowsAndColumns, final double[] elements) {
+    public Matrix(final int rowsAndColumns, final double[] elements) throws MatrixException {
         this(rowsAndColumns, rowsAndColumns, elements);
     }
 
-    public Matrix(final Matrix matrixForCopy) {
+    public Matrix(final Matrix matrixForCopy) throws MatrixException {
         setRows(matrixForCopy.rows);
         setColumns(matrixForCopy.columns);
         setElements(matrixForCopy.elements);
@@ -45,7 +42,7 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public double calculateDeterminant() {
+    public double calculateDeterminant() throws MatrixException {
         if (determinantIsCorrect) {
             return determinant;
         }
@@ -87,8 +84,6 @@ public class Matrix implements IMatrix {
                 }
             }
 
-            // TODO Проверка деления на 0 и перемещение столбцов
-
             determinant *= (sign ? -temp : temp);
 
             for (int j = i + 1; j < SIZE; j++) {
@@ -105,9 +100,9 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public void setMatrixElem(final int i, final int j, final double value) {
+    public void setMatrixElem(final int i, final int j, final double value) throws MatrixException {
         if (elements.length <= i || elements.length <= j) {
-            // throw  TODO Исключение
+            throw new MatrixException("Incorrect index");
         }
 
         elements[i * columns + j] = value;
@@ -115,17 +110,17 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public double getMatrixElem(final int i, final int j) {
+    public double getMatrixElem(final int i, final int j) throws MatrixException {
         if (elements.length <= i || elements.length <= j) {
-            // throw  TODO Исключение
+            throw new MatrixException("Incorrect index");
         }
 
         return elements[i * columns + j];
     }
 
-    public void setMatrixElem(final int i, final double value) {
+    public void setMatrixElem(final int i, final double value) throws MatrixException {
         if (elements.length <= i) {
-            // throw  TODO Исключение
+            throw new MatrixException("Incorrect index");
         }
 
         elements[i] = value;
@@ -140,9 +135,9 @@ public class Matrix implements IMatrix {
         this.columns = columns;
     }
 
-    private void setElements(double[] elements) {
+    private void setElements(double[] elements) throws MatrixException {
         if (elements == null) {
-            // throw  TODO Исключение
+            throw new MatrixException(new NullPointerException().toString());
         }
 
         this.elements = elements;
@@ -156,9 +151,9 @@ public class Matrix implements IMatrix {
         return columns;
     }
 
-    public double getMatrixElem(final int i) {
+    public double getMatrixElem(final int i) throws MatrixException {
         if (elements.length <= i) {
-            // throw  TODO Исключение
+            throw new MatrixException("Incorrect index");
         }
 
         return elements[i];
