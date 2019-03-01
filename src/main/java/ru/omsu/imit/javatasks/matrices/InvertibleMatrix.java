@@ -4,6 +4,10 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     private Matrix matrix;
 
     public InvertibleMatrix(final Matrix matrix) throws MatrixException {
+        if (matrix.getRows() != matrix.getColumns()) {
+            throw new MatrixException("Matrix is not square");
+        }
+
         setMatrix(matrix);
     }
 
