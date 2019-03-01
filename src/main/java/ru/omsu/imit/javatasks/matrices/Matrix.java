@@ -44,22 +44,48 @@ public class Matrix implements IMatrix {
         this.determinantIsCorrect = matrixForCopy.determinantIsCorrect;
     }
 
-    @Override // TODO Вычисление определителя матрицы (методом Гаусса)
+    @Override
     public double calculateDeterminant() {
         if (determinantIsCorrect) {
             return determinant;
         }
 
         Matrix matrixCopy = new Matrix(this);
-        final double DELTA = 0.00001;
         final int SIZE = matrixCopy.getRows();
         boolean sign = false;
         double temp;
         double temp2;
+        int maxIndex = -1;
+
         determinant = 1;
 
         for (int i = 0; i < SIZE; i++) {
             temp = matrixCopy.getMatrixElem(i, i);
+
+            if (temp == 0) {
+                temp2 = temp;
+
+                for (int j = i; j < SIZE; j++) {
+                    if (temp2 >= matrixCopy.getMatrixElem(j, i)) {
+                        temp2 = matrixCopy.getMatrixElem(j, i);
+                        maxIndex = j;
+                        sign = !sign;
+                    }
+                }
+
+                if (temp2 == 0) {
+                    determinantIsCorrect = true;
+                    determinant = 0;
+
+                    return 0;
+                }
+
+                for (int j = 0; j < SIZE; j++) {
+                    temp2 = matrixCopy.getMatrixElem(i, j);
+                    matrixCopy.setMatrixElem(i, j, matrixCopy.getMatrixElem(maxIndex, j));
+                    matrixCopy.setMatrixElem(maxIndex, j, temp2);
+                }
+            }
 
             // TODO Проверка деления на 0 и перемещение столбцов
 
@@ -75,7 +101,6 @@ public class Matrix implements IMatrix {
         }
 
         determinantIsCorrect = true;
-        System.out.println(DemoMatrix.matrixToTable(matrixCopy));
         return determinant;
     }
 
@@ -149,15 +174,5 @@ public class Matrix implements IMatrix {
 
     public boolean isDeterminantIsCorrect() {
         return determinantIsCorrect;
-    }
-
-    public static void main(String[] args) {
-        double[] arr =  {7, 3, 5, 6,
-                8, 2, 9, 4,
-                1, 5, 2, 4,
-                9, 0, 3, 1};
-        Matrix matrix = new Matrix(4, arr);
-        System.out.println(DemoMatrix.matrixToTable(matrix));
-        System.out.println(matrix.calculateDeterminant());
     }
 }
