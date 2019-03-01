@@ -32,7 +32,7 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     public void setMatrix(final Matrix matrix) throws MatrixException {
-        if (!matrix.isDeterminantIsCorrect() || matrix.getDeterminant() != 0) {
+        if (!matrix.isDeterminantIsCorrect() || matrix.getDeterminant() == 0) {
             throw new MatrixException("incorrect determinant");
         }
 
