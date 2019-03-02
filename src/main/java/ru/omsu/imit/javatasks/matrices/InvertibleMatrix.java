@@ -12,7 +12,7 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     @Override // TODO Реализовать поиск обратной матрицы
-    public IInvertibleMatrix reciprocalMatrix() {
+    public IInvertibleMatrix reciprocalMatrix(final double EPSILON) throws MatrixException {
         return null;
     }
 
