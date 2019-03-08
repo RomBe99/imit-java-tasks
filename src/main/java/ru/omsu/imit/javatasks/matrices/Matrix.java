@@ -20,7 +20,7 @@ public class Matrix implements IMatrix {
 
     private Matrix(final int rows, final int columns, final double[] elements) throws MatrixException {
         if (rows * columns != elements.length) {
-             throw new MatrixException("Incorrect rows or columns");
+            throw new MatrixException("Incorrect rows or columns");
         }
 
         setRows(rows);
