@@ -7,14 +7,11 @@ public class Matrix implements IMatrix {
     private double determinant;
     private boolean determinantIsCorrect = false;
 
-    private Matrix(final int rows, final int columns) {
-        setRows(rows);
-        setColumns(columns);
-
-        elements = new double[rows * columns];
+    private Matrix(final int rows, final int columns) throws MatrixException {
+        this(rows, columns, new double[rows * columns]);
     }
 
-    public Matrix(final int rowsAndColumns) {
+    public Matrix(final int rowsAndColumns) throws MatrixException {
         this(rowsAndColumns, rowsAndColumns);
     }
 
