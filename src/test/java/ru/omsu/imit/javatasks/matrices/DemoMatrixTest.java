@@ -9,12 +9,13 @@ public class DemoMatrixTest {
 
     @Before
     public void setUp() throws MatrixException {
-        double[] elements = new double[]{7, 3, 5, 6,
+        final int SIZE = 4;
+        final double[] ELEMENTS = new double[]{7, 3, 5, 6,
                 8, 2, 9, 4,
                 1, 5, 2, 4,
                 9, 0, 3, 1};
 
-        matrix = new Matrix(4, elements);
+        matrix = new Matrix(SIZE, ELEMENTS);
     }
 
     @Test
