@@ -1,16 +1,26 @@
 package ru.omsu.imit.javatasks.matrices;
 
-import org.junit.Before;
+import org.junit.Test;
 
-import java.io.File;
+import static org.testng.Assert.fail;
 
 public class InvertibleMatrixTest {
-    private Matrix matrix;
-    private final String PATH = "./src/test/java/ru/omsu/imit/javatasks/matrices/examples/";
-    private final File CORRECT_MATIX = new File(PATH + "CorrectMatrix.txt");
-    private final File INCORRECT_MATIX = new File(PATH + "IncorrectMatrix.txt");
+    private InvertibleMatrix matrix;
 
-    @Before
-    public void setUp() {
+    @Test (expected = MatrixException.class)
+    public void constructorWithZeroDeterminantMatrixTest() throws MatrixException {
+        final int SIZE = 4;
+        final double[] ELEMENTS = new double[]{7, 0, 5, 6,
+                8, 0, 9, 4,
+                1, 0, 2, 4,
+                9, 0, 3, 1};
+
+        try {
+            matrix = new InvertibleMatrix(new Matrix(SIZE, ELEMENTS));
+        } catch (MatrixException e) {
+            throw e;
+        } catch (Exception e) {
+            fail();
+        }
     }
 }
