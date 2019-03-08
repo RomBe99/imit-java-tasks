@@ -1,5 +1,6 @@
 package ru.omsu.imit.javatasks.matrices;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.testng.Assert.fail;
@@ -22,5 +23,11 @@ public class InvertibleMatrixTest {
         } catch (Exception e) {
             fail();
         }
+    }
+
+    @Ignore
+    public void reciprocalMatrixTest() {
+        final int SIZE;
+        final double[] ELEMENTS;
     }
 }
