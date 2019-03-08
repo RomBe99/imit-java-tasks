@@ -27,7 +27,13 @@ public class InvertibleMatrixTest {
 
     @Ignore
     public void reciprocalMatrixTest() {
-        final int SIZE;
-        final double[] ELEMENTS;
+        final int SIZE = 1;
+        final double[] ELEMENTS = new double[]{1};
+
+        try {
+            matrix = new InvertibleMatrix(new Matrix(SIZE, ELEMENTS));
+        } catch (MatrixException e) {
+            e.printStackTrace();
+        }
     }
 }
