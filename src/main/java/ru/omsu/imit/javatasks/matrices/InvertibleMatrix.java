@@ -4,10 +4,6 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     private Matrix matrix;
 
     public InvertibleMatrix(final Matrix matrix) throws MatrixException {
-        if (matrix.getRows() != matrix.getColumns()) {
-            throw new MatrixException("Matrix is not square");
-        }
-
         setMatrix(matrix);
     }
 
@@ -32,6 +28,10 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     public void setMatrix(final Matrix matrix) throws MatrixException {
+        if (matrix.getRows() != matrix.getColumns()) {
+            throw new MatrixException("Matrix is not square");
+        }
+
         if (!matrix.isDeterminantIsCorrect() || matrix.getDeterminant() == 0) {
             throw new MatrixException("incorrect determinant");
         }
