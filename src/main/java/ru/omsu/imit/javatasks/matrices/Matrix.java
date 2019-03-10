@@ -7,7 +7,7 @@ public class Matrix implements IMatrix {
     private double determinant;
     private boolean determinantIsCorrect = false;
 
-    private Matrix(final int rows, final int columns) throws MatrixException {
+    public Matrix(final int rows, final int columns) throws MatrixException {
         this(rows, columns, new double[rows * columns]);
     }
 
@@ -15,7 +15,7 @@ public class Matrix implements IMatrix {
         this(rowsAndColumns, rowsAndColumns);
     }
 
-    private Matrix(final int rows, final int columns, final double[] elements) throws MatrixException {
+    public Matrix(final int rows, final int columns, final double[] elements) throws MatrixException {
         if (rows * columns != elements.length) {
             throw new MatrixException("Incorrect rows or columns");
         }
