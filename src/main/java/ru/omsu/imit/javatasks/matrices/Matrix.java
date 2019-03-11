@@ -160,7 +160,11 @@ public class Matrix implements IMatrix {
         return elements;
     }
 
-    public double getDeterminant() {
+    public double getDeterminant() throws MatrixException {
+        if (!determinantIsCorrect) {
+            throw new MatrixException("Determinant not calculated");
+        }
+
         return determinant;
     }
 
