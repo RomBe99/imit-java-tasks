@@ -9,7 +9,18 @@ public class InvertibleMatrix implements IInvertibleMatrix {
 
     @Override
     public IInvertibleMatrix reciprocalMatrix() throws MatrixException {
-        return new InvertibleMatrix(null);
+        final int SIZE = matrix.getRows();
+        Matrix reciprocalMatrix = new Matrix(SIZE);
+
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                reciprocalMatrix.setMatrixElem(i, j, matrix.getMinor(i, j).calculateDeterminant());
+            }
+        }
+
+        reciprocalMatrix.calculateDeterminant();
+
+        return new InvertibleMatrix(reciprocalMatrix);
     }
 
     @Override
@@ -54,13 +65,13 @@ public class InvertibleMatrix implements IInvertibleMatrix {
         return matrix.getMatrixElem(i);
     }
 
-    public Matrix getMatrix() {
-        return matrix;
-    }
-
     @Override
     public double[] getElements() {
         return matrix.getElements();
+    }
+
+    public Matrix getMatrix() {
+        return matrix;
     }
 
     @Override
