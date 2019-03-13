@@ -44,6 +44,14 @@ public class Matrix implements IMatrix {
             return determinant;
         }
 
+        if (rows == 1) {
+            return elements[0];
+        }
+
+        if (rows == 2) {
+            return elements[0] * elements[2] - (elements[1] * elements[3]);
+        }
+
         Matrix matrixCopy = new Matrix(this);
         final int SIZE = matrixCopy.getRows();
         boolean sign = false;
