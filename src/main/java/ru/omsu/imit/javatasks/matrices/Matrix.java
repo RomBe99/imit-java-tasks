@@ -176,6 +176,11 @@ public class Matrix implements IMatrix {
         return determinant;
     }
 
+    @Override
+    public IMatrix getMinor(int i, int j) {
+        return null;
+    }
+
     public boolean isDeterminantIsCorrect() {
         return determinantIsCorrect;
     }

@@ -9,31 +9,7 @@ public class InvertibleMatrix implements IInvertibleMatrix {
 
     @Override
     public IInvertibleMatrix reciprocalMatrix() throws MatrixException {
-        Matrix tempMatrix = new Matrix(matrix.getRows(), 2 * matrix.getColumns());
-        final int ROWS = matrix.getRows();
-        final int COLUMNS = tempMatrix.getColumns();
-
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLUMNS; j++) {
-                tempMatrix.setMatrixElem(i, j, matrix.getMatrixElem(i, j));
-            }
-
-            tempMatrix.setMatrixElem(i, ROWS + i, 1);
-        }
-
-        Matrix reciprocalMatrix = new Matrix(ROWS);
-
-        // TODO Реализовать поиск обратной матрицы
-
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < ROWS; j++) {
-                reciprocalMatrix.setMatrixElem(i, j, tempMatrix.getMatrixElem(i, ROWS + j));
-            }
-        }
-
-        reciprocalMatrix.calculateDeterminant();
-
-        return new InvertibleMatrix(reciprocalMatrix);
+        return new InvertibleMatrix(null);
     }
 
     @Override
@@ -80,5 +56,10 @@ public class InvertibleMatrix implements IInvertibleMatrix {
 
     public Matrix getMatrix() {
         return matrix;
+    }
+
+    @Override
+    public IMatrix getMinor(int i, int j) {
+        return matrix.getMinor(i, j);
     }
 }
