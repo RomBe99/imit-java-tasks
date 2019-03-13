@@ -164,6 +164,7 @@ public class Matrix implements IMatrix {
         return elements[i];
     }
 
+    @Override
     public double[] getElements() {
         return elements;
     }
@@ -197,6 +198,8 @@ public class Matrix implements IMatrix {
 
                 minor.setMatrixElem((overI ? k - 1 : k), (overJ ? l - 1 : l), this.getMatrixElem(k, l));
             }
+
+            overJ = false;
         }
 
         return minor;
