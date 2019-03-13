@@ -177,8 +177,29 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public IMatrix getMinor(int i, int j) {
-        return null;
+    public IMatrix getMinor(final int i, final int j) throws MatrixException {
+        final int ROWS_AND_COLUMNS = rows;
+        boolean overI = false;
+        boolean overJ = false;
+        Matrix minor = new Matrix(ROWS_AND_COLUMNS - 1);
+
+        for (int k = 0; k < ROWS_AND_COLUMNS; k++) {
+            if (k == i) {
+                overI = true;
+                continue;
+            }
+
+            for (int l = 0; l < ROWS_AND_COLUMNS; l++) {
+                if (l == j) {
+                    overJ = true;
+                    continue;
+                }
+
+                minor.setMatrixElem((overI ? k - 1 : k), (overJ ? l - 1 : l), this.getMatrixElem(k, l));
+            }
+        }
+
+        return minor;
     }
 
     public boolean isDeterminantIsCorrect() {

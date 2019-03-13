@@ -59,7 +59,7 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     @Override
-    public IMatrix getMinor(int i, int j) {
+    public IMatrix getMinor(final int i, final int j) throws MatrixException {
         return matrix.getMinor(i, j);
     }
 }
