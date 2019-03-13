@@ -59,6 +59,11 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     @Override
+    public double[] getElements() {
+        return matrix.getElements();
+    }
+
+    @Override
     public IMatrix getMinor(final int i, final int j) throws MatrixException {
         return matrix.getMinor(i, j);
     }
