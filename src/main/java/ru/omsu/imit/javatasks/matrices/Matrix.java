@@ -49,7 +49,7 @@ public class Matrix implements IMatrix {
         }
 
         if (rows == 2) {
-            return elements[0] * elements[2] - (elements[1] * elements[3]);
+            return elements[0] * elements[3] - (elements[1] * elements[2]);
         }
 
         Matrix matrixCopy = new Matrix(this);
