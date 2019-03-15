@@ -78,6 +78,11 @@ public class InvertibleMatrix implements IInvertibleMatrix {
         return matrix.getMatrixElem(i);
     }
 
+    @Override
+    public double[] getElements() {
+        return matrix.getElements();
+    }
+
     public Matrix getMatrix() {
         return matrix;
     }

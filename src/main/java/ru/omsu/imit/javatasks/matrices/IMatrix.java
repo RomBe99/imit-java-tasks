@@ -7,4 +7,5 @@ public interface IMatrix {
     double getMatrixElem(final int i) throws MatrixException;
     int getRows();
     int getColumns();
+    double[] getElements();
 }

@@ -156,6 +156,7 @@ public class Matrix implements IMatrix {
         return elements[i];
     }
 
+    @Override
     public double[] getElements() {
         return elements;
     }
