@@ -129,7 +129,10 @@ public class Matrix implements IMatrix {
         }
 
         elements[i] = value;
-        determinantIsCorrect = false;
+
+        if (determinantIsCorrect) {
+            determinantIsCorrect = false;
+        }
     }
 
     private void setRows(final int rows) {
