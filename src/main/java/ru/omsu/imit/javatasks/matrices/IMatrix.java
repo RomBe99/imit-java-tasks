@@ -8,4 +8,5 @@ public interface IMatrix {
     int getRows();
     int getColumns();
     double[] getElements();
+    IMatrix getMinor(final int i, final int j) throws MatrixException;
 }

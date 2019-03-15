@@ -44,6 +44,14 @@ public class Matrix implements IMatrix {
             return determinant;
         }
 
+        if (rows == 1) {
+            return elements[0];
+        }
+
+        if (rows == 2) {
+            return elements[0] * elements[2] - (elements[1] * elements[3]);
+        }
+
         Matrix matrixCopy = new Matrix(this);
         final int SIZE = matrixCopy.getRows();
         boolean sign = false;
@@ -161,8 +169,40 @@ public class Matrix implements IMatrix {
         return elements;
     }
 
-    public double getDeterminant() {
+    public double getDeterminant() throws MatrixException {
+        if (!determinantIsCorrect) {
+            throw new MatrixException("Determinant not calculated");
+        }
+
         return determinant;
+    }
+
+    @Override
+    public IMatrix getMinor(final int i, final int j) throws MatrixException {
+        final int ROWS_AND_COLUMNS = rows;
+        boolean overI = false;
+        boolean overJ = false;
+        Matrix minor = new Matrix(ROWS_AND_COLUMNS - 1);
+
+        for (int k = 0; k < ROWS_AND_COLUMNS; k++) {
+            if (k == i) {
+                overI = true;
+                continue;
+            }
+
+            for (int l = 0; l < ROWS_AND_COLUMNS; l++) {
+                if (l == j) {
+                    overJ = true;
+                    continue;
+                }
+
+                minor.setMatrixElem((overI ? k - 1 : k), (overJ ? l - 1 : l), this.getMatrixElem(k, l));
+            }
+
+            overJ = false;
+        }
+
+        return minor;
     }
 
     public boolean isDeterminantIsCorrect() {

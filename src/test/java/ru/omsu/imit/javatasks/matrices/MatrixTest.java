@@ -57,4 +57,27 @@ public class MatrixTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void matrixMinorTest() {
+        final int ROW = 0;
+        final int COLUMN = 1;
+
+        final double[] MINOR_ELEMENTS = new double[]{8, 9, 4,
+                1, 2, 4,
+                9, 3, 1};
+
+        final int MATRIX_SIZE = 4;
+        final double[] MATRIX_ELEMENTS = new double[]{7, 3, 5, 6,
+                8, 2, 9, 4,
+                1, 5, 2, 4,
+                9, 0, 3, 1};
+
+        try {
+            matrix = new Matrix(MATRIX_SIZE, MATRIX_ELEMENTS);
+            Assert.assertArrayEquals(MINOR_ELEMENTS, matrix.getMinor(ROW, COLUMN).getElements(), DELTA);
+        } catch (MatrixException e) {
+            e.printStackTrace();
+        }
+    }
 }
