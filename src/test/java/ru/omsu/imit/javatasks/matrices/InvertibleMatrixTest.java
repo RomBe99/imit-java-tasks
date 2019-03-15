@@ -1,12 +1,13 @@
 package ru.omsu.imit.javatasks.matrices;
 
-import org.junit.Ignore;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.testng.Assert.fail;
 
 public class InvertibleMatrixTest {
-    private InvertibleMatrix matrix;
+    private InvertibleMatrix invertibleMatrix;
+    private double DELTA = 0.0001;
 
     @Test (expected = MatrixException.class)
     public void constructorWithZeroDeterminantMatrixTest() throws MatrixException {
@@ -17,7 +18,7 @@ public class InvertibleMatrixTest {
                 9, 0, 3, 1};
 
         try {
-            matrix = new InvertibleMatrix(new Matrix(SIZE, ELEMENTS));
+            invertibleMatrix = new InvertibleMatrix(new Matrix(SIZE, ELEMENTS));
         } catch (MatrixException e) {
             throw e;
         } catch (Exception e) {
@@ -25,13 +26,25 @@ public class InvertibleMatrixTest {
         }
     }
 
-    @Ignore
+    // Implement test for reciprocalMatrix
+    @Test
     public void reciprocalMatrixTest() {
-        final int SIZE = 1;
-        final double[] ELEMENTS = new double[]{1};
+        final int SIZE = 3;
+        final double[] ELEMENTS = new double[]{2, 5, 7,
+                                               6, 3, 4,
+                                               5, -2, -3};
+
+        final double[] RECIPROCAL_ELEMENTS = new double[]{1, -1, 1,
+                -38, 41, -34,
+                27, -29, 24};
 
         try {
-            matrix = new InvertibleMatrix(new Matrix(SIZE, ELEMENTS));
+            final Matrix tempMatrix = new Matrix(SIZE, ELEMENTS);
+            tempMatrix.calculateDeterminant();
+
+            invertibleMatrix = new InvertibleMatrix(tempMatrix);
+
+            Assert.assertArrayEquals(RECIPROCAL_ELEMENTS, invertibleMatrix.reciprocalMatrix().getElements(), DELTA);
         } catch (MatrixException e) {
             e.printStackTrace();
         }
