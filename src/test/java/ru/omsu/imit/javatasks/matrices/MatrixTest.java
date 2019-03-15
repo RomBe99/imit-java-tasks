@@ -19,6 +19,7 @@ public class MatrixTest {
         try {
             matrix = new Matrix(SIZE, ELEMENTS);
             Assert.assertEquals(DET, matrix.calculateDeterminant(), DELTA);
+            Assert.assertArrayEquals(ELEMENTS, matrix.getElements(), DELTA);
         } catch (MatrixException e) {
             e.printStackTrace();
         }
@@ -36,6 +37,7 @@ public class MatrixTest {
         try {
             matrix = new Matrix(SIZE, ELEMENTS);
             Assert.assertEquals(DET, matrix.calculateDeterminant(), DELTA);
+            Assert.assertArrayEquals(ELEMENTS, matrix.getElements(), DELTA);
         } catch (MatrixException e) {
             e.printStackTrace();
         }
@@ -53,6 +55,7 @@ public class MatrixTest {
         try {
             matrix = new Matrix(SIZE, ELEMENTS);
             Assert.assertEquals(DET, matrix.calculateDeterminant(), DELTA);
+            Assert.assertArrayEquals(ELEMENTS, matrix.getElements(), DELTA);
         } catch (MatrixException e) {
             e.printStackTrace();
         }
