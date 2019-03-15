@@ -32,7 +32,7 @@ public class Matrix implements IMatrix {
     public Matrix(final Matrix matrixForCopy) throws MatrixException {
         setRows(matrixForCopy.rows);
         setColumns(matrixForCopy.columns);
-        setElements(matrixForCopy.elements);
+        setElements(matrixForCopy.elements.clone());
 
         this.determinant = matrixForCopy.determinant;
         this.determinantIsCorrect = matrixForCopy.determinantIsCorrect;
@@ -111,7 +111,10 @@ public class Matrix implements IMatrix {
         }
 
         elements[i * columns + j] = value;
-        determinantIsCorrect = false;
+
+        if (determinantIsCorrect) {
+            determinantIsCorrect = false;
+        }
     }
 
     @Override
