@@ -26,7 +26,6 @@ public class InvertibleMatrixTest {
         }
     }
 
-    // Implement test for reciprocalMatrix
     @Test
     public void reciprocalMatrixTest() {
         final int SIZE = 3;
