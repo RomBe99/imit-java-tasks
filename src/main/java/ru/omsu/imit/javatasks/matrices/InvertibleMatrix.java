@@ -8,8 +8,8 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     @Override
-    public IInvertibleMatrix reciprocalMatrix() throws MatrixException {
-        final int SIZE = matrix.getRows();
+    public InvertibleMatrix reciprocalMatrix() throws MatrixException {
+        final int SIZE = matrix.getSize();
         Matrix reciprocalMatrix = new Matrix(SIZE);
 
         for (int i = 0; i < SIZE; i++) {
@@ -48,8 +48,13 @@ public class InvertibleMatrix implements IInvertibleMatrix {
         return matrix.getMatrixElem(i, j);
     }
 
+    @Override
+    public Matrix getMinor(final int i, final int j) throws MatrixException {
+        return matrix.getMinor(i, j);
+    }
+
     public void setMatrix(final Matrix matrix) throws MatrixException {
-        if (matrix.getRows() != matrix.getColumns()) {
+        if (matrix.getSize() != matrix.getSize()) {
             throw new MatrixException("Matrix is not square");
         }
 
@@ -60,32 +65,7 @@ public class InvertibleMatrix implements IInvertibleMatrix {
         this.matrix = matrix;
     }
 
-    @Override
-    public int getRows() {
-        return matrix.getRows();
-    }
-
-    @Override
-    public int getColumns() {
-        return matrix.getColumns();
-    }
-
-    @Override
-    public double getMatrixElem(final int i) throws MatrixException {
-        return matrix.getMatrixElem(i);
-    }
-
-    @Override
     public double[] getElements() {
         return matrix.getElements();
-    }
-
-    public Matrix getMatrix() {
-        return matrix;
-    }
-
-    @Override
-    public IMatrix getMinor(final int i, final int j) throws MatrixException {
-        return matrix.getMinor(i, j);
     }
 }

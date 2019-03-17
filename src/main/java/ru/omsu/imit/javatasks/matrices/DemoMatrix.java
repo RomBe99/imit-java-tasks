@@ -2,7 +2,7 @@ package ru.omsu.imit.javatasks.matrices;
 
 public class DemoMatrix {
     public static double sumAllMatrixElements(final Matrix matrix) throws MatrixException {
-        final int MATRIX_SIZE = matrix.getColumns() * matrix.getColumns();
+        final int MATRIX_SIZE = matrix.getSize() * matrix.getSize();
         int sum = 0;
 
         for (int i = 0; i < MATRIX_SIZE; i++) {
@@ -15,7 +15,7 @@ public class DemoMatrix {
     public static String matrixToTable(final Matrix matrix) throws MatrixException {
         StringBuilder sb = new StringBuilder();
 
-        final int COLUMNS = matrix.getColumns();
+        final int COLUMNS = matrix.getSize();
         final int ROWS = matrix.getSize();
 
         for (int i = 0; i < COLUMNS; i++) {
