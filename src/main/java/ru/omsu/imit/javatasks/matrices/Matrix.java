@@ -53,8 +53,8 @@ public class Matrix implements IMatrix {
         }
 
         if (rows == 3) {
-            return elements[0] * elements[5] * elements[9] + elements[3] * elements[4] * elements[8] + elements[1] * elements[6] * elements[7]
-                    - (elements[3] * elements[5] * elements[7] + elements[1] * elements[4] * elements[8] + elements[0] * elements[6] * elements[8]);
+            return elements[0] * elements[4] * elements[8] + elements[1] * elements[5] * elements[6] + elements[2] * elements[3] * elements[7]
+                    - (elements[2] * elements[4] * elements[6] + elements[1] * elements[3] * elements[8] + elements[0] * elements[5] * elements[7]);
         }
 
         Matrix matrixCopy = new Matrix(this);
