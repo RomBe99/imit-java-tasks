@@ -83,4 +83,10 @@ public class MatrixTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void test() throws MatrixException {
+        Matrix m = new Matrix(3, new double[]{1,2,3, 0,0,5, 0, 0, 7});
+        Assert.assertEquals(0.0, m.calculateDeterminant(), DELTA);
+    }
 }
