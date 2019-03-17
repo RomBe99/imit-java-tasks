@@ -11,12 +11,20 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     public IInvertibleMatrix reciprocalMatrix() throws MatrixException {
         final int SIZE = matrix.getRows();
         Matrix reciprocalMatrix = new Matrix(SIZE);
-        boolean sign = false;
 
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                reciprocalMatrix.setMatrixElem(i, j, (sign ? matrix.getMinor(i, j).calculateDeterminant() : -matrix.getMinor(i, j).calculateDeterminant()));
-                sign = !sign;
+                reciprocalMatrix.setMatrixElem(i, j, matrix.getMinor(i, j).calculateDeterminant());
+            }
+        }
+
+        double temp;
+
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = i + 1; j < SIZE - 1; j++) {
+                temp = reciprocalMatrix.getMatrixElem(i, j);
+                reciprocalMatrix.setMatrixElem(i, j, reciprocalMatrix.getMatrixElem(j, i));
+                reciprocalMatrix.setMatrixElem(j, i, temp);
             }
         }
 
