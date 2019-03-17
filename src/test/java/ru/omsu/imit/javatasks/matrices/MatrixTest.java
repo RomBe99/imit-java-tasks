@@ -3,8 +3,6 @@ package ru.omsu.imit.javatasks.matrices;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.testng.Assert.fail;
-
 public class MatrixTest {
     private Matrix matrix;
     private final double DELTA = 0.0001;
@@ -14,9 +12,9 @@ public class MatrixTest {
         final double DET = 0;
         final int SIZE = 4;
         final double[] ELEMENTS = new double[]{7, 0, 5, 6,
-                8, 0, 9, 4,
-                1, 0, 2, 4,
-                9, 0, 3, 1};
+                                               8, 0, 9, 4,
+                                               1, 0, 2, 4,
+                                               9, 0, 3, 1};
 
         matrix = new Matrix(SIZE, ELEMENTS);
         Assert.assertEquals(DET, matrix.calculateDeterminant(), DELTA);
@@ -27,9 +25,9 @@ public class MatrixTest {
         final double DET = 0;
         final int SIZE = 4;
         final double[] ELEMENTS = new double[]{0, 0, 0, 0,
-                8, 3, 9, 4,
-                1, 2, 2, 4,
-                9, 5, 3, 1};
+                                               8, 3, 9, 4,
+                                               1, 2, 2, 4,
+                                               9, 5, 3, 1};
 
         matrix = new Matrix(SIZE, ELEMENTS);
         Assert.assertEquals(DET, matrix.calculateDeterminant(), DELTA);
@@ -48,13 +46,26 @@ public class MatrixTest {
     }
 
     @Test
+    public void calculateDeterminantTestWithZeros4() throws MatrixException {
+        final double DET = 0;
+        final int SIZE = 4;
+        final double[] ELEMENTS = new double[]{7, 3, 5, 6,
+                                               8, 0, 9, 4,
+                                               0, 0, 2, 4,
+                                               0, 0, 3, 1};
+
+        matrix = new Matrix(SIZE, ELEMENTS);
+        Assert.assertEquals(DET, matrix.calculateDeterminant(), DELTA);
+    }
+
+    @Test
     public void calculateDeterminantTest() throws MatrixException {
         final double DET = 620;
         final int SIZE = 4;
         final double[] ELEMENTS = new double[]{7, 3, 5, 6,
-                8, 2, 9, 4,
-                1, 5, 2, 4,
-                9, 0, 3, 1};
+                                               8, 2, 9, 4,
+                                               1, 5, 2, 4,
+                                               9, 0, 3, 1};
 
         matrix = new Matrix(SIZE, ELEMENTS);
         Assert.assertEquals(DET, matrix.calculateDeterminant(), DELTA);
@@ -66,14 +77,14 @@ public class MatrixTest {
         final int COLUMN = 1;
 
         final double[] MINOR_ELEMENTS = new double[]{8, 9, 4,
-                1, 2, 4,
-                9, 3, 1};
+                                                     1, 2, 4,
+                                                     9, 3, 1};
 
         final int MATRIX_SIZE = 4;
         final double[] MATRIX_ELEMENTS = new double[]{7, 3, 5, 6,
-                8, 2, 9, 4,
-                1, 5, 2, 4,
-                9, 0, 3, 1};
+                                                      8, 2, 9, 4,
+                                                      1, 5, 2, 4,
+                                                      9, 0, 3, 1};
 
         matrix = new Matrix(MATRIX_SIZE, MATRIX_ELEMENTS);
         Assert.assertArrayEquals(MINOR_ELEMENTS, matrix.getMinor(ROW, COLUMN).getElements(), DELTA);
