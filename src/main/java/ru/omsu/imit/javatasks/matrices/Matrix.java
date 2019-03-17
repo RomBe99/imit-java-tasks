@@ -52,6 +52,11 @@ public class Matrix implements IMatrix {
             return elements[0] * elements[3] - (elements[1] * elements[2]);
         }
 
+        if (rows == 3) {
+            return elements[0] * elements[5] * elements[9] + elements[3] * elements[4] * elements[8] + elements[1] * elements[6] * elements[7]
+                    - (elements[3] * elements[5] * elements[7] + elements[1] * elements[4] * elements[8] + elements[0] * elements[6] * elements[8]);
+        }
+
         Matrix matrixCopy = new Matrix(this);
         final int SIZE = matrixCopy.getRows();
         boolean sign = false;
