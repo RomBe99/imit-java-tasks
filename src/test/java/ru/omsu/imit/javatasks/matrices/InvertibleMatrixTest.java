@@ -27,7 +27,23 @@ public class InvertibleMatrixTest {
     }
 
     @Test
-    public void reciprocalMatrixTest() throws MatrixException {
+    public void reciprocalMatrixTest1() throws MatrixException {
+        final int SIZE = 2;
+        final double[] ELEMENTS = new double[]{1, 0,
+                                               0, 1};
+
+        final double[] RECIPROCAL_ELEMENTS = new double[]{1, 0,
+                                                          0, 1};
+
+        final Matrix tempMatrix = new Matrix(SIZE, ELEMENTS);
+        tempMatrix.calculateDeterminant();
+
+        invertibleMatrix = new InvertibleMatrix(tempMatrix);
+        Assert.assertArrayEquals(RECIPROCAL_ELEMENTS, invertibleMatrix.reciprocalMatrix().getElements(), DELTA);
+    }
+
+    @Test
+    public void reciprocalMatrixTest2() throws MatrixException {
         final int SIZE = 3;
         final double[] ELEMENTS = new double[]{2, 5, 7,
                                                6, 3, 4,
@@ -41,7 +57,6 @@ public class InvertibleMatrixTest {
         tempMatrix.calculateDeterminant();
 
         invertibleMatrix = new InvertibleMatrix(tempMatrix);
-
         Assert.assertArrayEquals(RECIPROCAL_ELEMENTS, invertibleMatrix.reciprocalMatrix().getElements(), DELTA);
     }
 }
