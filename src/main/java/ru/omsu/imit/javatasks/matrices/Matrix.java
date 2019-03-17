@@ -34,16 +34,23 @@ public class Matrix implements IMatrix {
         }
 
         if (size == 1) {
-            return elements[0];
+            determinantIsCorrect = true;
+            determinant = elements[0];
+            return determinant;
         }
 
         if (size == 2) {
-            return elements[0] * elements[3] - (elements[1] * elements[2]);
+            determinantIsCorrect = true;
+            determinant =  elements[0] * elements[3] - (elements[1] * elements[2]);
+            return determinant;
         }
 
         if (size == 3) {
-            return elements[0] * elements[4] * elements[8] + elements[1] * elements[5] * elements[6] + elements[2] * elements[3] * elements[7]
+            determinantIsCorrect = true;
+            determinant =  elements[0] * elements[4] * elements[8] + elements[1] * elements[5] * elements[6] + elements[2] * elements[3] * elements[7]
                     - (elements[2] * elements[4] * elements[6] + elements[1] * elements[3] * elements[8] + elements[0] * elements[5] * elements[7]);
+
+            return determinant;
         }
 
         Matrix matrixCopy = new Matrix(this);
