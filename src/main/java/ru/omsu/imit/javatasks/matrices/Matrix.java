@@ -1,37 +1,26 @@
 package ru.omsu.imit.javatasks.matrices;
 
 public class Matrix implements IMatrix {
-    private int rows;
-    private int columns;
+    private int size;
     private double[] elements;
     private double determinant;
     private boolean determinantIsCorrect = false;
 
-    public Matrix(final int rows, final int columns) throws MatrixException {
-        this(rows, columns, new double[rows * columns]);
+    public Matrix(final int size) throws MatrixException {
+        this(size, new double[size * size]);
     }
 
-    public Matrix(final int rowsAndColumns) throws MatrixException {
-        this(rowsAndColumns, rowsAndColumns);
-    }
-
-    public Matrix(final int rows, final int columns, final double[] elements) throws MatrixException {
-        if (rows * columns != elements.length) {
-            throw new MatrixException("Incorrect rows or columns");
+    public Matrix(final int size, final double[] elements) throws MatrixException {
+        if (size * size != elements.length) {
+            throw new MatrixException("Incorrect size or columns");
         }
 
-        setRows(rows);
-        setColumns(columns);
+        setSize(size);
         setElements(elements);
     }
 
-    public Matrix(final int rowsAndColumns, final double[] elements) throws MatrixException {
-        this(rowsAndColumns, rowsAndColumns, elements);
-    }
-
     public Matrix(final Matrix matrixForCopy) throws MatrixException {
-        setRows(matrixForCopy.rows);
-        setColumns(matrixForCopy.columns);
+        setSize(matrixForCopy.size);
         setElements(matrixForCopy.elements.clone());
 
         this.determinant = matrixForCopy.determinant;
@@ -44,21 +33,21 @@ public class Matrix implements IMatrix {
             return determinant;
         }
 
-        if (rows == 1) {
+        if (size == 1) {
             return elements[0];
         }
 
-        if (rows == 2) {
+        if (size == 2) {
             return elements[0] * elements[3] - (elements[1] * elements[2]);
         }
 
-        if (rows == 3) {
+        if (size == 3) {
             return elements[0] * elements[4] * elements[8] + elements[1] * elements[5] * elements[6] + elements[2] * elements[3] * elements[7]
                     - (elements[2] * elements[4] * elements[6] + elements[1] * elements[3] * elements[8] + elements[0] * elements[5] * elements[7]);
         }
 
         Matrix matrixCopy = new Matrix(this);
-        final int SIZE = matrixCopy.getRows();
+        final int SIZE = matrixCopy.getSize();
         boolean sign = false;
         double temp;
         double temp2;
@@ -115,7 +104,7 @@ public class Matrix implements IMatrix {
             throw new MatrixException("Incorrect index");
         }
 
-        elements[i * columns + j] = value;
+        elements[i * size + j] = value;
 
         if (determinantIsCorrect) {
             determinantIsCorrect = false;
@@ -128,7 +117,7 @@ public class Matrix implements IMatrix {
             throw new MatrixException("Incorrect index");
         }
 
-        return elements[i * columns + j];
+        return elements[i * size + j];
     }
 
     public void setMatrixElem(final int i, final double value) throws MatrixException {
@@ -143,12 +132,8 @@ public class Matrix implements IMatrix {
         }
     }
 
-    private void setRows(final int rows) {
-        this.rows = rows;
-    }
-
-    private void setColumns(final int columns) {
-        this.columns = columns;
+    private void setSize(final int size) {
+        this.size = size;
     }
 
     private void setElements(double[] elements) throws MatrixException {
@@ -159,12 +144,8 @@ public class Matrix implements IMatrix {
         this.elements = elements;
     }
 
-    public int getRows() {
-        return rows;
-    }
-
-    public int getColumns() {
-        return columns;
+    public int getSize() {
+        return size;
     }
 
     public double getMatrixElem(final int i) throws MatrixException {
@@ -175,7 +156,6 @@ public class Matrix implements IMatrix {
         return elements[i];
     }
 
-    @Override
     public double[] getElements() {
         return elements;
     }
@@ -185,19 +165,19 @@ public class Matrix implements IMatrix {
     }
 
     @Override
-    public IMatrix getMinor(final int i, final int j) throws MatrixException {
-        final int ROWS_AND_COLUMNS = rows;
+    public Matrix getMinor(final int i, final int j) throws MatrixException {
+        final int SIZE = size;
         boolean overI = false;
         boolean overJ = false;
-        Matrix minor = new Matrix(ROWS_AND_COLUMNS - 1);
+        Matrix minor = new Matrix(SIZE - 1);
 
-        for (int k = 0; k < ROWS_AND_COLUMNS; k++) {
+        for (int k = 0; k < SIZE; k++) {
             if (k == i) {
                 overI = true;
                 continue;
             }
 
-            for (int l = 0; l < ROWS_AND_COLUMNS; l++) {
+            for (int l = 0; l < SIZE; l++) {
                 if (l == j) {
                     overJ = true;
                     continue;
