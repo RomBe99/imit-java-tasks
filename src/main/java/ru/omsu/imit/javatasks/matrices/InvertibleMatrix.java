@@ -11,17 +11,23 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     public InvertibleMatrix reciprocalMatrix() throws MatrixException {
         final int SIZE = matrix.getSize();
         Matrix reciprocalMatrix = new Matrix(SIZE);
+        boolean sign = false;
 
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                reciprocalMatrix.setMatrixElem(i, j, matrix.getMinor(i, j).calculateDeterminant());
+                reciprocalMatrix.setMatrixElem(i, j, (sign ? -matrix.getMinor(i, j).calculateDeterminant() : matrix.getMinor(i, j).calculateDeterminant()));
+                sign = !sign;
+            }
+
+            if (SIZE == 2) {
+                sign = true;
             }
         }
 
         double temp;
 
         for (int i = 0; i < SIZE; i++) {
-            for (int j = i + 1; j < SIZE - 1; j++) {
+            for (int j = i + 1; j < SIZE; j++) {
                 temp = reciprocalMatrix.getMatrixElem(i, j);
                 reciprocalMatrix.setMatrixElem(i, j, reciprocalMatrix.getMatrixElem(j, i));
                 reciprocalMatrix.setMatrixElem(j, i, temp);
@@ -67,5 +73,9 @@ public class InvertibleMatrix implements IInvertibleMatrix {
 
     public double[] getElements() {
         return matrix.getElements();
+    }
+
+    public Matrix getMatrix() {
+        return matrix;
     }
 }
