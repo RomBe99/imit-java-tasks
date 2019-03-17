@@ -1,7 +1,7 @@
 package ru.omsu.imit.javatasks.matrices;
 
 public class DemoMatrix {
-    public static double sumAllMatrixElements(final IMatrix matrix) throws MatrixException {
+    public static double sumAllMatrixElements(final Matrix matrix) throws MatrixException {
         final int MATRIX_SIZE = matrix.getColumns() * matrix.getColumns();
         int sum = 0;
 
@@ -12,11 +12,11 @@ public class DemoMatrix {
         return sum;
     }
 
-    public static String matrixToTable(final IMatrix matrix) throws MatrixException {
+    public static String matrixToTable(final Matrix matrix) throws MatrixException {
         StringBuilder sb = new StringBuilder();
 
         final int COLUMNS = matrix.getColumns();
-        final int ROWS = matrix.getRows();
+        final int ROWS = matrix.getSize();
 
         for (int i = 0; i < COLUMNS; i++) {
             for (int j = 0; j < ROWS; j++) {
