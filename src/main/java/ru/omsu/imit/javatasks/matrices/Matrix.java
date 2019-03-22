@@ -27,7 +27,6 @@ public class Matrix implements IMatrix {
         this.determinantIsCorrect = matrixForCopy.determinantIsCorrect;
     }
 
-    // TODO Починить поиск определителя
     @Override
     public double calculateDeterminant() throws MatrixException {
         if (determinantIsCorrect) {
