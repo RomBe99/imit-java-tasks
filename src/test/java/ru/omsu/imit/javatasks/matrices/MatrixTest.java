@@ -50,7 +50,7 @@ public class MatrixTest {
         final double DET = 0;
         final int SIZE = 4;
         final double[] ELEMENTS = new double[]{7, 3, 5, 6,
-                                               8, 0, 9, 4,
+                                               0, 0, 9, 4,
                                                0, 0, 2, 4,
                                                0, 0, 3, 1};
 
