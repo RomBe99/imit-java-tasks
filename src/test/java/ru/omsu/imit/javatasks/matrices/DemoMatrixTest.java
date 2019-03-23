@@ -19,23 +19,6 @@ public class DemoMatrixTest {
     }
 
     @Test
-    public void matrixToTableTest() {
-        final boolean RESULT;
-        final String EXCEPTED = "7.0 3.0 5.0 6.0\n" +
-                "8.0 2.0 9.0 4.0\n" +
-                "1.0 5.0 2.0 4.0\n" +
-                "9.0 0.0 3.0 1.0\n";
-
-        try {
-            RESULT = DemoMatrix.matrixToTable(matrix).equals(EXCEPTED);
-
-            Assert.assertTrue(RESULT);
-        } catch (MatrixException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
     public void sumAllMatrixElementsTest() {
         final double ELEM_SUM = 69;
         final double DELTA = 0.0001;
