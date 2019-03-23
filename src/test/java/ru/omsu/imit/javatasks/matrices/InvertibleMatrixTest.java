@@ -7,7 +7,6 @@ import static org.testng.Assert.fail;
 
 public class InvertibleMatrixTest {
     private InvertibleMatrix invertibleMatrix;
-    private double DELTA = 0.0001;
 
     @Test(expected = MatrixException.class)
     public void constructorWithZeroDeterminantMatrixTest() throws MatrixException {
@@ -32,14 +31,14 @@ public class InvertibleMatrixTest {
         final double[] ELEMENTS = new double[]{1, 0,
                                                0, 1};
 
-        final double[] RECIPROCAL_ELEMENTS = new double[]{1, 0,
-                                                          0, 1};
-
         final Matrix tempMatrix = new Matrix(SIZE, ELEMENTS);
         tempMatrix.calculateDeterminant();
 
         invertibleMatrix = new InvertibleMatrix(tempMatrix);
-        Assert.assertArrayEquals(RECIPROCAL_ELEMENTS, invertibleMatrix.reciprocalMatrix().getElements(), DELTA);
+        InvertibleMatrix inverted  = (InvertibleMatrix) invertibleMatrix.reciprocalMatrix();
+        InvertibleMatrix iinverted  = (InvertibleMatrix) inverted.reciprocalMatrix();
+
+        Assert.assertEquals(invertibleMatrix, iinverted);
     }
 
     @Test
@@ -49,14 +48,13 @@ public class InvertibleMatrixTest {
                                                6, 3, 4,
                                                5, -2, -3};
 
-        final double[] RECIPROCAL_ELEMENTS = new double[]{-1, 1, -1,
-                                                          38, -41, 34,
-                                                          -27, 29, -24};
-
         final Matrix tempMatrix = new Matrix(SIZE, ELEMENTS);
         tempMatrix.calculateDeterminant();
 
         invertibleMatrix = new InvertibleMatrix(tempMatrix);
-        Assert.assertArrayEquals(RECIPROCAL_ELEMENTS, invertibleMatrix.reciprocalMatrix().getElements(), DELTA);
+        InvertibleMatrix inverted  = (InvertibleMatrix) invertibleMatrix.reciprocalMatrix();
+        InvertibleMatrix iinverted  = (InvertibleMatrix) inverted.reciprocalMatrix();
+
+        Assert.assertEquals(invertibleMatrix, iinverted);
     }
 }
