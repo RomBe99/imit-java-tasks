@@ -1,5 +1,8 @@
 package ru.omsu.imit.javatasks.matrices;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Matrix implements IMatrix {
     private int size;
     private double[] elements;
@@ -21,13 +24,12 @@ public class Matrix implements IMatrix {
 
     public Matrix(final Matrix matrixForCopy) throws MatrixException {
         setSize(matrixForCopy.size);
-        setElements(matrixForCopy.elements.clone());
+        setElements(matrixForCopy.elements);
 
         this.determinant = matrixForCopy.determinant;
         this.determinantIsCorrect = matrixForCopy.determinantIsCorrect;
     }
 
-    // TODO Починить поиск определителя
     @Override
     public double calculateDeterminant() throws MatrixException {
         if (determinantIsCorrect) {
@@ -108,7 +110,7 @@ public class Matrix implements IMatrix {
 
     @Override
     public void setMatrixElem(final int i, final int j, final double value) throws MatrixException {
-        if (elements.length <= i || elements.length <= j) {
+        if (size <= i || size <= j) {
             throw new MatrixException("Incorrect index");
         }
 
@@ -149,7 +151,7 @@ public class Matrix implements IMatrix {
             throw new MatrixException(new NullPointerException().toString());
         }
 
-        this.elements = elements;
+        this.elements = elements.clone();
     }
 
     public int getSize() {
@@ -202,5 +204,36 @@ public class Matrix implements IMatrix {
 
     public boolean isDeterminantIsCorrect() {
         return determinantIsCorrect;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                try {
+                    sb.append(this.getMatrixElem(i, j)).append(j + 1 < size ? " " : "\n");
+                } catch (MatrixException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Matrix matrix = (Matrix) o;
+        return size == matrix.size && Arrays.equals(elements, matrix.elements);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size);
+        result = 31 * result + Arrays.hashCode(elements);
+        return result;
     }
 }
