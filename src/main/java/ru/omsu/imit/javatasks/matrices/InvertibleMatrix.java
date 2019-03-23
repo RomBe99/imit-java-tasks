@@ -1,5 +1,7 @@
 package ru.omsu.imit.javatasks.matrices;
 
+import java.util.Objects;
+
 public class InvertibleMatrix implements IInvertibleMatrix {
     private Matrix matrix;
 
@@ -8,19 +10,13 @@ public class InvertibleMatrix implements IInvertibleMatrix {
     }
 
     @Override
-    public InvertibleMatrix reciprocalMatrix() throws MatrixException {
+    public IInvertibleMatrix reciprocalMatrix() throws MatrixException {
         final int SIZE = matrix.getSize();
         Matrix reciprocalMatrix = new Matrix(SIZE);
-        boolean sign = false;
 
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                reciprocalMatrix.setMatrixElem(i, j, (sign ? -matrix.getMinor(i, j).calculateDeterminant() : matrix.getMinor(i, j).calculateDeterminant()));
-                sign = !sign;
-            }
-
-            if (SIZE == 2) {
-                sign = true;
+                reciprocalMatrix.setMatrixElem(i, j, -matrix.getMinor(i, j).calculateDeterminant());
             }
         }
 
@@ -73,5 +69,23 @@ public class InvertibleMatrix implements IInvertibleMatrix {
 
     public Matrix getMatrix() {
         return matrix;
+    }
+
+    @Override
+    public String toString() {
+        return matrix.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InvertibleMatrix that = (InvertibleMatrix) o;
+        return Objects.equals(matrix, that.matrix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(matrix);
     }
 }
