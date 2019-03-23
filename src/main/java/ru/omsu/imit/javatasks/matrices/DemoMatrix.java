@@ -11,19 +11,4 @@ public class DemoMatrix {
 
         return sum;
     }
-
-    public static String matrixToTable(final Matrix matrix) throws MatrixException {
-        StringBuilder sb = new StringBuilder();
-
-        final int COLUMNS = matrix.getSize();
-        final int ROWS = matrix.getSize();
-
-        for (int i = 0; i < COLUMNS; i++) {
-            for (int j = 0; j < ROWS; j++) {
-                sb.append(matrix.getMatrixElem(i, j)).append(j + 1 < ROWS ? " " : "\n");
-            }
-        }
-
-        return sb.toString();
-    }
 }
