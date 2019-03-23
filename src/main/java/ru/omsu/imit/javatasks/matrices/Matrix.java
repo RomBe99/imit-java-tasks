@@ -71,7 +71,7 @@ public class Matrix implements IMatrix {
             if (temp == 0) {
                 temp2 = temp;
 
-                for (int j = i; j < SIZE; j++) {
+                for (int j = 0; j < SIZE; j++) {
                     if (temp2 >= matrixCopy.getMatrixElem(j, i)) {
                         temp2 = matrixCopy.getMatrixElem(j, i);
                         maxIndex = j;
