@@ -14,11 +14,11 @@ public class DemoMatrix {
         return sum;
     }
 
-    public static String matrixSurrealization(final Matrix matrix) {
+    public static String matrixSerialize(final Matrix matrix) {
         return new Gson().toJson(matrix);
     }
 
-    public static Matrix matrixDesurrealization(final String gsonMatrix) {
+    public static Matrix matrixDeserialize(final String gsonMatrix) {
         return new Gson().fromJson(gsonMatrix, Matrix.class);
     }
 }
