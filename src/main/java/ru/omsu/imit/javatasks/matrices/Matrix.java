@@ -1,9 +1,13 @@
 package ru.omsu.imit.javatasks.matrices;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Matrix implements IMatrix {
+public class Matrix implements IMatrix, Serializable {
     private int size;
     private double[] elements;
     private double determinant;
@@ -204,6 +208,14 @@ public class Matrix implements IMatrix {
 
     public boolean isDeterminantIsCorrect() {
         return determinantIsCorrect;
+    }
+
+    public void serialize(final ObjectOutputStream oos) throws IOException {
+        oos.writeObject(this);
+    }
+
+    public Matrix deserialize(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        return (Matrix) ois.readObject();
     }
 
     @Override
