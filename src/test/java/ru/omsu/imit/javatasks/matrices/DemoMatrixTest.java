@@ -31,4 +31,11 @@ public class DemoMatrixTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void matrixSerializeAndDeerializeTest() {
+        final Matrix DESERIALIZED_MATRIX = DemoMatrix.matrixDeserialize(DemoMatrix.matrixSerialize(matrix));
+
+        Assert.assertEquals(matrix, DESERIALIZED_MATRIX);
+    }
 }
