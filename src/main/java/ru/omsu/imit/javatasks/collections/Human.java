@@ -7,21 +7,21 @@ public class Human {
     private String name;
     private String patronymic;
 
-    public Human(String surname, String name, String patronymic) {
+    public Human(final String surname, final String name, final String patronymic) {
         setSurname(surname);
         setName(name);
         setPatronymic(patronymic);
     }
 
-    public void setSurname(String surname) {
+    public void setSurname(final String surname) {
         this.surname = surname;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public void setPatronymic(String patronymic) {
+    public void setPatronymic(final String patronymic) {
         this.patronymic = patronymic;
     }
 
