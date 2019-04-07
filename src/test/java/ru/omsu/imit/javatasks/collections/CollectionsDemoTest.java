@@ -3,15 +3,15 @@ package ru.omsu.imit.javatasks.collections;
 import org.junit.Before;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CollectionsDemoTest {
     private ArrayList<String> stringArrayList;
 
     @Before
     public void setUp() {
-        final int ARRAY_LIST_SIZE = 10;
+        final String[] STRINGS = {"John", "Ken", "Oscar", "Jasmine", "Olivia", "Ollie", "Kai", "Victoria", "Jessica", "Oliver"};
 
-        stringArrayList = new ArrayList<>(ARRAY_LIST_SIZE);
-
+        stringArrayList = new ArrayList<>(Arrays.asList(STRINGS));
     }
 }
