@@ -20,11 +20,30 @@ public class CollectionsDemo {
         ArrayList<Human> namesakesList = new ArrayList<>();
 
         for (Human human : listForSearch) {
-            if (human.getSurname().equals(surname)) {
+            if (surname.equals(human.getSurname())) {
                 namesakesList.add(human);
             }
         }
 
         return namesakesList;
+    }
+
+    public static ArrayList<Human> deleteHumanFromList(final List<Human> listForDeleteHuman, final Human humanForDelete) {
+        if (!listForDeleteHuman.contains(humanForDelete)) {
+            return new ArrayList<>(listForDeleteHuman);
+        }
+
+        final int SIZE = listForDeleteHuman.size();
+
+        ArrayList<Human> newList = new ArrayList<>(listForDeleteHuman);
+
+        for (int i = 0; i < SIZE; i++) {
+            if (humanForDelete.equals(listForDeleteHuman.get(i))) {
+                newList.remove(i);
+                break;
+            }
+        }
+
+        return newList;
     }
 }
