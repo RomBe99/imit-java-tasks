@@ -61,4 +61,7 @@ public class CollectionsDemoTest {
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
+    // TODO Сделать тесты для findNamesakesFromList
+
+    // TODO Сделать тесты для deleteHumnaFromList
 }
