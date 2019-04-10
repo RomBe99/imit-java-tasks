@@ -207,4 +207,8 @@ public class CollectionsDemoTest {
     }
 
     // TODO Сделать тесты для listAllDisjointSets
+
+    // TODO Сделать тесты для maxAge
+
+    // TODO Сделать тесты для humanFilter
 }
