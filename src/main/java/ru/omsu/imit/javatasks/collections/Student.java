@@ -5,8 +5,9 @@ import java.util.Objects;
 public class Student extends Human {
     private String facultyName;
 
-    public Student(final String surname, final String name, final String patronymic, final String facultyName) {
-        super(surname, name, patronymic);
+    public Student(final String surname, final String name, final String patronymic, final int age, final String facultyName) {
+        super(surname, name, patronymic, age);
+
         setFacultyName(facultyName);
     }
 
