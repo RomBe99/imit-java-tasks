@@ -1,6 +1,7 @@
 package ru.omsu.imit.javatasks.collections;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -58,5 +59,29 @@ public class CollectionsDemo {
         }
 
         return newList;
+    }
+
+    public static HashSet<Human> maxAge(final List<Human> humanList) {
+        HashSet<Human> humansWithMaxAge = new HashSet<>();
+        int maxAge = 0;
+        int temp;
+
+        for (Human h : humanList) {
+            temp = h.getAge();
+
+            if (temp >= maxAge) {
+                maxAge = temp;
+            }
+        }
+
+        for (Human h : humanList) {
+            temp = h.getAge();
+
+            if (temp == maxAge) {
+                humansWithMaxAge.add(h);
+            }
+        }
+
+        return humansWithMaxAge;
     }
 }
