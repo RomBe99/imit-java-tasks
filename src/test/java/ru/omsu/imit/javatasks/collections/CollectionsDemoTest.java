@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CollectionsDemoTest {
+    private final String TEST_NAME = "Ivan";
+    private final String TEST_PATRONYMIC = "Ivanovich";
+    private final int TEST_AGE = 20;
+
     @Test
     public void numberLinesStartingPerCharacterTest1() {
         final String[] NAMES = {"John", "Ken", "Oscar", "Jasmine", "Olivia", "Ollie", "Kai", "Victoria", "Jessica", "Oliver"};
@@ -64,18 +68,16 @@ public class CollectionsDemoTest {
 
     @Test
     public void findNamesakesFromListTest1() {
-        final String TEST_SURNAME = "Vsileev";
-        final String TEST_NAME = "Ivan";
-        final String TEST_PATRONYMIC = "Ivanovich";
+        final String SURNAME = "Vsileev";
 
-        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), TEST_SURNAME);
+        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), SURNAME);
         final ArrayList<Human> EXPECTED = new ArrayList<>();
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -83,20 +85,18 @@ public class CollectionsDemoTest {
 
     @Test
     public void findNamesakesFromListTest2() {
-        final String TEST_SURNAME = "Shumov";
-        final String TEST_NAME = "Ivan";
-        final String TEST_PATRONYMIC = "Ivanovich";
+        final String SURNAME = "Shumov";
 
-        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final Human[] HUMANS_EXPECTED = {new Human("Shumov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS_EXPECTED = {new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), TEST_SURNAME);
+        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), SURNAME);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -104,21 +104,19 @@ public class CollectionsDemoTest {
 
     @Test
     public void findNamesakesFromListTest3() {
-        final String TEST_SURNAME = "Dubov";
-        final String TEST_NAME = "Ivan";
-        final String TEST_PATRONYMIC = "Ivanovich";
+        final String SURNAME = "Dubov";
 
-        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final Human[] HUMANS_EXPECTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS_EXPECTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), TEST_SURNAME);
+        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), SURNAME);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -126,22 +124,20 @@ public class CollectionsDemoTest {
 
     @Test
     public void findNamesakesFromListTest4() {
-        final String TEST_SURNAME = "Andreev";
-        final String TEST_NAME = "Ivan";
-        final String TEST_PATRONYMIC = "Ivanovich";
+        final String SURNAME = "Andreev";
 
-        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final Human[] HUMANS_EXPECTED = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS_EXPECTED = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), TEST_SURNAME);
+        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<>(Arrays.asList(HUMANS)), SURNAME);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -149,22 +145,20 @@ public class CollectionsDemoTest {
 
     @Test
     public void deleteHumanFromListTest1() {
-        final String TEST_NAME = "Ivan";
-        final String TEST_PATRONYMIC = "Ivanovich";
-        final Human HUMAN_FOR_DELETE = new Human("Shumov", TEST_NAME, TEST_PATRONYMIC);
+        final Human HUMAN_FOR_DELETE = new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final Human[] HUMANS_EXPECTED = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS_EXPECTED = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
         final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(new ArrayList<>(Arrays.asList(HUMANS)), HUMAN_FOR_DELETE);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
@@ -174,22 +168,20 @@ public class CollectionsDemoTest {
 
     @Test
     public void deleteHumanFromListTest2() {
-        final String TEST_NAME = "Ivan";
-        final String TEST_PATRONYMIC = "Ivanovich";
-        final Human HUMAN_FOR_DELETE = new Human("Andreev", TEST_NAME, TEST_PATRONYMIC);
+        final Human HUMAN_FOR_DELETE = new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final Human[] HUMANS_EXPECTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS_EXPECTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                         new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
         final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(new ArrayList<>(Arrays.asList(HUMANS)), HUMAN_FOR_DELETE);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
@@ -199,20 +191,20 @@ public class CollectionsDemoTest {
 
     @Test
     public void deleteHumanFromListTest3() {
-        final String TEST_NAME = "Ivan";
-        final String TEST_PATRONYMIC = "Ivanovich";
-        final Human HUMAN_FOR_DELETE = new Human("Borisov", TEST_NAME, TEST_PATRONYMIC);
+        final Human HUMAN_FOR_DELETE = new Human("Borisov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC),
-                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC)};
+        final Human[] HUMANS = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+                                new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
         final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(new ArrayList<>(Arrays.asList(HUMANS)), HUMAN_FOR_DELETE);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
+
+    // TODO Сделать тесты для listAllDisjointSets
 }
