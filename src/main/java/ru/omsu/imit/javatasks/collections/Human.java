@@ -6,11 +6,13 @@ public class Human {
     private String surname;
     private String name;
     private String patronymic;
+    private int age;
 
-    public Human(final String surname, final String name, final String patronymic) {
+    public Human(final String surname, final String name, final String patronymic, final int age) {
         setSurname(surname);
         setName(name);
         setPatronymic(patronymic);
+        setAge(age);
     }
 
     public void setSurname(final String surname) {
@@ -25,6 +27,10 @@ public class Human {
         this.patronymic = patronymic;
     }
 
+    public void setAge(final int age) {
+        this.age = age;
+    }
+
     public String getSurname() {
         return surname;
     }
@@ -37,19 +43,24 @@ public class Human {
         return patronymic;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return Objects.equals(surname, human.surname) &&
+        return age == human.age &&
+                Objects.equals(surname, human.surname) &&
                 Objects.equals(name, human.name) &&
                 Objects.equals(patronymic, human.patronymic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(surname, name, patronymic);
+        return Objects.hash(surname, name, patronymic, age);
     }
 
     @Override
@@ -58,6 +69,7 @@ public class Human {
                 "surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
+                ", age=" + age +
                 '}';
     }
 }
