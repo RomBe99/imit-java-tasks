@@ -1,9 +1,6 @@
 package ru.omsu.imit.javatasks.collections;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CollectionsDemo {
     public static int numberLinesStartingPerCharacter(final List<String> stringList, final char startChar) {
@@ -49,10 +46,10 @@ public class CollectionsDemo {
         return newList;
     }
 
-    public static ArrayList<Set> listAllDisjointSets(List<Set> setList, Set set) {
+    public static ArrayList<Set> listAllDisjointSets(List<Set<Integer>> setList, Set<Integer> set) {
         ArrayList<Set> newList = new ArrayList<>();
 
-        for (Set s : setList) {
+        for (Set<Integer> s : setList) {
             if (!s.retainAll(set)) {
                 newList.add(s);
             }
@@ -83,5 +80,21 @@ public class CollectionsDemo {
         }
 
         return humansWithMaxAge;
+    }
+
+    public static HashSet<Human> humanFilter(final Map<Integer, Human> mapForFiltering, final Set<Integer> filter) {
+        Set<Integer> temp = mapForFiltering.keySet();
+
+        if (!temp.retainAll(filter)) {
+            return null;
+        }
+
+        HashSet<Human> newHashSet = new HashSet<>();
+
+        for (Integer i : temp) {
+            newHashSet.add(mapForFiltering.get(i));
+        }
+
+        return newHashSet;
     }
 }
