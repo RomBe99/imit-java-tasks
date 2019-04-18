@@ -1,7 +1,6 @@
 package ru.omsu.imit.javatasks.collections;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
