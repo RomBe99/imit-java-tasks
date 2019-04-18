@@ -207,8 +207,30 @@ public class CollectionsDemoTest {
     }
 
     // TODO Сделать тесты для listAllDisjointSets
+    @Test
+    public void listAllDisjointSetsTest1() {
+    }
+
+    @Test
+    public void listAllDisjointSetsTest2() {
+
+    }
 
     // TODO Сделать тесты для maxAge
+    @Test
+    public void maxAgeTest1() {
+    }
+
+    @Test
+    public void maxAgeTest2() {
+    }
 
     // TODO Сделать тесты для humanFilter
+    @Test
+    public void humanFilter1() {
+    }
+
+    @Test
+    public void humanFilter2() {
+    }
 }
