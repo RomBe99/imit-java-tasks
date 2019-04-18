@@ -47,6 +47,10 @@ public class CollectionsDemo {
     }
 
     public static ArrayList<Set<Integer>> listAllDisjointSets(List<Set<Integer>> setList, Set<Integer> set) {
+        if (setList.size() == 0 || set.size() == 0) {
+            return null;
+        }
+
         ArrayList<Set<Integer>> newList = new ArrayList<>();
 
         for (Set<Integer> s : setList) {
