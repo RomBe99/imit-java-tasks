@@ -19,11 +19,16 @@ public class CollectionsDemo {
         return count;
     }
 
-    public static ArrayList<Human> findNamesakesFromList(final List<Human> listForSearch, final String surname) {
+    public static ArrayList<Human> findNamesakesFromList(final List<Human> listForSearch, final Human namesake) {
+        if (listForSearch.size() == 0) {
+            return new ArrayList<>(listForSearch);
+        }
+
+        final String NAMESAKE_SURNAME = namesake.getSurname();
         ArrayList<Human> namesakesList = new ArrayList<>();
 
         for (Human human : listForSearch) {
-            if (surname.equals(human.getSurname())) {
+            if (NAMESAKE_SURNAME.equals(human.getSurname())) {
                 namesakesList.add(human);
             }
         }
