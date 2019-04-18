@@ -19,6 +19,15 @@ public class DeleteHumanFromListTest {
             new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)));
 
     @Test
+    public void deleteHumanFromListTest0() {
+        final Human HUMAN_FOR_DELETE = new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
+
+        final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(new ArrayList<Human>(), HUMAN_FOR_DELETE);
+
+        Assert.assertEquals(new ArrayList<Human>(), ACTUAL);
+    }
+
+    @Test
     public void deleteHumanFromListTest1() {
         final Human HUMAN_FOR_DELETE = new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
