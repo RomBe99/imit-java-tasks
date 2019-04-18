@@ -67,6 +67,16 @@ public class CollectionsDemoTest {
     }
 
     @Test
+    public void numberLinesStartingPerCharacterTest6() {
+        final ArrayList<String> STRING_ARRAY_LIST = new ArrayList<>();
+        final int EXPECTED = 0;
+        final char START_CHAR = 'O';
+        final int ACTUAL = CollectionsDemo.numberLinesStartingPerCharacter(STRING_ARRAY_LIST, START_CHAR);
+
+        Assert.assertEquals(EXPECTED, ACTUAL);
+    }
+
+    @Test
     public void findNamesakesFromListTest1() {
         final String SURNAME = "Vsileev";
 
