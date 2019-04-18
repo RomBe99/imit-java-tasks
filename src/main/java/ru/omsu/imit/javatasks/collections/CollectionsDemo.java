@@ -37,6 +37,10 @@ public class CollectionsDemo {
     }
 
     public static ArrayList<Human> deleteHumanFromList(final List<Human> listForDeleteHuman, final Human humanForDelete) {
+        if (listForDeleteHuman.size() == 0) {
+            return new ArrayList<>();
+        }
+
         if (!listForDeleteHuman.contains(humanForDelete)) {
             return new ArrayList<>(listForDeleteHuman);
         }
