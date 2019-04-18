@@ -46,8 +46,8 @@ public class CollectionsDemo {
         return newList;
     }
 
-    public static ArrayList<Set> listAllDisjointSets(List<Set<Integer>> setList, Set<Integer> set) {
-        ArrayList<Set> newList = new ArrayList<>();
+    public static ArrayList<Set<Integer>> listAllDisjointSets(List<Set<Integer>> setList, Set<Integer> set) {
+        ArrayList<Set<Integer>> newList = new ArrayList<>();
 
         for (Set<Integer> s : setList) {
             if (!s.retainAll(set)) {
