@@ -4,6 +4,10 @@ import java.util.*;
 
 public class CollectionsDemo {
     public static int numberLinesStartingPerCharacter(final List<String> stringList, final char startChar) {
+        if (stringList.size() == 0) {
+            return 0;
+        }
+
         int count = 0;
 
         for (String string : stringList) {
