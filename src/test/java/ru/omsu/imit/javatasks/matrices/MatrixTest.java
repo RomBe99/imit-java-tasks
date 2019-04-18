@@ -3,6 +3,10 @@ package ru.omsu.imit.javatasks.matrices;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.*;
+
+import static org.testng.Assert.fail;
+
 public class MatrixTest {
     private Matrix matrix;
     private final double DELTA = 0.0001;
@@ -88,5 +92,33 @@ public class MatrixTest {
 
         matrix = new Matrix(MATRIX_SIZE, MATRIX_ELEMENTS);
         Assert.assertArrayEquals(MINOR_ELEMENTS, matrix.getMinor(ROW, COLUMN).getElements(), DELTA);
+    }
+
+    @Test
+    public void matrixSerializeAndDeserializeTest() throws MatrixException {
+        final int MATRIX_SIZE = 4;
+        final double[] MATRIX_ELEMENTS = new double[]{7, 3, 5, 6,
+                                                      8, 2, 9, 4,
+                                                      1, 5, 2, 4,
+                                                      9, 0, 3, 1};
+
+        matrix = new Matrix(MATRIX_SIZE, MATRIX_ELEMENTS);
+        final File TEMP_FILE = new File("matrixTest.out");
+
+        try (final ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(TEMP_FILE))) {
+            oos.writeObject(matrix);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (final ObjectInputStream ois = new ObjectInputStream(new FileInputStream(TEMP_FILE))) {
+            Assert.assertEquals(matrix, ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (!TEMP_FILE.delete()) {
+                fail();
+            }
+        }
     }
 }
