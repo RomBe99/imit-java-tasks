@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NumberLinesStartingPerCharacterTests {
+public class NumberLinesStartingPerCharacterTest {
     private final ArrayList<String> STRING_ARRAY_LIST = new ArrayList<>(Arrays.asList(
             "John", "Ken", "Oscar", "Jasmine", "Olivia", "Ollie", "Kai", "Victoria", "Jessica", "Oliver"));
 
