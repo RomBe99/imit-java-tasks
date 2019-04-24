@@ -114,4 +114,23 @@ public class CollectionsDemo {
 
         return newHashSet;
     }
+
+    public static ArrayList<Integer> humansMoreEighteensYearsOld(final Map<Integer, Human> humanMap) {
+        if (humanMap.isEmpty()) {
+            return null;
+        }
+
+        final int SIZE = humanMap.size();
+        final int AGE = 18;
+
+        ArrayList<Integer> keys = new ArrayList<>();
+
+        for (int i = 0; i < SIZE; i++) {
+            if (humanMap.get(i).getAge() >= AGE) {
+                keys.add(i);
+            }
+        }
+
+        return keys;
+    }
 }
