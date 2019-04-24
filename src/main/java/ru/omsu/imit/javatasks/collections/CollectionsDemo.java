@@ -147,4 +147,25 @@ public class CollectionsDemo {
 
         return newImage;
     }
+
+    public static HashMap<Integer, ArrayList<Human>> sortToAge(Set<Human> humans) {
+        if (humans.isEmpty()) {
+            return null;
+        }
+
+        HashMap<Integer, ArrayList<Human>> newImage = new HashMap<>();
+        int temp;
+
+        for (Human h : humans) {
+            temp = h.getAge();
+
+            if (!newImage.containsKey(temp)) {
+                newImage.put(temp, new ArrayList<Human>());
+            }
+
+            newImage.get(temp).add(h);
+        }
+
+        return newImage;
+    }
 }
