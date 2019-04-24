@@ -22,7 +22,8 @@ public class MaxAgeTest {
 
     @Test
     public void maxAgeTest0() {
-        HashSet<Human> excepted = new HashSet<>(1);
+        final int SIZE = 1;
+        HashSet<Human> excepted = new HashSet<>(SIZE);
         excepted.add(humans.get(0));
 
         final int NEW_AGE = 20;
