@@ -133,4 +133,18 @@ public class CollectionsDemo {
 
         return keys;
     }
+
+    public static HashMap<Integer, Integer> idToAge(final Map<Integer, Human> humanMap, final Set<Integer> filter) {
+        if (humanMap.isEmpty()) {
+            return null;
+        }
+
+        HashMap<Integer, Integer> newImage = new HashMap<>();
+
+        for (Integer i : filter) {
+            newImage.put(i, humanMap.get(i).getAge());
+        }
+
+        return newImage;
+    }
 }
