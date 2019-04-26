@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CollectionsDemo {
     public static int numberLinesStartingPerCharacter(final List<String> stringList, final char startChar) {
-        if (stringList.size() == 0) {
+        if (stringList.isEmpty()) {
             return 0;
         }
 
@@ -20,8 +20,8 @@ public class CollectionsDemo {
     }
 
     public static ArrayList<Human> findNamesakesFromList(final List<Human> listForSearch, final Human namesake) {
-        if (listForSearch.size() == 0) {
-            return new ArrayList<>(listForSearch);
+        if (listForSearch.isEmpty()) {
+            return null;
         }
 
         final String NAMESAKE_SURNAME = namesake.getSurname();
@@ -37,8 +37,8 @@ public class CollectionsDemo {
     }
 
     public static ArrayList<Human> deleteHumanFromList(final List<Human> listForDeleteHuman, final Human humanForDelete) {
-        if (listForDeleteHuman.size() == 0) {
-            return new ArrayList<>();
+        if (listForDeleteHuman.isEmpty()) {
+            return null;
         }
 
         if (!listForDeleteHuman.contains(humanForDelete)) {
@@ -60,7 +60,7 @@ public class CollectionsDemo {
     }
 
     public static ArrayList<Set<Integer>> listAllDisjointSets(List<Set<Integer>> setList, Set<Integer> set) {
-        if (setList.size() == 0 || set.size() == 0) {
+        if (setList.isEmpty() || set.isEmpty()) {
             return null;
         }
 
@@ -76,6 +76,10 @@ public class CollectionsDemo {
     }
 
     public static HashSet<Human> maxAge(final List<Human> humanList) {
+        if (humanList.isEmpty()) {
+            return null;
+        }
+
         HashSet<Human> humansWithMaxAge = new HashSet<>();
         int maxAge = 0;
         int temp;
@@ -100,9 +104,13 @@ public class CollectionsDemo {
     }
 
     public static HashSet<Human> humanFilter(final Map<Integer, Human> mapForFiltering, final Set<Integer> filter) {
+        if (mapForFiltering.isEmpty()) {
+            return null;
+        }
+
         Set<Integer> temp = mapForFiltering.keySet();
 
-        if (!temp.retainAll(filter)) {
+        if (temp.retainAll(filter)) {
             return null;
         }
 
