@@ -40,12 +40,14 @@ public class Matrix implements IMatrix, Serializable {
         if (size == 1) {
             determinantIsCorrect = true;
             determinant = elements[0];
+
             return determinant;
         }
 
         if (size == 2) {
             determinantIsCorrect = true;
             determinant =  elements[0] * elements[3] - (elements[1] * elements[2]);
+
             return determinant;
         }
 
