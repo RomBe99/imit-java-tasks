@@ -23,9 +23,8 @@ public class FindNamesakesFromListTest {
         final Human NAMESAKE = new Human("Vsileev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
         final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<Human>(), NAMESAKE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>();
 
-        Assert.assertEquals(EXPECTED, ACTUAL);
+        Assert.assertNull(ACTUAL);
     }
 
     @Test
