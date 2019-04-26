@@ -24,7 +24,7 @@ public class DeleteHumanFromListTest {
 
         final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(new ArrayList<Human>(), HUMAN_FOR_DELETE);
 
-        Assert.assertEquals(new ArrayList<Human>(), ACTUAL);
+        Assert.assertNull(ACTUAL);
     }
 
     @Test
