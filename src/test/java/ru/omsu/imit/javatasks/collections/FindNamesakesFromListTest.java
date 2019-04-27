@@ -11,7 +11,7 @@ public class FindNamesakesFromListTest {
     private final String TEST_NAME = "Ivan";
     private final String TEST_PATRONYMIC = "Ivanovich";
     private final int TEST_AGE = 20;
-    private final ArrayList<Human> HUMANS = new ArrayList<>(Arrays.asList(
+    private final List<Human> HUMANS = new ArrayList<>(Arrays.asList(
             new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
             new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
             new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
