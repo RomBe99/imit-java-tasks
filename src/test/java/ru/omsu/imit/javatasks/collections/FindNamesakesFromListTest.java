@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class FindNamesakesFromListTest {
     private final String TEST_NAME = "Ivan";
@@ -22,7 +23,7 @@ public class FindNamesakesFromListTest {
     public void findNamesakesFromListTest0() {
         final Human NAMESAKE = new Human("Vsileev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<Human>(), NAMESAKE);
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(new ArrayList<Human>(), NAMESAKE);
 
         Assert.assertNull(ACTUAL);
     }
@@ -31,7 +32,7 @@ public class FindNamesakesFromListTest {
     public void findNamesakesFromListTest1() {
         final Human NAMESAKE = new Human("Vsileev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final ArrayList<Human> EXPECTED = new ArrayList<>();
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -43,7 +44,7 @@ public class FindNamesakesFromListTest {
 
         final Human[] HUMANS_EXPECTED = {new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -56,7 +57,7 @@ public class FindNamesakesFromListTest {
         final Human[] HUMANS_EXPECTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -70,7 +71,7 @@ public class FindNamesakesFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -84,7 +85,7 @@ public class FindNamesakesFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
