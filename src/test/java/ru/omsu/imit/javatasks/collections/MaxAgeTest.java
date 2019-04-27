@@ -7,9 +7,11 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class MaxAgeTest {
-    private ArrayList<Human> humans;
+    private List<Human> humans;
 
     @Before
     public void setUp() {
@@ -32,7 +34,7 @@ public class MaxAgeTest {
         final int SIZE = 1;
         final int NEW_AGE = 20;
 
-        HashSet<Human> excepted = new HashSet<>(SIZE);
+        Set<Human> excepted = new HashSet<>(SIZE);
         excepted.add(humans.get(0));
 
         for (Human human : humans) {
@@ -47,7 +49,7 @@ public class MaxAgeTest {
         final int SIZE = 1;
         final int NEW_AGE = 30;
 
-        HashSet<Human> excepted = new HashSet<>(SIZE);
+        Set<Human> excepted = new HashSet<>(SIZE);
 
         humans.get(3).setAge(NEW_AGE);
         excepted.add(humans.get(3));
@@ -64,7 +66,7 @@ public class MaxAgeTest {
         final int NEW_AGE = 30;
         final int[] HUMAN_NUMBERS = {1, 3, 5};
 
-        HashSet<Human> excepted = new HashSet<>(SIZE);
+        Set<Human> excepted = new HashSet<>(SIZE);
 
         humans.get(HUMAN_NUMBERS[0]).setAge(NEW_AGE);
         humans.get(HUMAN_NUMBERS[1]).setAge(NEW_AGE);
