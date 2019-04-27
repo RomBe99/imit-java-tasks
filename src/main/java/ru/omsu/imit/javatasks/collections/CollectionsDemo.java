@@ -121,10 +121,23 @@ public class CollectionsDemo {
             return new HashSet<>(mapForFiltering.values());
         }
 
-        Set<Human> newHashSet = new HashSet<>();
         Set<Integer> mapForFilteringKeySet = mapForFiltering.keySet();
+        boolean isNotContains = true;
 
-        for (int i : mapForFilteringKeySet) {
+        for (int i : filter) {
+            if (mapForFilteringKeySet.contains(i)) {
+                isNotContains = false;
+                break;
+            }
+        }
+
+        if (isNotContains) {
+            return null;
+        }
+
+        Set<Human> newHashSet = new HashSet<>();
+
+        for (int i : filter) {
             newHashSet.add(mapForFiltering.get(i));
         }
 
