@@ -19,7 +19,7 @@ public class CollectionsDemo {
         return count;
     }
 
-    public static ArrayList<Human> findNamesakesFromList(final List<Human> listForSearch, final Human namesake) {
+    public static List<Human> findNamesakesFromList(final List<Human> listForSearch, final Human namesake) {
         if (listForSearch.isEmpty()) {
             return null;
         }
@@ -36,7 +36,7 @@ public class CollectionsDemo {
         return namesakesList;
     }
 
-    public static ArrayList<Human> deleteHumanFromList(final List<Human> listForDeleteHuman, final Human humanForDelete) {
+    public static List<Human> deleteHumanFromList(final List<Human> listForDeleteHuman, final Human humanForDelete) {
         if (listForDeleteHuman.isEmpty()) {
             return null;
         }
@@ -59,7 +59,7 @@ public class CollectionsDemo {
         return newList;
     }
 
-    public static ArrayList<Set<Integer>> listAllDisjointSets(List<Set<Integer>> setList, Set<Integer> set) {
+    public static List<Set<Integer>> listAllDisjointSets(final List<Set<Integer>> setList, final Set<Integer> set) {
         if (setList.isEmpty() || set.isEmpty()) {
             return null;
         }
@@ -75,7 +75,7 @@ public class CollectionsDemo {
         return newList;
     }
 
-    public static HashSet<Human> maxAge(final List<Human> humanList) {
+    public static Set<Human> maxAge(final List<Human> humanList) {
         if (humanList.isEmpty()) {
             return null;
         }
@@ -103,7 +103,7 @@ public class CollectionsDemo {
         return humansWithMaxAge;
     }
 
-    public static HashSet<Human> humanFilter(final Map<Integer, Human> mapForFiltering, final Set<Integer> filter) {
+    public static Set<Human> humanFilter(final Map<Integer, Human> mapForFiltering, final Set<Integer> filter) {
         if (mapForFiltering.isEmpty()) {
             return null;
         }
@@ -123,7 +123,7 @@ public class CollectionsDemo {
         return newHashSet;
     }
 
-    public static ArrayList<Integer> humansMoreEighteensYearsOld(final Map<Integer, Human> humanMap) {
+    public static List<Integer> humansMoreEighteensYearsOld(final Map<Integer, Human> humanMap) {
         if (humanMap.isEmpty()) {
             return null;
         }
@@ -142,7 +142,7 @@ public class CollectionsDemo {
         return keys;
     }
 
-    public static HashMap<Integer, Integer> idToAge(final Map<Integer, Human> humanMap, final Set<Integer> filter) {
+    public static Map<Integer, Integer> idToAge(final Map<Integer, Human> humanMap, final Set<Integer> filter) {
         if (humanMap.isEmpty()) {
             return null;
         }
@@ -156,7 +156,7 @@ public class CollectionsDemo {
         return newImage;
     }
 
-    public static HashMap<Integer, ArrayList<Human>> sortToAge(Set<Human> humans) {
+    public static Map<Integer, ArrayList<Human>> sortToAge(final Set<Human> humans) {
         if (humans.isEmpty()) {
             return null;
         }
