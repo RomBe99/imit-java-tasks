@@ -33,7 +33,7 @@ public class FindNamesakesFromListTest {
         final Human NAMESAKE = new Human("Vsileev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
         final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>();
+        final List<Human> EXPECTED = new ArrayList<>();
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
@@ -45,7 +45,7 @@ public class FindNamesakesFromListTest {
         final Human[] HUMANS_EXPECTED = {new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
         final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
@@ -58,7 +58,7 @@ public class FindNamesakesFromListTest {
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
         final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
@@ -72,7 +72,7 @@ public class FindNamesakesFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
         final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
@@ -86,7 +86,7 @@ public class FindNamesakesFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
         final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
