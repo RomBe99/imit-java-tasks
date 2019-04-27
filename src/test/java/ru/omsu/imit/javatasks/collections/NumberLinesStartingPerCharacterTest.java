@@ -5,14 +5,15 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class NumberLinesStartingPerCharacterTest {
-    private final ArrayList<String> STRING_ARRAY_LIST = new ArrayList<>(Arrays.asList(
+    private final List<String> STRING_ARRAY_LIST = new ArrayList<>(Arrays.asList(
             "John", "Ken", "Oscar", "Jasmine", "Olivia", "Ollie", "Kai", "Victoria", "Jessica", "Oliver"));
 
     @Test
     public void numberLinesStartingPerCharacterTest0() {
-        final ArrayList<String> STRING_ARRAY_LIST = new ArrayList<>();
+        final List<String> STRING_ARRAY_LIST = new ArrayList<>();
         final int EXPECTED = 0;
         final char START_CHAR = 'O';
         final int ACTUAL = CollectionsDemo.numberLinesStartingPerCharacter(STRING_ARRAY_LIST, START_CHAR);
