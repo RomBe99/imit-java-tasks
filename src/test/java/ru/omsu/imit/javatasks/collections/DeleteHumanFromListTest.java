@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DeleteHumanFromListTest {
     private final String TEST_NAME = "Ivan";
@@ -22,7 +23,7 @@ public class DeleteHumanFromListTest {
     public void deleteHumanFromListTest0() {
         final Human HUMAN_FOR_DELETE = new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(new ArrayList<Human>(), HUMAN_FOR_DELETE);
+        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(new ArrayList<Human>(), HUMAN_FOR_DELETE);
 
         Assert.assertNull(ACTUAL);
     }
@@ -37,8 +38,8 @@ public class DeleteHumanFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
+        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
@@ -53,8 +54,8 @@ public class DeleteHumanFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
-        final ArrayList<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
+        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
 
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
@@ -63,7 +64,7 @@ public class DeleteHumanFromListTest {
     public void deleteHumanFromListTest3() {
         final Human HUMAN_FOR_DELETE = new Human("Borisov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final ArrayList<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
+        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
 
         Assert.assertEquals(HUMANS, ACTUAL);
     }
