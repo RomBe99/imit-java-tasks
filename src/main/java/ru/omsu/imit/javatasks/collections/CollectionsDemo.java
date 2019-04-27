@@ -25,7 +25,7 @@ public class CollectionsDemo {
         }
 
         final String NAMESAKE_SURNAME = namesake.getSurname();
-        ArrayList<Human> namesakesList = new ArrayList<>();
+        List<Human> namesakesList = new ArrayList<>();
 
         for (Human human : listForSearch) {
             if (NAMESAKE_SURNAME.equals(human.getSurname())) {
@@ -47,7 +47,7 @@ public class CollectionsDemo {
 
         final int SIZE = listForDeleteHuman.size();
 
-        ArrayList<Human> newList = new ArrayList<>(listForDeleteHuman);
+        List<Human> newList = new ArrayList<>(listForDeleteHuman);
 
         for (int i = 0; i < SIZE; i++) {
             if (humanForDelete.equals(listForDeleteHuman.get(i))) {
@@ -64,7 +64,7 @@ public class CollectionsDemo {
             return null;
         }
 
-        ArrayList<Set<Integer>> newList = new ArrayList<>();
+        List<Set<Integer>> newList = new ArrayList<>();
         boolean isNotContains = true;
 
         for (Set<Integer> s : setList) {
@@ -88,7 +88,8 @@ public class CollectionsDemo {
             return null;
         }
 
-        HashSet<Human> humansWithMaxAge = new HashSet<>();
+        Set<Human> humansWithMaxAge = new HashSet<>();
+
         int maxAge = 0;
         int temp;
 
@@ -120,7 +121,7 @@ public class CollectionsDemo {
             return new HashSet<>(mapForFiltering.values());
         }
 
-        HashSet<Human> newHashSet = new HashSet<>();
+        Set<Human> newHashSet = new HashSet<>();
         Set<Integer> mapForFilteringKeySet = mapForFiltering.keySet();
 
         for (int i : mapForFilteringKeySet) {
@@ -138,7 +139,7 @@ public class CollectionsDemo {
         final int SIZE = humanMap.size();
         final int AGE = 18;
 
-        ArrayList<Integer> keys = new ArrayList<>();
+        List<Integer> keys = new ArrayList<>();
 
         for (int i = 0; i < SIZE; i++) {
             if (humanMap.get(i).getAge() >= AGE) {
@@ -154,7 +155,7 @@ public class CollectionsDemo {
             return null;
         }
 
-        HashMap<Integer, Integer> newImage = new HashMap<>();
+        Map<Integer, Integer> newImage = new HashMap<>();
 
         for (Integer i : filter) {
             newImage.put(i, humanMap.get(i).getAge());
@@ -163,12 +164,12 @@ public class CollectionsDemo {
         return newImage;
     }
 
-    public static Map<Integer, ArrayList<Human>> sortToAge(final Set<Human> humans) {
+    public static Map<Integer, List<Human>> sortToAge(final Set<Human> humans) {
         if (humans.isEmpty()) {
             return null;
         }
 
-        HashMap<Integer, ArrayList<Human>> newImage = new HashMap<>();
+        Map<Integer, List<Human>> newImage = new HashMap<>();
         int temp;
 
         for (Human h : humans) {
