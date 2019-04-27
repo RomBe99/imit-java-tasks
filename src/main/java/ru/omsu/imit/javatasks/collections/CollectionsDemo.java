@@ -65,9 +65,17 @@ public class CollectionsDemo {
         }
 
         ArrayList<Set<Integer>> newList = new ArrayList<>();
+        boolean isNotContains = true;
 
         for (Set<Integer> s : setList) {
-            if (!s.retainAll(set)) {
+            for (int i : s) {
+                if (set.contains(i)) {
+                    isNotContains = false;
+                    break;
+                }
+            }
+
+            if (isNotContains) {
                 newList.add(s);
             }
         }
