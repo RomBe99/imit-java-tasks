@@ -116,15 +116,14 @@ public class CollectionsDemo {
             return null;
         }
 
-        Set<Integer> temp = mapForFiltering.keySet();
-
-        if (temp.retainAll(filter)) {
-            return null;
+        if (filter.isEmpty()) {
+            return new HashSet<>(mapForFiltering.values());
         }
 
         HashSet<Human> newHashSet = new HashSet<>();
+        Set<Integer> mapForFilteringKeySet = mapForFiltering.keySet();
 
-        for (Integer i : temp) {
+        for (int i : mapForFilteringKeySet) {
             newHashSet.add(mapForFiltering.get(i));
         }
 
