@@ -167,14 +167,16 @@ public class CollectionsDemo {
             return null;
         }
 
-        if (filter.isEmpty()) {
-            return null;
-        }
-
         Map<Integer, Integer> newImage = new HashMap<>();
 
+        if (filter.isEmpty()) {
+            return newImage;
+        }
+
         for (Integer i : filter) {
-            newImage.put(i, humanMap.get(i).getAge());
+            if (humanMap.containsKey(i)) {
+                newImage.put(i, humanMap.get(i).getAge());
+            }
         }
 
         return newImage;
