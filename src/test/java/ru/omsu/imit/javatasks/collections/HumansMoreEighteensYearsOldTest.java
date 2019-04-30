@@ -133,7 +133,7 @@ public class HumansMoreEighteensYearsOldTest {
     public void humansMoreEighteensYearsOldTest7() {
         final int[] KEYS = {0, 1, 2, 3, 4, 5};
         final int[] AGES = {18, 54, 21, 22, 19, 60};
-        final int EXPECTED_LIST_SIZE = 5;
+        final int EXPECTED_LIST_SIZE = 6;
 
         final List<Integer> EXPECTED = new ArrayList<>(EXPECTED_LIST_SIZE);
         EXPECTED.add(KEYS[0]);
