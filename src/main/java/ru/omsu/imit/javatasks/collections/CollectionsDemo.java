@@ -149,14 +149,13 @@ public class CollectionsDemo {
             return null;
         }
 
-        final int SIZE = humanMap.size();
         final int AGE = 18;
 
         List<Integer> keys = new ArrayList<>();
 
-        for (int i = 0; i < SIZE; i++) {
-            if (humanMap.get(i).getAge() >= AGE) {
-                keys.add(i);
+        for (Map.Entry<Integer, Human> e : humanMap.entrySet()) {
+            if (e.getValue().getAge() >= AGE) {
+                keys.add(e.getKey());
             }
         }
 
