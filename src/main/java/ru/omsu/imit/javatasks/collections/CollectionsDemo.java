@@ -167,6 +167,10 @@ public class CollectionsDemo {
             return null;
         }
 
+        if (filter.isEmpty()) {
+            return null;
+        }
+
         Map<Integer, Integer> newImage = new HashMap<>();
 
         for (Integer i : filter) {
