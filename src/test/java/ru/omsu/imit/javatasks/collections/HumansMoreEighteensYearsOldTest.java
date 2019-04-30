@@ -13,7 +13,7 @@ public class HumansMoreEighteensYearsOldTest {
     private final String TEST_SURNAME = "Ivanov";
     private final String TEST_NAME = "Ivan";
     private final String TEST_PATRONYMIC = "Ivanovich";
-    private final int SIZE = 6;
+    private final int HASH_MAP_SIZE = 6;
 
     @Test
     public void humansMoreEighteensYearsOldTest0() {
@@ -24,7 +24,7 @@ public class HumansMoreEighteensYearsOldTest {
 
     @Test
     public void humansMoreEighteensYearsOldTest1() {
-        humanHashMapForTest = new HashMap<>(SIZE);
+        humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
 
         Assert.assertNull(CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest));
     }
@@ -37,7 +37,7 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> EXPECTED = new ArrayList<>();
 
-        humanHashMapForTest = new HashMap<>(SIZE);
+        humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
         humanHashMapForTest.put(KEYS[0], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[0]));
         humanHashMapForTest.put(KEYS[1], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[1]));
         humanHashMapForTest.put(KEYS[2], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[2]));
@@ -61,7 +61,7 @@ public class HumansMoreEighteensYearsOldTest {
         EXPECTED.add(KEYS[1]);
         EXPECTED.add(KEYS[2]);
 
-        humanHashMapForTest = new HashMap<>(SIZE);
+        humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
         humanHashMapForTest.put(KEYS[0], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[0]));
         humanHashMapForTest.put(KEYS[1], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[1]));
         humanHashMapForTest.put(KEYS[2], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[2]));
@@ -86,7 +86,7 @@ public class HumansMoreEighteensYearsOldTest {
         EXPECTED.add(KEYS[1]);
         EXPECTED.add(KEYS[2]);
 
-        humanHashMapForTest = new HashMap<>(SIZE);
+        humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
         humanHashMapForTest.put(KEYS[0], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[0]));
         humanHashMapForTest.put(KEYS[1], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[1]));
         humanHashMapForTest.put(KEYS[2], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[2]));
@@ -108,9 +108,9 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> EXPECTED = new ArrayList<>();
 
-        humanHashMapForTest = new HashMap<>(SIZE);
+        humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
 
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < HASH_MAP_SIZE; i++) {
             humanHashMapForTest.put(KEYS[i], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[i]));
         }
 
@@ -136,9 +136,9 @@ public class HumansMoreEighteensYearsOldTest {
         EXPECTED.add(KEYS[4]);
         EXPECTED.add(KEYS[5]);
 
-        humanHashMapForTest = new HashMap<>(SIZE);
+        humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
 
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < HASH_MAP_SIZE; i++) {
             humanHashMapForTest.put(KEYS[i], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[i]));
         }
 
@@ -163,9 +163,9 @@ public class HumansMoreEighteensYearsOldTest {
             EXPECTED.add(KEYS[i]);
         }
 
-        humanHashMapForTest = new HashMap<>(SIZE);
+        humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
 
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < HASH_MAP_SIZE; i++) {
             humanHashMapForTest.put(KEYS[i], new Human(TEST_SURNAME, TEST_NAME, TEST_PATRONYMIC, AGES[i]));
         }
 
