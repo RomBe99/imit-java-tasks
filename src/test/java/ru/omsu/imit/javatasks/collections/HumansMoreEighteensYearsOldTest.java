@@ -33,6 +33,7 @@ public class HumansMoreEighteensYearsOldTest {
     public void humansMoreEighteensYearsOldTest2() {
         final int[] KEYS = {2, 3, 4};
         final int[] AGES = {16, 15, 9};
+        final int EXPECTED_LIST_SIZE = 0;
 
         final List<Integer> EXPECTED = new ArrayList<>();
 
@@ -43,6 +44,10 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
 
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -63,6 +68,10 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
 
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -84,6 +93,10 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
 
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -91,6 +104,7 @@ public class HumansMoreEighteensYearsOldTest {
     public void humansMoreEighteensYearsOldTest5() {
         final int[] KEYS = {0, 1, 2, 3, 4, 5};
         final int[] AGES = {13, 15, 9, 2, 1, 6};
+        final int EXPECTED_LIST_SIZE = 0;
 
         final List<Integer> EXPECTED = new ArrayList<>();
 
@@ -102,6 +116,10 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
 
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -126,6 +144,10 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
 
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -136,12 +158,10 @@ public class HumansMoreEighteensYearsOldTest {
         final int EXPECTED_LIST_SIZE = 6;
 
         final List<Integer> EXPECTED = new ArrayList<>(EXPECTED_LIST_SIZE);
-        EXPECTED.add(KEYS[0]);
-        EXPECTED.add(KEYS[1]);
-        EXPECTED.add(KEYS[2]);
-        EXPECTED.add(KEYS[3]);
-        EXPECTED.add(KEYS[4]);
-        EXPECTED.add(KEYS[5]);
+
+        for (int i = 0; i < EXPECTED_LIST_SIZE; i++) {
+            EXPECTED.add(KEYS[i]);
+        }
 
         humanHashMapForTest = new HashMap<>(SIZE);
 
@@ -151,6 +171,10 @@ public class HumansMoreEighteensYearsOldTest {
 
         final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
 
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 }
