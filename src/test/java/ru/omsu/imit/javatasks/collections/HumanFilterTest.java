@@ -11,6 +11,7 @@ import java.util.Set;
 
 public class HumanFilterTest {
     private Map<Integer, Human> humanHashMapForTest;
+    private Set<Integer> filterForTest;
 
     @Before
     public void setUp() {
@@ -30,7 +31,7 @@ public class HumanFilterTest {
     public void humanFilterTest0() {
         final int FILTER_SIZE = 1;
 
-        Set<Integer> filterForTest = new HashSet<>(FILTER_SIZE);
+        filterForTest = new HashSet<>(FILTER_SIZE);
         filterForTest.add(12);
 
         final Set<Human> ACTUAL = CollectionsDemo.humanFilter(new HashMap<Integer, Human>(), filterForTest);
@@ -43,9 +44,10 @@ public class HumanFilterTest {
         final int FILTER_SIZE = 2;
         final int[] FILTER_VALUES = {12, 52};
 
-        Set<Integer> filterForTest = new HashSet<>(FILTER_SIZE);
-        filterForTest.add(FILTER_VALUES[0]);
-        filterForTest.add(FILTER_VALUES[1]);
+        filterForTest = new HashSet<>(FILTER_SIZE);
+        for (int i : FILTER_VALUES) {
+            filterForTest.add(i);
+        }
 
         final Set<Human> ACTUAL = CollectionsDemo.humanFilter(new HashMap<Integer, Human>(), filterForTest);
 
@@ -54,56 +56,82 @@ public class HumanFilterTest {
 
     @Test
     public void humanFilterTest2() {
-        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, new HashSet<Integer>());
         final Set<Human> EXCEPTED = new HashSet<>(humanHashMapForTest.values());
+        final int EXCEPTED_SET_SIZE = EXCEPTED.size();
+        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, new HashSet<Integer>());
 
+        assert ACTUAL != null;
+        final int ACTUAL_SET_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_SET_SIZE, ACTUAL_SET_SIZE);
         Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 
     @Test
     public void humanFilterTest3() {
-        final int FILTER_SIZE = 2;
+        final int EXCEPTED_FILTER_SIZE = 2;
+        final int EXCEPTED_SET_SIZE = 2;
         final int[] FILTER_VALUES = {2, 5};
 
-        Set<Integer> filter = new HashSet<>(FILTER_SIZE);
-        filter.add(FILTER_VALUES[0]);
-        filter.add(FILTER_VALUES[1]);
+        filterForTest = new HashSet<>(EXCEPTED_FILTER_SIZE);
 
-        Set<Human> excepted = new HashSet<>(FILTER_SIZE);
-        excepted.add(humanHashMapForTest.get(FILTER_VALUES[0]));
-        excepted.add(humanHashMapForTest.get(FILTER_VALUES[1]));
+        for (int i : FILTER_VALUES) {
+            filterForTest.add(i);
+        }
 
-        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, filter);
+        final Set<Human> EXCEPTED = new HashSet<>(EXCEPTED_SET_SIZE);
 
-        Assert.assertEquals(excepted, ACTUAL);
+        for (int i : FILTER_VALUES) {
+            EXCEPTED.add(humanHashMapForTest.get(i));
+        }
+
+        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, filterForTest);
+
+        assert ACTUAL != null;
+        final int ACTUAL_SET_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_SET_SIZE, ACTUAL_SET_SIZE);
+        Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 
     @Test
     public void humanFilterTest4() {
-        final int FILTER_SIZE = 2;
+        final int FILTER_SIZE = 3;
+        final int EXCEPTED_SET_SIZE = 3;
         final int[] FILTER_VALUES = {2, 5, 0};
 
-        Set<Integer> filter = new HashSet<>(FILTER_SIZE);
-        filter.add(FILTER_VALUES[0]);
-        filter.add(FILTER_VALUES[1]);
-        filter.add(FILTER_VALUES[2]);
+        final Set<Human> EXCEPTED = new HashSet<>(FILTER_SIZE);
+        for (int i : FILTER_VALUES) {
+            EXCEPTED.add(humanHashMapForTest.get(i));
+        }
 
-        Set<Human> excepted = new HashSet<>(FILTER_SIZE);
-        excepted.add(humanHashMapForTest.get(FILTER_VALUES[0]));
-        excepted.add(humanHashMapForTest.get(FILTER_VALUES[1]));
-        excepted.add(humanHashMapForTest.get(FILTER_VALUES[2]));
+        filterForTest = new HashSet<>(FILTER_SIZE);
+        for (int i : FILTER_VALUES) {
+            filterForTest.add(i);
+        }
 
-        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, filter);
+        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, filterForTest);
 
-        Assert.assertEquals(excepted, ACTUAL);
+        assert ACTUAL != null;
+        final int ACTUAL_SET_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_SET_SIZE, ACTUAL_SET_SIZE);
+        Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 
     @Test
     public void humanFilterTest5() {
-        final Set<Integer> FILTER = new HashSet<>(humanHashMapForTest.keySet());
-        final Set<Human> EXCEPTED = new HashSet<>(humanHashMapForTest.values());
-        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, FILTER);
+        final Set<Integer> FILTER_FOR_TEST = new HashSet<>(humanHashMapForTest.keySet());
 
+        final Set<Human> EXCEPTED = new HashSet<>(humanHashMapForTest.values());
+        final int EXCEPTED_SET_SIZE = EXCEPTED.size();
+
+        final Set<Human> ACTUAL = CollectionsDemo.humanFilter(humanHashMapForTest, FILTER_FOR_TEST);
+
+        assert ACTUAL != null;
+        final int ACTUAL_SET_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_SET_SIZE, ACTUAL_SET_SIZE);
         Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 }
