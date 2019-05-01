@@ -32,40 +32,57 @@ public class DeleteHumanFromListTest {
     public void deleteHumanFromListTest1() {
         final Human HUMAN_FOR_DELETE = new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final Human[] HUMANS_EXPECTED = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+        final Human[] HUMANS_EXCEPTED = {new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
-        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> EXCEPTED = new ArrayList<>(Arrays.asList(HUMANS_EXCEPTED));
+        final int EXCEPTED_LIST_SIZE = EXCEPTED.size();
 
-        Assert.assertEquals(EXPECTED, ACTUAL);
+        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
+
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_LIST_SIZE, ACTUAL_LIST_SIZE);
+        Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 
     @Test
     public void deleteHumanFromListTest2() {
         final Human HUMAN_FOR_DELETE = new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final Human[] HUMANS_EXPECTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
+        final Human[] HUMANS_EXCEPTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
-        final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final List<Human> EXCEPTED = new ArrayList<>(Arrays.asList(HUMANS_EXCEPTED));
+        final int EXCEPTED_LIST_SIZE = EXCEPTED.size();
 
-        Assert.assertEquals(EXPECTED, ACTUAL);
+        final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
+
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_LIST_SIZE, ACTUAL_LIST_SIZE);
+        Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 
     @Test
     public void deleteHumanFromListTest3() {
         final Human HUMAN_FOR_DELETE = new Human("Borisov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
+        final int EXCEPTED_LIST_SIZE = HUMANS.size();
 
         final List<Human> ACTUAL = CollectionsDemo.deleteHumanFromList(HUMANS, HUMAN_FOR_DELETE);
 
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(HUMANS, ACTUAL);
     }
 }
