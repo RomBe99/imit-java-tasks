@@ -130,11 +130,9 @@ public class HumansMoreEighteensYearsOldTest {
         final int EXPECTED_LIST_SIZE = 5;
 
         final List<Integer> EXPECTED = new ArrayList<>(EXPECTED_LIST_SIZE);
-        EXPECTED.add(KEYS[0]);
-        EXPECTED.add(KEYS[2]);
-        EXPECTED.add(KEYS[3]);
-        EXPECTED.add(KEYS[4]);
-        EXPECTED.add(KEYS[5]);
+        for (int i : KEYS) {
+            EXPECTED.add(i);
+        }
 
         humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
 
