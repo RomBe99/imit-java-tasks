@@ -32,9 +32,15 @@ public class FindNamesakesFromListTest {
     public void findNamesakesFromListTest1() {
         final Human NAMESAKE = new Human("Vsileev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE);
 
-        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final List<Human> EXPECTED = new ArrayList<>();
+        final int EXPECTED_LIST_SIZE = EXPECTED.size();
 
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -44,9 +50,15 @@ public class FindNamesakesFromListTest {
 
         final Human[] HUMANS_EXPECTED = {new Human("Shumov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final int EXPECTED_LIST_SIZE = EXPECTED.size();
 
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -57,9 +69,15 @@ public class FindNamesakesFromListTest {
         final Human[] HUMANS_EXPECTED = {new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Dubov", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final int EXPECTED_LIST_SIZE = EXPECTED.size();
 
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -71,9 +89,15 @@ public class FindNamesakesFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final int EXPECTED_LIST_SIZE = EXPECTED.size();
 
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
@@ -85,9 +109,15 @@ public class FindNamesakesFromListTest {
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE),
                 new Human("Andreev", TEST_NAME, TEST_PATRONYMIC, TEST_AGE)};
 
-        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
         final List<Human> EXPECTED = new ArrayList<>(Arrays.asList(HUMANS_EXPECTED));
+        final int EXPECTED_LIST_SIZE = EXPECTED.size();
 
+        final List<Human> ACTUAL = CollectionsDemo.findNamesakesFromList(HUMANS, NAMESAKE);
+
+        assert ACTUAL != null;
+        final int ACTUAL_LIST_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXPECTED_LIST_SIZE, ACTUAL_LIST_SIZE);
         Assert.assertEquals(EXPECTED, ACTUAL);
     }
 }
