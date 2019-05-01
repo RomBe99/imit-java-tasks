@@ -37,10 +37,10 @@ public class IdToAgeTest {
 
     @Test
     public void idToAgeTest1() {
-        final Map<Integer, Integer> EXCEPTED = new HashMap<>();
+        final Map<Integer, Integer> EXPECTED = new HashMap<>();
         final Map<Integer, Integer> ACTUAL = CollectionsDemo.idToAge(humanHashMapForTest, new HashSet<Integer>());
 
-        Assert.assertEquals(EXCEPTED, ACTUAL);
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
