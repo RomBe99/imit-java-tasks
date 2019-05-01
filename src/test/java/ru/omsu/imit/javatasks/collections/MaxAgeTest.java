@@ -31,56 +31,68 @@ public class MaxAgeTest {
 
     @Test
     public void maxAgeTest0() {
-        final int SIZE = 1;
+        final int EXCEPTED_SIZE = 1;
         final int NEW_AGE = 20;
 
-        Set<Human> excepted = new HashSet<>(SIZE);
-        excepted.add(humans.get(0));
+        final Set<Human> EXCEPTED = new HashSet<>(EXCEPTED_SIZE);
+        EXCEPTED.add(humans.get(0));
 
         for (Human human : humans) {
             human.setAge(NEW_AGE);
         }
 
-        Assert.assertEquals(excepted, CollectionsDemo.maxAge(humans));
+        final Set<Human> ACTUAL = CollectionsDemo.maxAge(humans);
+
+        assert ACTUAL != null;
+        final int ACTUAL_SET_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_SIZE, ACTUAL_SET_SIZE);
+        Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 
     @Test
     public void maxAgeTest1() {
-        final int SIZE = 1;
+        final int EXCEPTED_SIZE = 1;
         final int NEW_AGE = 30;
 
-        Set<Human> excepted = new HashSet<>(SIZE);
+        final Set<Human> EXCEPTED = new HashSet<>(EXCEPTED_SIZE);
 
         humans.get(3).setAge(NEW_AGE);
-        excepted.add(humans.get(3));
+        EXCEPTED.add(humans.get(3));
 
-        Assert.assertEquals(excepted, CollectionsDemo.maxAge(humans));
+        final Set<Human> ACTUAL = CollectionsDemo.maxAge(humans);
+
+        assert ACTUAL != null;
+        final int ACTUAL_SET_SIZE = ACTUAL.size();
+
+        Assert.assertEquals(EXCEPTED_SIZE, ACTUAL_SET_SIZE);
+        Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 
     @Test
     public void maxAgeTest2() {
-        final int SIZE = 3;
-        final String NAME1 = "Roman";
-        final String NAME2 = "Stanislav";
-        final String NAME3 = "Igor";
+        final int EXCEPTED_SIZE = 3;
+        final String[] NAMES = {"Roman", "Stanislav", "Igor"};
         final int NEW_AGE = 30;
         final int[] HUMAN_NUMBERS = {1, 3, 5};
 
-        Set<Human> excepted = new HashSet<>(SIZE);
+        final Set<Human> EXCEPTED = new HashSet<>(EXCEPTED_SIZE);
 
-        humans.get(HUMAN_NUMBERS[0]).setAge(NEW_AGE);
-        humans.get(HUMAN_NUMBERS[1]).setAge(NEW_AGE);
-        humans.get(HUMAN_NUMBERS[2]).setAge(NEW_AGE);
+        for (int i = 0; i < EXCEPTED_SIZE; i++) {
+            humans.get(HUMAN_NUMBERS[i]).setName(NAMES[i]);
+        }
 
-        humans.get(HUMAN_NUMBERS[0]).setName(NAME1);
-        humans.get(HUMAN_NUMBERS[1]).setName(NAME2);
-        humans.get(HUMAN_NUMBERS[2]).setName(NAME3);
+        for (int i : HUMAN_NUMBERS) {
+            humans.get(i).setAge(NEW_AGE);
+            EXCEPTED.add(humans.get(i));
+        }
 
+        final Set<Human> ACTUAL = CollectionsDemo.maxAge(humans);
 
-        excepted.add(humans.get(HUMAN_NUMBERS[0]));
-        excepted.add(humans.get(HUMAN_NUMBERS[1]));
-        excepted.add(humans.get(HUMAN_NUMBERS[2]));
+        assert ACTUAL != null;
+        final int ACTUAL_SET_SIZE = ACTUAL.size();
 
-        Assert.assertEquals(excepted, CollectionsDemo.maxAge(humans));
+        Assert.assertEquals(EXCEPTED_SIZE, ACTUAL_SET_SIZE);
+        Assert.assertEquals(EXCEPTED, ACTUAL);
     }
 }
