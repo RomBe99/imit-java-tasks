@@ -70,9 +70,11 @@ public class CollectionsDemo {
         }
 
         List<Set<Integer>> newList = new ArrayList<>();
-        boolean isNotContains = true;
+        boolean isNotContains;
 
         for (Set<Integer> s : listWithIntSets) {
+            isNotContains = true;
+
             for (int i : s) {
                 if (filter.contains(i)) {
                     isNotContains = false;
@@ -82,8 +84,6 @@ public class CollectionsDemo {
 
             if (isNotContains) {
                 newList.add(s);
-            } else {
-                isNotContains = true;
             }
         }
 
