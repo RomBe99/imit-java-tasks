@@ -64,17 +64,17 @@ public class CollectionsDemo {
         return newList;
     }
 
-    public static List<Set<Integer>> listAllDisjointSets(final List<Set<Integer>> setList, final Set<Integer> set) {
-        if (setList.isEmpty() || set.isEmpty()) {
+    public static List<Set<Integer>> listAllDisjointSets(final List<Set<Integer>> listWithIntSets, final Set<Integer> filter) {
+        if (listWithIntSets.isEmpty() || filter.isEmpty()) {
             return null;
         }
 
         List<Set<Integer>> newList = new ArrayList<>();
         boolean isNotContains = true;
 
-        for (Set<Integer> s : setList) {
+        for (Set<Integer> s : listWithIntSets) {
             for (int i : s) {
-                if (set.contains(i)) {
+                if (filter.contains(i)) {
                     isNotContains = false;
                     break;
                 }
