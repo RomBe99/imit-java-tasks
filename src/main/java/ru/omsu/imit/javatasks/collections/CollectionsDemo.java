@@ -8,6 +8,16 @@ import java.util.Map;
 import java.util.Set;
 
 public class CollectionsDemo {
+
+    /**
+     * Задание 1
+     * Вернуть количество строк входного списка строк начинающегося с заданного символа.
+     *
+     * @param stringList список строк.
+     * @param startChar первый символ.
+     * @return количество строк входного списка, у которых первый
+     * символ совпадает с заданным.
+     */
     public static int numberLinesStartingPerCharacter(final List<String> stringList, final char startChar) {
         if (stringList.isEmpty()) {
             return 0;
@@ -24,6 +34,15 @@ public class CollectionsDemo {
         return count;
     }
 
+    /**
+     * Задание 2
+     * Из входного списка объектов типа Human сформировать список однофомильцев заданного объекта типа Human.
+     *
+     * @param listForSearch список объектов типа Human.
+     * @param namesake объект типа Human.
+     * @return список однофамильцев заданного человека
+     * среди людей из входного списка.
+     */
     public static List<Human> findNamesakesFromList(final List<Human> listForSearch, final Human namesake) {
         if (listForSearch.isEmpty()) {
             return null;
@@ -41,6 +60,16 @@ public class CollectionsDemo {
         return namesakesList;
     }
 
+    /**
+     * Задание 3
+     * На вход подаётся список Human из него необходимо удалить заданного человека (при изменении элементов
+     * входного списка элементы выходного изменяться не должны).
+     *
+     * @param listForDeleteHuman список объектов из которого нужно удалить заданного человека.
+     * @param humanForDelete человек для удаления.
+     * @return копия
+     * входного списка, не содержащая выделенного человека.
+     */
     public static List<Human> deleteHumanFromList(final List<Human> listForDeleteHuman, final Human humanForDelete) {
         if (listForDeleteHuman.isEmpty()) {
             return null;
@@ -64,6 +93,15 @@ public class CollectionsDemo {
         return newList;
     }
 
+    /**
+     * Задание 4
+     * Найти список всех множеств входного списка, которые не пересекаются с заданным множеством.
+     *
+     * @param listWithIntSets список множеств целых чисел.
+     * @param filter заданное множество для фильрации.
+     * @return список всех множеств
+     * входного списка, которые не пересекаются с заданным множеством.
+     */
     public static List<Set<Integer>> listAllDisjointSets(final List<Set<Integer>> listWithIntSets, final Set<Integer> filter) {
         if (listWithIntSets.isEmpty() || filter.isEmpty()) {
             return null;
@@ -90,6 +128,16 @@ public class CollectionsDemo {
         return newList;
     }
 
+    /**
+     * Задание 5
+     * Создайте класс Student, производный от Human, новое поле — название факультета,
+     * к нему геттер, сеттер и конструктор. Найти множество людей из входного списка с максимальным возрастом.
+     *
+     * @param humanList список, состоящий из
+     * объектов типа Human и его производных классов.
+     * @return множество людей из
+     * входного списка с максимальным возрастом.
+     */
     public static Set<Human> maxAge(final List<Human> humanList) {
         if (humanList.isEmpty()) {
             return null;
@@ -119,6 +167,15 @@ public class CollectionsDemo {
         return humansWithMaxAge;
     }
 
+    /**
+     * Задание 7
+     *  Найти множество людей идентификаторы которых содеражаться во входном множестве.
+     *
+     * @param mapForFiltering набор людей, каждому человеку задан уникальный целочисленный идентификатор.
+     * @param filter множество целых чисел для фильтрации.
+     * @return множество людей, идентификаторы которых содержатся во входном
+     * множестве.
+     */
     public static Set<Human> humanFilter(final Map<Integer, Human> mapForFiltering, final Set<Integer> filter) {
         if (mapForFiltering.isEmpty()) {
             return null;
@@ -151,6 +208,14 @@ public class CollectionsDemo {
         return newHashSet;
     }
 
+    /**
+     * Задание 8
+     * Из отображения предыдущей задачи построить список идентификаторов людей, чей возраст не
+     * менее 18 лет.
+     *
+     * @param humanMap набор людей, каждому человеку задан уникальный целочисленный идентификатор.
+     * @return список идентификаторов людей, чей возраст не менее 18 лет.
+     */
     public static List<Integer> humansMoreEighteensYearsOld(final Map<Integer, Human> humanMap) {
         if (humanMap.isEmpty()) {
             return null;
@@ -169,6 +234,16 @@ public class CollectionsDemo {
         return keys;
     }
 
+    /**
+     * Задание 9
+     * Из отображения предыдущей задачи построить новое отображение, которое идентификатору возраста
+     * споставляет возраст человека.
+     *
+     * @param humanMap набор людей, каждому человеку задан уникальный целочисленный идентификатор.
+     * @param filter множество идентификаторов для фильтрации.
+     * @return отображение номеров людей из входного множества -> возвраст людей, которые ключи которых содеражться
+     * во входном множестве.
+     */
     public static Map<Integer, Integer> idToAge(final Map<Integer, Human> humanMap, final Set<Integer> filter) {
         if (humanMap.isEmpty()) {
             return null;
@@ -189,6 +264,15 @@ public class CollectionsDemo {
         return newImage;
     }
 
+    /**
+     * Задание 10
+     * По множеству объектов типа Human постройте отображение, которое целому числу
+     * (возраст человека) сопоставляет список всех людей данного возраста из входного множества.
+     *
+     * @param humans множество объектов для построения отображения.
+     * @return список всех людей данного возраста из входного
+     * множества.
+     */
     public static Map<Integer, List<Human>> sortToAge(final Set<Human> humans) {
         if (humans.isEmpty()) {
             return null;
