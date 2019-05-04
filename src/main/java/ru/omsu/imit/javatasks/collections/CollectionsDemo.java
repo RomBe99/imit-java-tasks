@@ -59,7 +59,7 @@ public class CollectionsDemo {
     }
 
     /**
-     * Задание 3 --
+     * Задание 3 ++
      * На вход подаётся список Human из него необходимо удалить заданного человека (при изменении элементов
      * входного списка элементы выходного изменяться не должны).
      *
@@ -70,21 +70,18 @@ public class CollectionsDemo {
      */
     public static List<Human> deleteHumanFromList(final List<Human> listForDeleteHuman, final Human humanForDelete) {
         if (listForDeleteHuman.isEmpty()) {
-            return null;
+            return new ArrayList<>();
         }
 
-        if (!listForDeleteHuman.contains(humanForDelete)) {
+        if (!listForDeleteHuman.contains(humanForDelete) || humanForDelete == null) {
             return new ArrayList<>(listForDeleteHuman);
         }
 
-        final int SIZE = listForDeleteHuman.size();
+        List<Human> newList = new ArrayList<>();
 
-        List<Human> newList = new ArrayList<>(listForDeleteHuman);
-
-        for (int i = 0; i < SIZE; i++) {
-            if (humanForDelete.equals(listForDeleteHuman.get(i))) {
-                newList.remove(i);
-                break;
+        for (Human h : listForDeleteHuman) {
+            if (!humanForDelete.equals(h)) {
+                newList.add(h);
             }
         }
 
