@@ -10,13 +10,12 @@ import java.util.Set;
 public class CollectionsDemo {
 
     /**
-     * Задание 1
+     * Задание 1 ++
      * Вернуть количество строк входного списка строк начинающегося с заданного символа.
      *
      * @param stringList список строк.
      * @param startChar первый символ.
-     * @return количество строк входного списка, у которых первый
-     * символ совпадает с заданным.
+     * @return количество строк входного списка, у которых первый символ совпадает с заданным.
      */
     public static int numberLinesStartingPerCharacter(final List<String> stringList, final char startChar) {
         if (stringList.isEmpty()) {
@@ -40,8 +39,7 @@ public class CollectionsDemo {
      *
      * @param listForSearch список объектов типа Human.
      * @param namesake объект типа Human.
-     * @return список однофамильцев заданного человека
-     * среди людей из входного списка.
+     * @return список однофамильцев заданного человека среди людей из входного списка.
      */
     public static List<Human> findNamesakesFromList(final List<Human> listForSearch, final Human namesake) {
         if (listForSearch.isEmpty()) {
@@ -61,7 +59,7 @@ public class CollectionsDemo {
     }
 
     /**
-     * Задание 3
+     * Задание 3 --
      * На вход подаётся список Human из него необходимо удалить заданного человека (при изменении элементов
      * входного списка элементы выходного изменяться не должны).
      *
@@ -119,7 +117,7 @@ public class CollectionsDemo {
                     break;
                 }
             }
-
+//            Collections.disjoint()
             if (isNotContains) {
                 newList.add(s);
             }
@@ -168,7 +166,7 @@ public class CollectionsDemo {
     }
 
     /**
-     * Задание 7
+     * Задание 7 --
      *  Найти множество людей идентификаторы которых содеражаться во входном множестве.
      *
      * @param mapForFiltering набор людей, каждому человеку задан уникальный целочисленный идентификатор.
@@ -235,7 +233,7 @@ public class CollectionsDemo {
     }
 
     /**
-     * Задание 9
+     * Задание 9 --
      * Из отображения предыдущей задачи построить новое отображение, которое идентификатору возраста
      * споставляет возраст человека.
      *
