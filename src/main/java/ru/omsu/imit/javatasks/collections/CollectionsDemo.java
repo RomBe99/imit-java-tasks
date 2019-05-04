@@ -24,8 +24,8 @@ public class CollectionsDemo {
 
         int count = 0;
 
-        for (String string : stringList) {
-            if (string.charAt(0) == startChar) {
+        for (String s : stringList) {
+            if (s != null && !("".equals(s)) && s.charAt(0) == startChar) {
                 count++;
             }
         }
