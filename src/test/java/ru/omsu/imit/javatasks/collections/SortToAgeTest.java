@@ -15,7 +15,7 @@ public class SortToAgeTest {
 
     @Test
     public void sortToAgeTest0() {
-        Assert.assertNull(CollectionsDemo.sortToAge(new HashSet<Human>()));
+        Assert.assertEquals(new HashMap<Integer, List<Human>>(), CollectionsDemo.sortToAge(new HashSet<Human>()));
     }
 
     @Test
