@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class DeleteHumanFromListTest  extends Assert {
+public class DeleteHumanFromListTest extends Assert {
 
     @DataProvider
     public Object[][] deleteHumanFromListTestData() {
