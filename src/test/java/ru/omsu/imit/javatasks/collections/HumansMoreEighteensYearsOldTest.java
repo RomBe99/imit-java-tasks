@@ -19,14 +19,20 @@ public class HumansMoreEighteensYearsOldTest {
     public void humansMoreEighteensYearsOldTest0() {
         humanHashMapForTest = new HashMap<>();
 
-        Assert.assertNull(CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest));
+        final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
+        final List<Integer> EXPECTED = new ArrayList<>();
+
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
     public void humansMoreEighteensYearsOldTest1() {
         humanHashMapForTest = new HashMap<>(HASH_MAP_SIZE);
 
-        Assert.assertNull(CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest));
+        final List<Integer> ACTUAL = CollectionsDemo.humansMoreEighteensYearsOld(humanHashMapForTest);
+        final List<Integer> EXPECTED = new ArrayList<>();
+
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
