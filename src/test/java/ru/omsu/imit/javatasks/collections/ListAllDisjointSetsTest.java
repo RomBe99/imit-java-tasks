@@ -33,16 +33,18 @@ public class ListAllDisjointSetsTest {
 
     @Test
     public void listAllDisjointSetsTest0() {
-        List<Set<Integer>> ACTUAL = CollectionsDemo.listAllDisjointSets(new ArrayList<Set<Integer>>(), new HashSet<Integer>());
+        final List<Set<Integer>> ACTUAL = CollectionsDemo.listAllDisjointSets(new ArrayList<Set<Integer>>(), new HashSet<Integer>());
+        final List<Set<Integer>> EXPECTED = new ArrayList<>();
 
-        Assert.assertNull(ACTUAL);
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
     public void listAllDisjointSetsTest1() {
         List<Set<Integer>> ACTUAL = CollectionsDemo.listAllDisjointSets(listWithIntSetsForTest, new HashSet<Integer>());
+        final List<Set<Integer>> EXPECTED = new ArrayList<>();
 
-        Assert.assertNull(ACTUAL);
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
