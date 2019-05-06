@@ -35,8 +35,9 @@ public class HumanFilterTest {
         filterForTest.add(12);
 
         final Set<Human> ACTUAL = CollectionsDemo.humanFilter(new HashMap<Integer, Human>(), filterForTest);
+        final Set<Human> EXPECTED = new HashSet<>();
 
-        Assert.assertNull(ACTUAL);
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
@@ -50,8 +51,9 @@ public class HumanFilterTest {
         }
 
         final Set<Human> ACTUAL = CollectionsDemo.humanFilter(new HashMap<Integer, Human>(), filterForTest);
+        final Set<Human> EXPECTED = new HashSet<>();
 
-        Assert.assertNull(ACTUAL);
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
