@@ -32,7 +32,10 @@ public class IdToAgeTest {
 
     @Test
     public void idToAgeTest0() {
-        Assert.assertNull(CollectionsDemo.idToAge(new HashMap<Integer, Human>(), new HashSet<Integer>()));
+        final Map<Integer, Integer> ACTUAL = CollectionsDemo.idToAge(new HashMap<Integer, Human>(), new HashSet<Integer>());
+        final Map<Integer, Integer> EXPECTED = new HashMap<>();
+
+        Assert.assertEquals(EXPECTED, ACTUAL);
     }
 
     @Test
