@@ -163,7 +163,7 @@ public class CollectionsDemo {
     }
 
     /**
-     * Задание 7 --
+     * Задание 7
      *  Найти множество людей идентификаторы которых содеражаться во входном множестве.
      *
      * @param mapForFiltering набор людей, каждому человеку задан уникальный целочисленный идентификатор.
@@ -178,20 +178,6 @@ public class CollectionsDemo {
 
         if (filter.isEmpty()) {
             return new HashSet<>(mapForFiltering.values());
-        }
-
-        Set<Integer> mapForFilteringKeySet = mapForFiltering.keySet();
-        boolean isNotContains = true;
-
-        for (int i : filter) {
-            if (mapForFilteringKeySet.contains(i)) {
-                isNotContains = false;
-                break;
-            }
-        }
-
-        if (isNotContains) {
-            return new HashSet<>();
         }
 
         Set<Human> newHashSet = new HashSet<>();
