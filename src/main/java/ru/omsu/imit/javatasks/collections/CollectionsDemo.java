@@ -216,30 +216,22 @@ public class CollectionsDemo {
     }
 
     /**
-     * Задание 9 --
+     * Задание 9
      * Из отображения предыдущей задачи построить новое отображение, которое идентификатору возраста
      * споставляет возраст человека.
      *
      * @param humanMap набор людей, каждому человеку задан уникальный целочисленный идентификатор.
-     * @param filter множество идентификаторов для фильтрации.
-     * @return отображение номеров людей из входного множества -> возвраст людей, которые ключи которых содеражться
-     * во входном множестве.
+     * @return отображение номеров людей из входного отображения в их возраст.
      */
-    public static Map<Integer, Integer> idToAge(final Map<Integer, Human> humanMap, final Set<Integer> filter) {
+    public static Map<Integer, Integer> idToAge(final Map<Integer, Human> humanMap) {
         if (humanMap.isEmpty()) {
             return new HashMap<>();
         }
 
         Map<Integer, Integer> newImage = new HashMap<>();
 
-        if (filter.isEmpty()) {
-            return newImage;
-        }
-
-        for (Integer i : filter) {
-            if (humanMap.containsKey(i)) {
-                newImage.put(i, humanMap.get(i).getAge());
-            }
+        for (Integer i : humanMap.keySet()) {
+            newImage.put(i, humanMap.get(i).getAge());
         }
 
         return newImage;
