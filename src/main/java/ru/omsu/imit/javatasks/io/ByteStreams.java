@@ -6,20 +6,18 @@ import java.io.IOException;
 
 public class ByteStreams {
     public static byte[] intArrayToByteArray(final int[] arrayForWrite) {
-        byte[] bytes = new byte[arrayForWrite.length];
-
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
 
             for (int i : arrayForWrite) {
                 baos.write(i);
             }
 
-            bytes = baos.toByteArray();
+            return baos.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return bytes;
+        return new byte[arrayForWrite.length];
     }
 
     public static int[] byteArrayToIntArray(final byte[] arrayForRead) {
