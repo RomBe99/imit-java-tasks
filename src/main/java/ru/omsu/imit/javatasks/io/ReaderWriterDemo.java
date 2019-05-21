@@ -1,47 +1,33 @@
 package ru.omsu.imit.javatasks.io;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class ReaderWriterDemo {
-    public static void intArrayToFile(final int[] arrayForWrite, final File fileForWrite) {
-        try (Writer bw = new BufferedWriter(new FileWriter(fileForWrite))) {
-            for (int i : arrayForWrite) {
-                bw.append(String.valueOf(i)).append(String.valueOf(' '));
+    public static void arrayIntsToCharStream(final Writer w, final int[] ints) {
+        try (BufferedWriter bw = new BufferedWriter(w)) {
+            for (int i : ints) {
+                bw.write(i + " ");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static int[] intArrayFromFile(final File fileForRead) {
-        List<Integer> temp = new ArrayList<>();
+    public static int[] arrayIntsFromCharStream(final Reader r, final int intsCount) {
+        int[] arr = new int[intsCount];
 
-        try (Scanner s = new Scanner(fileForRead)) {
-            while (s.hasNext()) {
-                temp.add(s.nextInt());
+        try (BufferedReader br = new BufferedReader(r)) {
+            for (int i = 0; i < intsCount; i++) {
+                arr[i] = br.read();
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        int[] endArray = new int[temp.size()];
-
-        if (temp.isEmpty()) {
-            return endArray;
-        }
-
-        for (int i = 0; i < temp.size(); i++) {
-            endArray[i] = temp.get(i);
-        }
-
-        return endArray;
+        return arr;
     }
 }
