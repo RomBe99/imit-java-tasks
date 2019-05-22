@@ -1,4 +1,4 @@
-package ru.omsu.imit.javatasks.collections;
+package ru.omsu.imit.javatasks.lambdas;
 
 public enum Sex {
     MALE("Male"), FEMALE("Female");

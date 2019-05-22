@@ -1,7 +1,5 @@
 package ru.omsu.imit.javatasks.lambdas;
 
-import ru.omsu.imit.javatasks.collections.Sex;
-
 import java.util.Objects;
 
 public class Student extends Human {
