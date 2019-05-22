@@ -8,13 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ReflectionDemo {
-    public static int numberOfPeopleOnList(List<?> listForSearch) {
+    public static int numberOfPeopleOnList(final List<?> listForSearch) {
         return (int) listForSearch.stream()
                 .filter(o -> o != null && (o.getClass() == Human.class || o.getClass() == Student.class))
                 .count();
     }
 
-    public static int numberPublicClassMethds(Object o) {
+    public static int numberPublicClassMethds(final Object o) {
         return (int) Arrays.stream(o.getClass().getDeclaredMethods())
                 .filter(method -> Modifier.isPublic(method.getModifiers()))
                 .count();
