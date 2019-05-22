@@ -7,14 +7,8 @@ import java.util.List;
 
 public class ReflectionDemo {
     public static int numberOfPeopleOnList(List<?> listForSearch) {
-        int count = 0;
-
-        for (Object o : listForSearch) {
-            if (o != null && (o.getClass() == Human.class || o.getClass() == Student.class)) {
-                count++;
-            }
-        }
-
-        return count;
+        return (int) listForSearch.stream()
+                .filter(o -> o != null && (o.getClass() == Human.class || o.getClass() == Student.class))
+                .count();
     }
 }
