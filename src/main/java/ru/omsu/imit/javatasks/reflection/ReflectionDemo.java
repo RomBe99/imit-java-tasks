@@ -21,10 +21,14 @@ public class ReflectionDemo {
                 .count();
     }
 
-    public static List<String> objectSuperclassList(Object o) {
+    public static List<String> objectSuperclassList(final Object object) {
         List<String> objectSuperclassList = new ArrayList<>();
+        Class temp = object.getClass().getSuperclass();
 
-        // TODO реализовать метод objectSuperclassList
+        while (temp != null) {
+            objectSuperclassList.add(temp.toString());
+            temp = temp.getSuperclass();
+        }
 
         return objectSuperclassList;
     }
