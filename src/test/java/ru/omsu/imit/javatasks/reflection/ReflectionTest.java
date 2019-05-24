@@ -1,4 +1,4 @@
-package ru.omsu.imit.javatasks;
+package ru.omsu.imit.javatasks.reflection;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
