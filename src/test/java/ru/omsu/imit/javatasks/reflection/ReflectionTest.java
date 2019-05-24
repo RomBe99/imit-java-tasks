@@ -5,7 +5,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.omsu.imit.javatasks.collections.Human;
 import ru.omsu.imit.javatasks.collections.Student;
-import ru.omsu.imit.javatasks.reflection.ReflectionDemo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +32,7 @@ public class ReflectionTest extends Assert {
     }
 
     @Test(dataProvider = "numberOfPeopleOnListTestData")
-    public void reflectionTest(final List<?> listForSearch, final int expected) {
+    public void numberOfPeopleOnListTest(final List<?> listForSearch, final int expected) {
         final int ACTUAL = ReflectionDemo.numberOfPeopleOnList(listForSearch);
 
         assertEquals(ACTUAL, expected);
