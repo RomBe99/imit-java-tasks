@@ -15,7 +15,7 @@ public class ReflectionDemo {
                 .count();
     }
 
-    public static int numberPublicClassMethds(final Object o) {
+    public static int numberPublicClassMetohds(final Object o) {
         return (int) Arrays.stream(o.getClass().getDeclaredMethods())
                 .filter(method -> Modifier.isPublic(method.getModifiers()))
                 .count();
