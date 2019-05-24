@@ -60,9 +60,34 @@ public class ReflectionTest extends Assert {
     }
 
     @Test(dataProvider = "numberPublicClassMethodsTestData")
-    public void numberPublicClassMethodsTest(final Object o, final int expected) {
-        final int ACTUAL = ReflectionDemo.numberPublicClassMethods(o);
+    public void numberPublicClassMethodsTest(final Object objectForTest, final int expected) {
+        final int ACTUAL = ReflectionDemo.numberPublicClassMethods(objectForTest);
 
         assertEquals(ACTUAL, expected);
+    }
+
+    @DataProvider
+    public Object[][] objectSuperclassListTestData() {
+        final IMatrix MATRIX_FOR_TEST = Mockito.mock(Matrix.class);
+        final List<String> MATRIX_FOR_TEST_EXPECTED_LIST = new ArrayList<>();
+        MATRIX_FOR_TEST_EXPECTED_LIST.add("class ru.omsu.imit.javatasks.matrices.Matrix");
+        MATRIX_FOR_TEST_EXPECTED_LIST.add("class java.lang.Object");
+
+        final Integer INTEGER_FOR_TEST = 2;
+        final List<String> INTEGER_FOR_TEST_EXPECTED_LIST = new ArrayList<>();
+        INTEGER_FOR_TEST_EXPECTED_LIST.add("class java.lang.Number");
+        INTEGER_FOR_TEST_EXPECTED_LIST.add("class java.lang.Object");
+
+        return new Object[][]{
+                {MATRIX_FOR_TEST, MATRIX_FOR_TEST_EXPECTED_LIST},
+                {INTEGER_FOR_TEST, INTEGER_FOR_TEST_EXPECTED_LIST}
+        };
+    }
+
+    @Test(dataProvider = "objectSuperclassListTestData")
+    public void objectSuperclassListTest(final Object objectForTest, final List<String> expectedList) {
+        final List<String> ACTUAL = ReflectionDemo.objectSuperclassList(objectForTest);
+
+        assertEquals(ACTUAL, expectedList);
     }
 }
