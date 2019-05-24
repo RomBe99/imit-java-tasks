@@ -1,10 +1,16 @@
 package ru.omsu.imit.javatasks.reflection;
 
+import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.omsu.imit.javatasks.collections.Human;
 import ru.omsu.imit.javatasks.collections.Student;
+import ru.omsu.imit.javatasks.geometry.Point3D;
+import ru.omsu.imit.javatasks.geometry.Vector3DProcessor;
+import ru.omsu.imit.javatasks.matrices.IMatrix;
+import ru.omsu.imit.javatasks.matrices.Matrix;
+import ru.omsu.imit.javatasks.payments.Payment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,6 +40,28 @@ public class ReflectionTest extends Assert {
     @Test(dataProvider = "numberOfPeopleOnListTestData")
     public void numberOfPeopleOnListTest(final List<?> listForSearch, final int expected) {
         final int ACTUAL = ReflectionDemo.numberOfPeopleOnList(listForSearch);
+
+        assertEquals(ACTUAL, expected);
+    }
+
+    @DataProvider
+    public Object[][] numberPublicClassMethodsTestData() {
+        final IMatrix MATRIX_FOR_TEST = Mockito.mock(Matrix.class);
+        final Payment PAYMENT_FOR_TEST = Mockito.mock(Payment.class);
+        final Point3D POINT3D_FOR_TEST = Mockito.mock(Point3D.class);
+        final Vector3DProcessor VECTOR_3D_PROCESSOR_FOR_TEST = Mockito.mock(Vector3DProcessor.class);
+
+        return new Object[][]{
+                {MATRIX_FOR_TEST, 15},
+                {PAYMENT_FOR_TEST, 15},
+                {POINT3D_FOR_TEST, 13},
+                {VECTOR_3D_PROCESSOR_FOR_TEST, 5}
+        };
+    }
+
+    @Test(dataProvider = "numberPublicClassMethodsTestData")
+    public void numberPublicClassMethodsTest(final Object o, final int expected) {
+        final int ACTUAL = ReflectionDemo.numberPublicClassMethods(o);
 
         assertEquals(ACTUAL, expected);
     }
