@@ -32,4 +32,11 @@ public class ReflectionDemo {
 
         return objectSuperclassList;
     }
+
+    public static long executableRunner(final List<?> listForSearch) {
+        return listForSearch.stream()
+                .filter(o -> o instanceof Executable)
+                .peek(exec -> ((Executable) exec).execute())
+                .count();
+    }
 }
