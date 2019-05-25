@@ -12,6 +12,7 @@ import ru.omsu.imit.javatasks.matrices.IMatrix;
 import ru.omsu.imit.javatasks.matrices.Matrix;
 import ru.omsu.imit.javatasks.payments.Payment;
 
+import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -68,19 +69,19 @@ public class ReflectionTest extends Assert {
 
     @DataProvider
     public Object[][] objectSuperclassListTestData() {
-        final IMatrix MATRIX_FOR_TEST = Mockito.mock(Matrix.class);
         final List<String> MATRIX_FOR_TEST_EXPECTED_LIST = new ArrayList<>();
         MATRIX_FOR_TEST_EXPECTED_LIST.add("class ru.omsu.imit.javatasks.matrices.Matrix");
         MATRIX_FOR_TEST_EXPECTED_LIST.add("class java.lang.Object");
 
-        final Integer INTEGER_FOR_TEST = 2;
-        final List<String> INTEGER_FOR_TEST_EXPECTED_LIST = new ArrayList<>();
-        INTEGER_FOR_TEST_EXPECTED_LIST.add("class java.lang.Number");
-        INTEGER_FOR_TEST_EXPECTED_LIST.add("class java.lang.Object");
+        final List<String> DOS_FOR_TEST_EXPECTED_LIST = new ArrayList<>();
+        DOS_FOR_TEST_EXPECTED_LIST.add("class java.io.DataOutputStream");
+        DOS_FOR_TEST_EXPECTED_LIST.add("class java.io.FilterOutputStream");
+        DOS_FOR_TEST_EXPECTED_LIST.add("class java.io.OutputStream");
+        DOS_FOR_TEST_EXPECTED_LIST.add("class java.lang.Object");
 
         return new Object[][]{
-                {MATRIX_FOR_TEST, MATRIX_FOR_TEST_EXPECTED_LIST},
-                {INTEGER_FOR_TEST, INTEGER_FOR_TEST_EXPECTED_LIST},
+                {Mockito.mock(Matrix.class), MATRIX_FOR_TEST_EXPECTED_LIST},
+                {Mockito.mock(DataOutputStream.class), DOS_FOR_TEST_EXPECTED_LIST},
                 {new Object(), new ArrayList<String>()}
         };
     }
