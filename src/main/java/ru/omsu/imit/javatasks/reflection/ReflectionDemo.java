@@ -3,10 +3,12 @@ package ru.omsu.imit.javatasks.reflection;
 import ru.omsu.imit.javatasks.collections.Human;
 import ru.omsu.imit.javatasks.collections.Student;
 
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class ReflectionDemo {
     public static int numberOfPeopleOnList(final List<?> listForSearch) {
@@ -15,8 +17,8 @@ public class ReflectionDemo {
                 .count();
     }
 
-    public static int numberPublicClassMethods(final Object o) {
-        return (int) Arrays.stream(o.getClass().getDeclaredMethods())
+    public static long numberPublicClassMethods(final Object o) {
+        return Arrays.stream(o.getClass().getDeclaredMethods())
                 .filter(method -> Modifier.isPublic(method.getModifiers()))
                 .count();
     }
@@ -38,5 +40,26 @@ public class ReflectionDemo {
                 .filter(o -> o instanceof Executable)
                 .peek(exec -> ((Executable) exec).execute())
                 .count();
+    }
+
+    public static List<String> methodGettersAndSetters(Object object) {
+        List<String> listForGettersAndSetters = new ArrayList<>();
+
+        final Predicate<Method> isGetter = m ->
+                Modifier.isPublic(m.getModifiers()) && !Modifier.isStatic(m.getModifiers()) &&
+                        m.getReturnType() != Void.TYPE &&
+                        m.getName().startsWith("get") && m.getParameterCount() == 0;
+
+        final Predicate<Method> isSetter = m ->
+                Modifier.isPublic(m.getModifiers()) && !Modifier.isStatic(m.getModifiers()) &&
+                        m.getReturnType() == Void.TYPE &&
+                        m.getName().startsWith("set") && m.getParameterCount() != 0;
+
+        Arrays.stream(object.getClass().getDeclaredMethods())
+        .filter(m -> Modifier.isPublic(m.getModifiers()))
+        .filter(m -> isGetter.test(m) || isSetter.test(m)).
+                forEach(m -> listForGettersAndSetters.add(m.getName()));
+
+        return listForGettersAndSetters;
     }
 }
