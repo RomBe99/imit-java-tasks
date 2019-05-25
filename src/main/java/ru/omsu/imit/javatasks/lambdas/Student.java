@@ -7,9 +7,9 @@ public class Student extends Human {
     private String faculty;
     private String specialty;
 
-    public Student(final String surname, final String name, final String patronymic, final int age, final Sex sex,
+    public Student(final String surname, final String name, final String patronymic, final int age, final Gender gender,
                    final String university, final String faculty, final String specialty) {
-        super(surname, name, patronymic, age, sex);
+        super(surname, name, patronymic, age, gender);
 
         setUniversity(university);
         setFaculty(faculty);

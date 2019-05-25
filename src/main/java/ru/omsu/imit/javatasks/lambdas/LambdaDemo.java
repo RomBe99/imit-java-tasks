@@ -16,7 +16,7 @@ public class LambdaDemo {
     public static final IBinaryObjectsChecker<Human> isNamesake = (h1, h2) -> h1.getSurname().equals(h2.getSurname());
     public static final Function<Human, String> getFullName = h -> h.getSurname() + h.getName() + h.getPatronymic();
     public static final UnaryOperator<Human> makeHumanOlder = h ->
-            new Human(h.getSurname(), h.getName(), h.getPatronymic(), h.getAge() + 1, h.getSex());
+            new Human(h.getSurname(), h.getName(), h.getPatronymic(), h.getAge() + 1, h.getGender());
     public static final ISpecialDataChecker<Human> isYoungerFilter = (h1, h2, h3, filter) ->
             filter > h1.getAge() && filter > h2.getAge() && filter > h3.getAge();
 }

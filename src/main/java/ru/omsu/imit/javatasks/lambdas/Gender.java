@@ -1,10 +1,10 @@
 package ru.omsu.imit.javatasks.lambdas;
 
-public enum Sex {
+public enum Gender {
     MALE("Male"), FEMALE("Female");
     private String value;
 
-    Sex(final String value) {
+    Gender(final String value) {
         this.value = value;
     }
 
