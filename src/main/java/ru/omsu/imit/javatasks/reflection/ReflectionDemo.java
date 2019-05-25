@@ -11,16 +11,20 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class ReflectionDemo {
-    public static int numberOfPeopleOnList(final List<?> listForSearch) {
-        return (int) listForSearch.stream()
+    public static long numberOfPeopleOnList(final List<?> listForSearch) {
+        return listForSearch.stream()
                 .filter(o -> o != null && (o.getClass() == Human.class || o.getClass() == Student.class))
                 .count();
     }
 
-    public static long numberPublicClassMethods(final Object o) {
-        return Arrays.stream(o.getClass().getDeclaredMethods())
-                .filter(method -> Modifier.isPublic(method.getModifiers()))
-                .count();
+    public static List<String> getListNamesPublicClassMethods(final Object o) {
+        List<String> listNamesPublicClassMethods = new ArrayList<>();
+
+        Arrays.stream(o.getClass().getDeclaredMethods())
+                .filter(m -> Modifier.isPublic(m.getModifiers()))
+                .forEach(m -> listNamesPublicClassMethods.add(m.getName()));
+
+        return listNamesPublicClassMethods;
     }
 
     public static List<String> objectSuperclassList(final Object object) {
@@ -56,8 +60,8 @@ public class ReflectionDemo {
                         m.getName().startsWith("set") && m.getParameterCount() != 0;
 
         Arrays.stream(object.getClass().getDeclaredMethods())
-        .filter(m -> Modifier.isPublic(m.getModifiers()))
-        .filter(m -> isGetter.test(m) || isSetter.test(m)).
+                .filter(m -> Modifier.isPublic(m.getModifiers()))
+                .filter(m -> isGetter.test(m) || isSetter.test(m)).
                 forEach(m -> listForGettersAndSetters.add(m.getName()));
 
         return listForGettersAndSetters;
