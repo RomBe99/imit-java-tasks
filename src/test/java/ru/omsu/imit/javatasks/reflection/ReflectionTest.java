@@ -8,7 +8,6 @@ import ru.omsu.imit.javatasks.collections.Human;
 import ru.omsu.imit.javatasks.collections.Student;
 import ru.omsu.imit.javatasks.geometry.Point3D;
 import ru.omsu.imit.javatasks.geometry.Vector3DProcessor;
-import ru.omsu.imit.javatasks.matrices.IMatrix;
 import ru.omsu.imit.javatasks.matrices.Matrix;
 import ru.omsu.imit.javatasks.payments.Payment;
 
@@ -40,29 +39,39 @@ public class ReflectionTest extends Assert {
 
     @Test(dataProvider = "numberOfPeopleOnListTestData")
     public void numberOfPeopleOnListTest(final List<?> listForSearch, final int expected) {
-        final int ACTUAL = ReflectionDemo.numberOfPeopleOnList(listForSearch);
+        final long ACTUAL = ReflectionDemo.numberOfPeopleOnList(listForSearch);
 
         assertEquals(ACTUAL, expected);
     }
 
     @DataProvider
     public Object[][] numberPublicClassMethodsTestData() {
-        final IMatrix MATRIX_FOR_TEST = Mockito.mock(Matrix.class);
-        final Payment PAYMENT_FOR_TEST = Mockito.mock(Payment.class);
-        final Point3D POINT3D_FOR_TEST = Mockito.mock(Point3D.class);
-        final Vector3DProcessor VECTOR_3D_PROCESSOR_FOR_TEST = Mockito.mock(Vector3DProcessor.class);
+        final List<String> EXPECTED_LIST_FOR_MATRIX = new ArrayList<>(Arrays.asList(
+                "calculateDeterminant", "setMatrixElem", "setMatrixElem", "getMatrixElem", "getMatrixElem", "getElements",
+                "getDeterminant", "getMinor", "isDeterminantIsCorrect", "equals", "toString", "hashCode", "getSize"));
+
+        final List<String> EXPECTED_LIST_FOR_PAYMENT = new ArrayList<>(Arrays.asList(
+                "getYear", "setFullName", "setDay", "setMonth", "setYear", "setAmountOfPayment", "getFullName", "getDay",
+                "getMonth", "getAmountOfPayment", "equals", "toString", "hashCode"));
+
+        final List<String> EXPECTED_LIST_FOR_POINT3D = new ArrayList<>(Arrays.asList(
+                "printPoint", "multiplyByNumber", "setX", "setY", "setZ", "getX", "getY", "getZ", "equals", "hashCode"));
+
+        final List<String> EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR = new ArrayList<>(Arrays.asList(
+                "vectorsSum", "vectorsDifference", "dotProduct", "productOfVectors", "vectorsCollinearity", "linearCombinationOfVectors"));
+
 
         return new Object[][]{
-                {MATRIX_FOR_TEST, 15},
-                {PAYMENT_FOR_TEST, 15},
-                {POINT3D_FOR_TEST, 13},
-                {VECTOR_3D_PROCESSOR_FOR_TEST, 5}
+                {Mockito.mock(Matrix.class), EXPECTED_LIST_FOR_MATRIX},
+                {Mockito.mock(Payment.class), EXPECTED_LIST_FOR_PAYMENT},
+                {Mockito.mock(Point3D.class), EXPECTED_LIST_FOR_POINT3D},
+                {Mockito.mock(Vector3DProcessor.class), EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR}
         };
     }
 
     @Test(dataProvider = "numberPublicClassMethodsTestData")
-    public void numberPublicClassMethodsTest(final Object objectForTest, final int expected) {
-        final int ACTUAL = ReflectionDemo.numberPublicClassMethods(objectForTest);
+    public void numberPublicClassMethodsTest(final Object objectForTest, final List<String> expected) {
+        final List<String> ACTUAL = ReflectionDemo.getListNamesPublicClassMethods(objectForTest);
 
         assertEquals(ACTUAL, expected);
     }
