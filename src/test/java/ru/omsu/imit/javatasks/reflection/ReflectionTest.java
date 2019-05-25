@@ -80,7 +80,8 @@ public class ReflectionTest extends Assert {
 
         return new Object[][]{
                 {MATRIX_FOR_TEST, MATRIX_FOR_TEST_EXPECTED_LIST},
-                {INTEGER_FOR_TEST, INTEGER_FOR_TEST_EXPECTED_LIST}
+                {INTEGER_FOR_TEST, INTEGER_FOR_TEST_EXPECTED_LIST},
+                {new Object(), new ArrayList<String>()}
         };
     }
 
