@@ -78,15 +78,11 @@ public class ReflectionTest extends Assert {
 
     @DataProvider
     public Object[][] objectSuperclassListTestData() {
-        final List<String> MATRIX_FOR_TEST_EXPECTED_LIST = new ArrayList<>();
-        MATRIX_FOR_TEST_EXPECTED_LIST.add("class ru.omsu.imit.javatasks.matrices.Matrix");
-        MATRIX_FOR_TEST_EXPECTED_LIST.add("class java.lang.Object");
+        final List<String> MATRIX_FOR_TEST_EXPECTED_LIST = new ArrayList<>(Arrays.asList(
+                "class ru.omsu.imit.javatasks.matrices.Matrix", "class java.lang.Object"));
 
-        final List<String> DOS_FOR_TEST_EXPECTED_LIST = new ArrayList<>();
-        DOS_FOR_TEST_EXPECTED_LIST.add("class java.io.DataOutputStream");
-        DOS_FOR_TEST_EXPECTED_LIST.add("class java.io.FilterOutputStream");
-        DOS_FOR_TEST_EXPECTED_LIST.add("class java.io.OutputStream");
-        DOS_FOR_TEST_EXPECTED_LIST.add("class java.lang.Object");
+        final List<String> DOS_FOR_TEST_EXPECTED_LIST = new ArrayList<>(Arrays.asList(
+                "class java.io.DataOutputStream", "class java.io.FilterOutputStream", "class java.io.OutputStream", "class java.lang.Object"));
 
         return new Object[][]{
                 {Mockito.mock(Matrix.class), MATRIX_FOR_TEST_EXPECTED_LIST},
