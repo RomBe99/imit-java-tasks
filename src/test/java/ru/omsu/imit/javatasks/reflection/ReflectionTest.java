@@ -9,7 +9,8 @@ import ru.omsu.imit.javatasks.collections.Student;
 import ru.omsu.imit.javatasks.geometry.Point3D;
 import ru.omsu.imit.javatasks.geometry.Vector3DProcessor;
 import ru.omsu.imit.javatasks.matrices.Matrix;
-import ru.omsu.imit.javatasks.payments.Payment;
+import ru.omsu.imit.javatasks.matrices.MatrixException;
+import ru.omsu.imit.javatasks.payments.StringProcessor;
 
 import java.io.DataOutputStream;
 import java.util.ArrayList;
@@ -45,14 +46,13 @@ public class ReflectionTest extends Assert {
     }
 
     @DataProvider
-    public Object[][] numberPublicClassMethodsTestData() {
+    public Object[][] numberPublicClassMethodsTestData() throws MatrixException {
         final List<String> EXPECTED_LIST_FOR_MATRIX = new ArrayList<>(Arrays.asList(
                 "calculateDeterminant", "setMatrixElem", "setMatrixElem", "getMatrixElem", "getMatrixElem", "getElements",
                 "getDeterminant", "getMinor", "isDeterminantIsCorrect", "equals", "toString", "hashCode", "getSize"));
 
-        final List<String> EXPECTED_LIST_FOR_PAYMENT = new ArrayList<>(Arrays.asList(
-                "getYear", "setFullName", "setDay", "setMonth", "setYear", "setAmountOfPayment", "getFullName", "getDay",
-                "getMonth", "getAmountOfPayment", "equals", "toString", "hashCode"));
+        final List<String> STRING_PROCESSOR_FOR_PAYMENT = new ArrayList<>(Arrays.asList(
+                "numberOfEnteriesToString", "replaceNumbersToWords", "stringMultiplier", "removeEverySecondChar"));
 
         final List<String> EXPECTED_LIST_FOR_POINT3D = new ArrayList<>(Arrays.asList(
                 "printPoint", "multiplyByNumber", "setX", "setY", "setZ", "getX", "getY", "getZ", "equals", "hashCode"));
@@ -62,10 +62,10 @@ public class ReflectionTest extends Assert {
 
 
         return new Object[][]{
-                {Mockito.mock(Matrix.class), EXPECTED_LIST_FOR_MATRIX},
-                {Mockito.mock(Payment.class), EXPECTED_LIST_FOR_PAYMENT},
-                {Mockito.mock(Point3D.class), EXPECTED_LIST_FOR_POINT3D},
-                {Mockito.mock(Vector3DProcessor.class), EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR}
+                {new Matrix(1), EXPECTED_LIST_FOR_MATRIX},
+                {new StringProcessor(), STRING_PROCESSOR_FOR_PAYMENT},
+                {new Point3D(), EXPECTED_LIST_FOR_POINT3D},
+                {new Vector3DProcessor(), EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR}
         };
     }
 
