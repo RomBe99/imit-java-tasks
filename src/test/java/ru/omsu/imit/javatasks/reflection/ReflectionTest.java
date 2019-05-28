@@ -113,10 +113,10 @@ public class ReflectionTest extends Assert {
 
     @DataProvider
     public Object[][] objectGettersAndSettersTestData() throws MatrixException {
-        final List<String> MATRIX_FOR_TEST_EXPECTED_LIST = new ArrayList<>(
-                Arrays.asList("getFullName", "getYear", "setDay", "setMonth", "setYear", "setAmountOfPayment",
-                        "setFullName", "getDay", "getMonth", "getAmountOfPayment")
-        );
+        final List<String> MATRIX_FOR_TEST_EXPECTED_LIST = new ArrayList<>(Arrays.asList(
+                "getFullName", "getYear", "setDay", "setMonth", "setYear", "setAmountOfPayment", "setFullName", "getDay",
+                "getMonth", "getAmountOfPayment"
+        ));
         Collections.sort(MATRIX_FOR_TEST_EXPECTED_LIST);
 
         return new Object[][]{
