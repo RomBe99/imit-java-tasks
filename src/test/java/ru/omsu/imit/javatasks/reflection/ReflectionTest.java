@@ -116,10 +116,6 @@ public class ReflectionTest extends Assert {
         };
     }
 
-    public static void main(String[] args) throws MatrixException {
-        ReflectionDemo.objectGettersAndSetters(new Payment("", (byte)1, (byte)1, 2000, 1)).forEach(System.out::println);
-    }
-
     @Test(dataProvider = "objectGettersAndSettersTestData")
     public void objectGettersAndSettersTest(final Object objectForTest, final List<String> expectedList) {
         final List<String> ACTUAL = ReflectionDemo.objectGettersAndSetters(objectForTest);
