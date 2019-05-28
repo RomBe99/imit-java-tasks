@@ -6,6 +6,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.omsu.imit.javatasks.collections.Human;
 import ru.omsu.imit.javatasks.collections.Student;
+import ru.omsu.imit.javatasks.functions.FunctionException;
+import ru.omsu.imit.javatasks.functions.LinearPolynomial;
 import ru.omsu.imit.javatasks.geometry.Point3D;
 import ru.omsu.imit.javatasks.geometry.Vector3DProcessor;
 import ru.omsu.imit.javatasks.matrices.Matrix;
@@ -112,16 +114,22 @@ public class ReflectionTest extends Assert {
     }
 
     @DataProvider
-    public Object[][] objectGettersAndSettersTestData() throws MatrixException {
+    public Object[][] objectGettersAndSettersTestData() throws FunctionException {
         final List<String> MATRIX_FOR_TEST_EXPECTED_LIST = new ArrayList<>(Arrays.asList(
                 "getFullName", "getYear", "setDay", "setMonth", "setYear", "setAmountOfPayment", "setFullName", "getDay",
                 "getMonth", "getAmountOfPayment"
         ));
         Collections.sort(MATRIX_FOR_TEST_EXPECTED_LIST);
 
+        final List<String> LINEAR_POLYNOMIAL_FOR_TEST_EXPECTED_LIST = new ArrayList<>(Arrays.asList(
+                "setFirstCoefficient", "setSecondCoefficient", "getFirstCoefficient", "getSecondCoefficient"
+        ));
+        Collections.sort(LINEAR_POLYNOMIAL_FOR_TEST_EXPECTED_LIST);
+
         return new Object[][]{
                 {new ReflectionDemo(), new ArrayList<String>()},
-                {new Payment("", (byte)1, (byte)1, 2000, 1), MATRIX_FOR_TEST_EXPECTED_LIST}
+                {new Payment("", (byte)1, (byte)1, 2000, 1), MATRIX_FOR_TEST_EXPECTED_LIST},
+                {new LinearPolynomial(0, 0), LINEAR_POLYNOMIAL_FOR_TEST_EXPECTED_LIST}
         };
     }
 
