@@ -46,7 +46,7 @@ public class ReflectionDemo {
                 .count();
     }
 
-    public static List<String> methodGettersAndSetters(Object object) {
+    public static List<String> objectGettersAndSetters(Object object) {
         List<String> listForGettersAndSetters = new ArrayList<>();
 
         final Predicate<Method> isGetter = m ->
