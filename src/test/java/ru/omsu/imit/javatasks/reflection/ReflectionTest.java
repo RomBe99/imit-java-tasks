@@ -46,7 +46,7 @@ public class ReflectionTest extends Assert {
     }
 
     @DataProvider
-    public Object[][] numberPublicClassMethodsTestData() {
+    public Object[][] numberPublicClassMethodsTestData() throws MatrixException {
         final List<String> EXPECTED_LIST_FOR_MATRIX = new ArrayList<>(Arrays.asList(
                 "calculateDeterminant", "setMatrixElem", "setMatrixElem", "getMatrixElem", "getMatrixElem", "getElements",
                 "getDeterminant", "getMinor", "isDeterminantIsCorrect", "equals", "toString", "hashCode", "getSize"));
@@ -63,10 +63,10 @@ public class ReflectionTest extends Assert {
 
 
         return new Object[][]{
-                {Mockito.mock(Matrix.class), EXPECTED_LIST_FOR_MATRIX},
-                {Mockito.mock(Payment.class), EXPECTED_LIST_FOR_PAYMENT},
-                {Mockito.mock(Point3D.class), EXPECTED_LIST_FOR_POINT3D},
-                {Mockito.mock(Vector3DProcessor.class), EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR}
+                {new Matrix(1), EXPECTED_LIST_FOR_MATRIX},
+                {new Payment("", (byte)1, (byte)1, 2000, 1), EXPECTED_LIST_FOR_PAYMENT},
+                {new Point3D(), EXPECTED_LIST_FOR_POINT3D},
+                {new Vector3DProcessor(), EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR}
         };
     }
 
