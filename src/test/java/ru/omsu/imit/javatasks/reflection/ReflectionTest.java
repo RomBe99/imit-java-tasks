@@ -50,20 +50,24 @@ public class ReflectionTest extends Assert {
     public Object[][] numberPublicClassMethodsTestData() throws MatrixException {
         final List<String> EXPECTED_LIST_FOR_MATRIX = new ArrayList<>(Arrays.asList(
                 "calculateDeterminant", "setMatrixElem", "setMatrixElem", "getMatrixElem", "getMatrixElem", "getElements",
-                "getDeterminant", "getMinor", "isDeterminantIsCorrect", "equals", "toString", "hashCode", "getSize"));
+                "getDeterminant", "getMinor", "isDeterminantIsCorrect", "equals", "toString", "hashCode", "getSize"
+        ));
         Collections.sort(EXPECTED_LIST_FOR_MATRIX);
 
         final List<String> EXPECTED_LIST_FOR_PAYMENT = new ArrayList<>(Arrays.asList(
                 "getYear", "setFullName", "setDay", "setMonth", "setYear", "setAmountOfPayment", "getFullName", "getDay",
-                "getMonth", "getAmountOfPayment", "equals", "toString", "hashCode"));
+                "getMonth", "getAmountOfPayment", "equals", "toString", "hashCode"
+        ));
         Collections.sort(EXPECTED_LIST_FOR_PAYMENT);
 
         final List<String> EXPECTED_LIST_FOR_POINT3D = new ArrayList<>(Arrays.asList(
-                "printPoint", "multiplyByNumber", "setX", "setY", "setZ", "getX", "getY", "getZ", "equals", "hashCode"));
+                "printPoint", "multiplyByNumber", "setX", "setY", "setZ", "getX", "getY", "getZ", "equals", "hashCode"
+        ));
         Collections.sort(EXPECTED_LIST_FOR_POINT3D);
 
         final List<String> EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR = new ArrayList<>(Arrays.asList(
-                "vectorsSum", "vectorsDifference", "dotProduct", "productOfVectors", "vectorsCollinearity", "linearCombinationOfVectors"));
+                "vectorsSum", "vectorsDifference", "dotProduct", "productOfVectors", "vectorsCollinearity", "linearCombinationOfVectors"
+        ));
         Collections.sort(EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR);
 
         return new Object[][]{
