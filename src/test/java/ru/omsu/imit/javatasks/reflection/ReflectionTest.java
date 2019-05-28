@@ -15,6 +15,7 @@ import ru.omsu.imit.javatasks.payments.Payment;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ReflectionTest extends Assert {
@@ -50,17 +51,20 @@ public class ReflectionTest extends Assert {
         final List<String> EXPECTED_LIST_FOR_MATRIX = new ArrayList<>(Arrays.asList(
                 "calculateDeterminant", "setMatrixElem", "setMatrixElem", "getMatrixElem", "getMatrixElem", "getElements",
                 "getDeterminant", "getMinor", "isDeterminantIsCorrect", "equals", "toString", "hashCode", "getSize"));
+        Collections.sort(EXPECTED_LIST_FOR_MATRIX);
 
         final List<String> EXPECTED_LIST_FOR_PAYMENT = new ArrayList<>(Arrays.asList(
                 "getYear", "setFullName", "setDay", "setMonth", "setYear", "setAmountOfPayment", "getFullName", "getDay",
                 "getMonth", "getAmountOfPayment", "equals", "toString", "hashCode"));
+        Collections.sort(EXPECTED_LIST_FOR_PAYMENT);
 
         final List<String> EXPECTED_LIST_FOR_POINT3D = new ArrayList<>(Arrays.asList(
                 "printPoint", "multiplyByNumber", "setX", "setY", "setZ", "getX", "getY", "getZ", "equals", "hashCode"));
+        Collections.sort(EXPECTED_LIST_FOR_POINT3D);
 
         final List<String> EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR = new ArrayList<>(Arrays.asList(
                 "vectorsSum", "vectorsDifference", "dotProduct", "productOfVectors", "vectorsCollinearity", "linearCombinationOfVectors"));
-
+        Collections.sort(EXPECTED_LIST_FOR_VECTOR_3D_PROCESSOR);
 
         return new Object[][]{
                 {new Matrix(1), EXPECTED_LIST_FOR_MATRIX},
@@ -73,6 +77,7 @@ public class ReflectionTest extends Assert {
     @Test(dataProvider = "numberPublicClassMethodsTestData")
     public void numberPublicClassMethodsTest(final Object objectForTest, final List<String> expected) {
         final List<String> ACTUAL = ReflectionDemo.getListNamesPublicClassMethods(objectForTest);
+        Collections.sort(ACTUAL);
 
         assertEquals(ACTUAL, expected);
     }
@@ -109,16 +114,18 @@ public class ReflectionTest extends Assert {
                 Arrays.asList("getFullName", "getYear", "setDay", "setMonth", "setYear", "setAmountOfPayment",
                         "setFullName", "getDay", "getMonth", "getAmountOfPayment")
         );
+        Collections.sort(MATRIX_FOR_TEST_EXPECTED_LIST);
 
         return new Object[][]{
                 {new ReflectionDemo(), new ArrayList<String>()},
-                {new Payment(new Payment("", (byte)1, (byte)1, 2000, 1)), MATRIX_FOR_TEST_EXPECTED_LIST}
+                {new Payment("", (byte)1, (byte)1, 2000, 1), MATRIX_FOR_TEST_EXPECTED_LIST}
         };
     }
 
     @Test(dataProvider = "objectGettersAndSettersTestData")
     public void objectGettersAndSettersTest(final Object objectForTest, final List<String> expectedList) {
         final List<String> ACTUAL = ReflectionDemo.objectGettersAndSetters(objectForTest);
+        Collections.sort(ACTUAL);
 
         assertEquals(ACTUAL, expectedList);
     }
