@@ -33,9 +33,9 @@ public class DemoMatrixTest {
     }
 
     @Test
-    public void matrixSerializeAndDeerializeTest() {
-        final Matrix DESERIALIZED_MATRIX = DemoMatrix.matrixDeserialize(DemoMatrix.matrixSerialize(matrix));
+    public void matrixSerializeAndDeserializeTest() {
+        final Matrix DESERIALIZE_MATRIX = DemoMatrix.matrixDeserialize(DemoMatrix.matrixSerialize(matrix));
 
-        Assert.assertEquals(matrix, DESERIALIZED_MATRIX);
+        Assert.assertEquals(matrix, DESERIALIZE_MATRIX);
     }
 }
