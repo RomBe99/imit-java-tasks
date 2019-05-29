@@ -1,8 +1,9 @@
 package ru.omsu.imit.javatasks.io;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Serializable {
     private String surname;
     private String name;
     private String patronymic;

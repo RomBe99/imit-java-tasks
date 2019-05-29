@@ -1,9 +1,10 @@
 package ru.omsu.imit.javatasks.io;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class House {
+public class House implements Serializable {
     private String cadastralHouseNumber;
     private String address;
     private Person seniorHousework;
