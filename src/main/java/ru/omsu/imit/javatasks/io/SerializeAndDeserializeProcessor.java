@@ -1,5 +1,7 @@
 package ru.omsu.imit.javatasks.io;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 
 public class SerializeAndDeserializeProcessor {
@@ -51,6 +53,28 @@ public class SerializeAndDeserializeProcessor {
         try (final ObjectInputStream ois = new ObjectInputStream(is)) {
             return (Flat) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static void serializeHouseToJSON(final File pathToFile, final House houseForSerialization) {
+        final ObjectMapper OM = new ObjectMapper();
+
+        try {
+            OM.writeValue(pathToFile, houseForSerialization);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static House deserializeHouseToJSON(final File pathToFile) {
+        final ObjectMapper OM = new ObjectMapper();
+
+        try {
+            return OM.readValue(pathToFile, House.class);
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
