@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class ReflectionDemo {
-    public static long numberOfPeopleOnList(final List<?> listForSearch) {
+    public static long numberOfPeopleOnList(final List<Object> listForSearch) {
         return listForSearch.stream()
-                .filter(o -> o != null && (o.getClass() == Human.class || o.getClass() == Student.class))
+                .filter(o -> o != null && Human.class.isAssignableFrom(o.getClass()))
                 .count();
     }
 
