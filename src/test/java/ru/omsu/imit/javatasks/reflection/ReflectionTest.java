@@ -42,7 +42,7 @@ public class ReflectionTest extends Assert {
     }
 
     @Test(dataProvider = "numberOfPeopleOnListTestData")
-    public void numberOfPeopleOnListTest(final List<?> listForSearch, final int expected) {
+    public void numberOfPeopleOnListTest(final List<Object> listForSearch, final int expected) {
         final long ACTUAL = ReflectionDemo.numberOfPeopleOnList(listForSearch);
 
         assertEquals(ACTUAL, expected);
