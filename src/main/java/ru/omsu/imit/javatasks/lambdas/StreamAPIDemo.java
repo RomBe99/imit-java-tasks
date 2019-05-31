@@ -22,4 +22,6 @@ public class StreamAPIDemo extends LambdaDemo {
             sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
     public final static Function<Set<Integer>, Integer> sumOfSquares = s -> s.stream().
             mapToInt(i -> i * i).sum();
+    public final static Function<Collection<Human>, Integer> maxAge = c -> c.stream().
+            max(Comparator.comparingInt(Human::getAge)).orElseThrow().getAge();
 }
