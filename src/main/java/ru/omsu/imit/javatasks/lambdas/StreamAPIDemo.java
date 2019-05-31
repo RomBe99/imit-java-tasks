@@ -20,4 +20,6 @@ public class StreamAPIDemo extends LambdaDemo {
             filter(s -> s != null && !"".equals(s)).collect(Collectors.toList());
     public final static Function<Set<String>, List<String>> sortSetDescending = s -> s.stream().
             sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
+    public final static Function<Set<Integer>, Integer> sumOfSquares = s -> s.stream().
+            mapToInt(i -> i * i).sum();
 }
