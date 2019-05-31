@@ -24,4 +24,7 @@ public class StreamAPIDemo extends LambdaDemo {
             mapToInt(i -> i * i).sum();
     public final static Function<Collection<Human>, Integer> maxAge = c -> c.stream().
             max(Comparator.comparingInt(Human::getAge)).orElseThrow().getAge();
+    public final static UnaryOperator<Collection<Human>> sortHumanCollection = c -> c.stream().
+            sorted((h1, h2) -> h1.getGender() == h2.getGender() ? 0 : h1.getGender() == Gender.MALE && h2.getGender() == Gender.FEMALE ? 1 : -1).
+            sorted(Comparator.comparingInt(Human::getAge)).collect(Collectors.toList());
 }
