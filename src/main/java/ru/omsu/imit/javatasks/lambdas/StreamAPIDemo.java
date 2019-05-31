@@ -12,6 +12,8 @@ public class StreamAPIDemo extends LambdaDemo {
             filter(i -> i >= 0).count();
     public final static Function<List<?>, Object[]> threeLastObjects = l -> l.stream().
             skip((long) l.size()).toArray();
+    public final static Function<List<Integer>, Integer> firstEvenNumber = l -> l.stream().
+            filter(i -> i % 2 == 0).findFirst().orElse(null);
     public final static Function<Integer[], List<Integer>> squareWithoutRepeat = ints -> Arrays.stream(ints).
         distinct().map(i -> i * i).collect(Collectors.toList());
 }
