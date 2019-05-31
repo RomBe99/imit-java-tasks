@@ -1,5 +1,6 @@
 package ru.omsu.imit.javatasks.lambdas;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -12,4 +13,6 @@ public class StreamAPIDemo extends LambdaDemo {
             filter(Objects::nonNull).collect(Collectors.toList());
     public final static Function<Set<Integer>, Long> countPositiveNumbers = s -> s.stream().
             filter(i -> i >= 0).count();
+    public final static Function<Integer[], List<Integer>> squareWithoutRepeat = ints -> Arrays.stream(ints).
+        distinct().map(i -> i * i).collect(Collectors.toList());
 }
