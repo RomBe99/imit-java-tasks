@@ -16,4 +16,6 @@ public class StreamAPIDemo extends LambdaDemo {
             filter(i -> i % 2 == 0).findFirst().orElse(null);
     public final static Function<Integer[], List<Integer>> squareWithoutRepeat = ints -> Arrays.stream(ints).
         distinct().map(i -> i * i).collect(Collectors.toList());
+    public final static UnaryOperator<List<String>> allNotEmptyStrings = l -> l.stream().
+            filter(s -> s != null && !"".equals(s)).collect(Collectors.toList());
 }
