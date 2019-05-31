@@ -18,4 +18,6 @@ public class StreamAPIDemo extends LambdaDemo {
         distinct().map(i -> i * i).collect(Collectors.toList());
     public final static UnaryOperator<List<String>> allNotEmptyStrings = l -> l.stream().
             filter(s -> s != null && !"".equals(s)).collect(Collectors.toList());
+    public final static Function<Set<String>, List<String>> sortSetDescending = s -> s.stream().
+            sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
 }
