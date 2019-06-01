@@ -8,36 +8,27 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 public class LambdaRunner {
-    public static Integer runFunctionsSI(final Function<String, Integer> f, final String s) {
-        return f.apply(s);
+    public static <T, R> R run(final Function<T, R> lambda, final T arg) {
+        return lambda.apply(arg);
     }
 
-    public static Character runFunctionSC(final Function<String, Character> f, final String s) {
-        return f.apply(s);
+    public static <T> boolean run(final Predicate<T> lambda, final T s) {
+        return lambda.test(s);
     }
 
-    public static boolean runPredicateS(final Predicate<String> p, final String s) {
-        return p.test(s);
-    }
-
-    public static Integer runFunctionsHI(final Function<Human, Integer> f, final Human h) {
-        return f.apply(h);
-    }
-
-    public static boolean runIBinaryObjectsChecker(final IBinaryObjectsChecker<Human> c, final Human h1, final Human h2) {
+    public static <T> boolean run(final IBinaryObjectsChecker<T> c, final T h1, final T h2) {
         return c.check(h1, h2);
     }
 
-    public static String runFunctionsHS(final Function<Human, String> f, final Human h) {
-        return f.apply(h);
-    }
-
-    public static Human runUnaryOperatorH(final UnaryOperator<Human> uo, final Human h) {
+    public static <T> T run(final UnaryOperator<T> uo, final T h) {
         return uo.apply(h);
     }
 
-    public static boolean runISpecialDataChecker(final ISpecialDataChecker<Human> c,
-                                                 final Human h1, final Human h2, final Human h3, final int filter) {
+    public static <T> boolean run(
+            final ISpecialDataChecker<T> c,
+            final T h1, final T h2, final T h3,
+            final int filter
+    ) {
         return c.specialDataChecker(h1, h2, h3, filter);
     }
 }
