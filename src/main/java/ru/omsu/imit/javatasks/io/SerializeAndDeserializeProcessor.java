@@ -59,21 +59,23 @@ public class SerializeAndDeserializeProcessor {
         return null;
     }
 
-    public static void serializeHouseToJSON(final File pathToFile, final House houseForSerialization) {
+    public static String serializeHouseToJSON(final House houseForSerialization) {
         final ObjectMapper OM = new ObjectMapper();
 
         try {
-            OM.writeValue(pathToFile, houseForSerialization);
+            return OM.writeValueAsString(houseForSerialization);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return "";
     }
 
-    public static House deserializeHouseToJSON(final File pathToFile) {
+    public static House deserializeHouseToJSON(final String JSONString) {
         final ObjectMapper OM = new ObjectMapper();
 
         try {
-            return OM.readValue(pathToFile, House.class);
+            return OM.readValue(JSONString, House.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
