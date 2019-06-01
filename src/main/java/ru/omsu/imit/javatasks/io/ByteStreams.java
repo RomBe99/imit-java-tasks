@@ -22,7 +22,7 @@ public class ByteStreams {
 
         try(DataInputStream dis = new DataInputStream(is)) {
             for (int i = 0; i < n; i++) {
-                arr[i] = dis.read();
+                arr[i] = dis.readInt();
             }
         } catch (IOException e) {
             e.printStackTrace();
