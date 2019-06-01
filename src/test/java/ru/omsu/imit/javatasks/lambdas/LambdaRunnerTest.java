@@ -114,7 +114,7 @@ public class LambdaRunnerTest extends Assert {
     @Test(dataProvider = "runIBinaryObjectsCheckerTestData")
     public void runIBinaryObjectsCheckerTest(final IBinaryObjectsChecker<Human> checkerForTest,
                                              final Human humanForTest1, final Human humanForTest2, final boolean expected) {
-        final boolean ACTUAL = LambdaRunner.runIBinaryObjectsChecker(checkerForTest, humanForTest1, humanForTest2);
+        final boolean ACTUAL = LambdaRunner.run(checkerForTest, humanForTest1, humanForTest2);
 
         assertEquals(ACTUAL, expected);
     }
@@ -158,7 +158,7 @@ public class LambdaRunnerTest extends Assert {
 
     @Test(dataProvider = "runUnaryOperatorHTestData")
     public void runUnaryOperatorHTest(final UnaryOperator<Human> unaryOperatorForTest, final Human humanForTest, final Human expected) {
-        final Human ACTUAL = LambdaRunner.runUnaryOperatorH(unaryOperatorForTest, humanForTest);
+        final Human ACTUAL = LambdaRunner.run(unaryOperatorForTest, humanForTest);
 
         assertEquals(ACTUAL, expected);
     }
