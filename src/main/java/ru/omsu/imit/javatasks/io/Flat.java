@@ -1,6 +1,7 @@
 package ru.omsu.imit.javatasks.io;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,22 +10,27 @@ public class Flat implements Serializable {
     private int square;
     private List<Person> owners;
 
-    public Flat(int number, int square, List<Person> owners) {
+    public Flat(final int number, final int square, final List<Person> owners) {
         setNumber(number);
         setSquare(square);
         setOwners(owners);
     }
 
-    public void setNumber(int number) {
+    public void setNumber(final int number) {
         this.number = number;
     }
 
-    public void setSquare(int square) {
+    public void setSquare(final int square) {
         this.square = square;
     }
 
-    public void setOwners(List<Person> owners) {
-        this.owners = owners;
+    public void setOwners(final List<Person> owners) {
+        final int SIZE = owners.size();
+        this.owners = new ArrayList<>(SIZE);
+
+        for (int i = 0; i < SIZE; i++) {
+            this.owners.add(i, owners.get(i));
+        }
     }
 
     public int getNumber() {
