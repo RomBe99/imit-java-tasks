@@ -1,10 +1,6 @@
 package ru.omsu.imit.javatasks.io;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 
 public class ReaderWriterDemo {
     public static void arrayIntsToCharStream(final Writer w, final int[] ints) {
@@ -21,8 +17,10 @@ public class ReaderWriterDemo {
         int[] arr = new int[intsCount];
 
         try (BufferedReader br = new BufferedReader(r)) {
+            final String[] temp = br.readLine().split(" ");
+
             for (int i = 0; i < intsCount; i++) {
-                arr[i] = br.read();
+                arr[i] = Integer.parseInt(temp[i]);
             }
         } catch (IOException e) {
             e.printStackTrace();
