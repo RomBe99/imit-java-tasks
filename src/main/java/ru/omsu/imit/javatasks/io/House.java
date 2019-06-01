@@ -10,7 +10,16 @@ public class House implements Serializable {
     private Person seniorHousework;
     private List<Flat> flats;
 
-    public void setCadastralHouseNumber(String cadastralHouseNumber) {
+    public House(
+            final String cadastralHouseNumber, final String address,
+            final Person seniorHousework, final List<Flat> flats) {
+        setCadastralHouseNumber(cadastralHouseNumber);
+        setAddress(address);
+        setSeniorHousework(seniorHousework);
+        setFlats(flats);
+    }
+
+    public void setCadastralHouseNumber(final String cadastralHouseNumber) {
         this.cadastralHouseNumber = cadastralHouseNumber;
     }
 
