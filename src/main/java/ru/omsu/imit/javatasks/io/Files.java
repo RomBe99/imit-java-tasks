@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Files {
-    public static int[] arrayIntsFromRandomAccessFile(final File fileForRead, final int initialBitShift) {
+    public static int[] arrayIntsFromRandomAccessFile(final File fileForRead, final long initialBitShift) {
         try (RandomAccessFile raf = new RandomAccessFile(fileForRead, "r")) {
             raf.seek(initialBitShift);
 
