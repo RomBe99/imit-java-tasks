@@ -15,7 +15,10 @@ public class Person implements Serializable {
         this("None", "None", "None", 0, 0, 0);
     }
 
-    public Person(String surname, String name, String patronymic, int day, int month, int year) {
+    public Person(
+            final String surname, final String name, final String patronymic,
+            final int day, final int month, final int year
+    ) {
         setSurname(surname);
         setName(name);
         setPatronymic(patronymic);
@@ -24,27 +27,27 @@ public class Person implements Serializable {
         setYear(year);
     }
 
-    public void setSurname(String surname) {
+    public void setSurname(final String surname) {
         this.surname = surname;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public void setPatronymic(String patronymic) {
+    public void setPatronymic(final String patronymic) {
         this.patronymic = patronymic;
     }
 
-    public void setDay(int day) {
+    public void setDay(final int day) {
         this.day = day;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(final int month) {
         this.month = month;
     }
 
-    public void setYear(int year) {
+    public void setYear(final int year) {
         this.year = year;
     }
 
