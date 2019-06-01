@@ -1,6 +1,7 @@
 package ru.omsu.imit.javatasks.io;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,8 +32,13 @@ public class House implements Serializable {
         this.seniorHousework = seniorHousework;
     }
 
-    public void setFlats(List<Flat> flats) {
-        this.flats = flats;
+    public void setFlats(final List<Flat> flats) {
+        final int SIZE = flats.size();
+        this.flats = new ArrayList<>(SIZE);
+
+        for (int i = 0; i < SIZE; i++) {
+            this.flats.add(i, flats.get(i));
+        }
     }
 
     public String getCadastralHouseNumber() {
