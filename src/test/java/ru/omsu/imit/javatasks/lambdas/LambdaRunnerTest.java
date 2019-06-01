@@ -10,6 +10,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
+import static ru.omsu.imit.javatasks.lambdas.LambdaRunner.run;
+
 public class LambdaRunnerTest extends Assert {
     @DataProvider
     public Object[][] runFunctionsSITestData() {
@@ -29,7 +31,7 @@ public class LambdaRunnerTest extends Assert {
 
     @Test(dataProvider = "runFunctionsSITestData")
     public void runFunctionsSITest(final Function<String, Integer> functionForTest, final String stringForTest, final Integer expected) {
-        final Integer ACTUAL = LambdaRunner.runFunctionsSI(functionForTest, stringForTest);
+        final Integer ACTUAL = run(functionForTest, stringForTest);
 
         assertEquals(ACTUAL, expected);
     }
@@ -49,7 +51,7 @@ public class LambdaRunnerTest extends Assert {
 
     @Test(dataProvider = "runFunctionSCTestData")
     public void runFunctionSCTest(final Function<String, Character> functionForTest, final String stringForTest, final Character expected) {
-        final Character ACTUAL = LambdaRunner.runFunctionSC(functionForTest, stringForTest);
+        final Character ACTUAL = run(functionForTest, stringForTest);
 
         assertEquals(ACTUAL, expected);
     }
@@ -67,7 +69,7 @@ public class LambdaRunnerTest extends Assert {
 
     @Test(dataProvider = "runPredicateSTestData")
     public void runPredicateSTest(final Predicate<String> predicateForTest, final String stringForTest, final boolean expected) {
-        final boolean ACTUAL = LambdaRunner.runPredicateS(predicateForTest, stringForTest);
+        final boolean ACTUAL = run(predicateForTest, stringForTest);
 
         assertEquals(ACTUAL, expected);
     }
@@ -89,7 +91,7 @@ public class LambdaRunnerTest extends Assert {
 
     @Test(dataProvider = "runFunctionsHITestData")
     public void runFunctionsHITest(final Function<Human, Integer> functionForTest, final Human humanForTest, final Integer expected) {
-        final Integer ACTUAL = LambdaRunner.runFunctionsHI(functionForTest, humanForTest);
+        final Integer ACTUAL = run(functionForTest, humanForTest);
 
         assertEquals(ACTUAL, expected);
     }
@@ -134,7 +136,7 @@ public class LambdaRunnerTest extends Assert {
 
     @Test(dataProvider = "runFunctionsHSTestData")
     public void runFunctionsHSTest(final Function<Human, String> functionForTest, final Human humanForTest, final String expected) {
-        final String ACTUAL = LambdaRunner.runFunctionsHS(functionForTest, humanForTest);
+        final String ACTUAL = run(functionForTest, humanForTest);
 
         assertEquals(ACTUAL, expected);
     }
@@ -180,10 +182,14 @@ public class LambdaRunnerTest extends Assert {
     }
 
     @Test(dataProvider = "runISpecialDataCheckerTestData")
-    public void runISpecialDataCheckerTest(final ISpecialDataChecker<Human> checkerForTest, final Human humanForTest1,
-                                           final Human humanForTest2, final Human humanForTest3, final int filter, final boolean expected) {
-        final boolean ACTUAL = LambdaRunner.
-                runISpecialDataChecker(checkerForTest, humanForTest1, humanForTest2, humanForTest3, filter);
+    public void runISpecialDataCheckerTest(final ISpecialDataChecker<Human> checkerForTest,
+                                           final Human humanForTest1,
+                                           final Human humanForTest2,
+                                           final Human humanForTest3,
+                                           final int filter,
+                                           final boolean expected
+    ) {
+        final boolean ACTUAL = run(checkerForTest, humanForTest1, humanForTest2, humanForTest3, filter);
 
         assertEquals(ACTUAL, expected);
     }
