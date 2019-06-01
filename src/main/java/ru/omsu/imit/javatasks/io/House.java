@@ -23,11 +23,11 @@ public class House implements Serializable {
         this.cadastralHouseNumber = cadastralHouseNumber;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(final String address) {
         this.address = address;
     }
 
-    public void setSeniorHousework(Person seniorHousework) {
+    public void setSeniorHousework(final Person seniorHousework) {
         this.seniorHousework = seniorHousework;
     }
 
